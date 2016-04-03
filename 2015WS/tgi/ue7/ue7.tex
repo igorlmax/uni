@@ -1,0 +1,397 @@
+\documentclass[a4paper, 12pt, margins=2cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage[linesnumbered, lined, boxed, commentsnumbered]{algorithm2e}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes}
+\course{Technische Grundlagen der Informatik}
+\term{2015WS}
+\hwnum{7}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+
+
+% 1. ERLEDIGT
+\begin{problem}
+  
+\end{problem}
+\begin{solution}\hfill
+
+  \begin{enumerate}[label=(\alph*)]\itemsep0pt
+
+    \item \hfill 
+      \begin{enumerate}[label=(\arabic*)]\itemsep0pt
+        \item \textbf{Direct Mapped Cache}
+          \begin{description}
+            \item[Adresslänge] $log_2(32 \text{ GiB} = 35\text{ bit})$
+            \item[Tag] $log_2(32 \text{ GiB}) - log_2(256 \text{ KiB}) \approx 17 \text{ bit}$
+            \item[Index] $256 \text{ KiB} \div 128 \text{ byte} = 2048 \text{ Blöcke} = 2^{11}$
+            \item[Offset] $log_2(128 \text{ byte}) = 7 \text{ bit}$
+          \end{description}
+        \item \textbf{4-Way Set Associative Cache}
+          \begin{description}
+            \item[Adresslänge] $log_2(32 \text{ GiB} = 35\text{ bit})$
+            \item[Tag] $log_2(32 \text{ GiB}) - log_2(256 \text{ KiB}) \approx 17 \text{ bit}$
+            \item[Index] $256 \text{ KiB} \div 128 \text{ byte} = 2048 \text{ Blöcke} = 2^{11}$
+            \item[Offset] $log_2(128 \text{ byte}) = 7 \text{ bit}$
+          \end{description}
+        \item \textbf{Fully Associative Cache}
+          \begin{description}
+            \item[Adresslänge] $log_2(32 \text{ GiB} = 35\text{ bit})$
+            \item[Tag] $log_2(32 \text{ GiB}) - log_2(128 \text{ byte}) \approx 28 \text{ bit}$
+            \item[Index] 0 bit
+            \item[Offset] $log_2(128 \text{ byte}) = 7 \text{ bit}$
+          \end{description}
+      \end{enumerate}
+
+    \item \begin{align*}
+            \text{0xBADCODED} &= (1011\,1010\,1101\,1100\,0000\,1101\,1110\,1101)_2 \\
+            \text{0x12345432} &= (0001\,0010\,0011\,0100\,0101\,0100\,0011\,0010)_2
+          \end{align*}
+      \begin{enumerate}[label=(\arabic*)]\itemsep0pt
+        \item \textbf{Direct Mapped Cache}
+          \begin{enumerate}[label=(\arabic*)]\itemsep0pt
+            \item \hfill
+              \begin{center}
+                \begin{tabular}{|c|c|c|}
+                  \hline
+                  Tag               & Index       & Offset  \\ \hline \hline
+                  00010111010110111 & 00000011011 & 1101101 \\ \hline
+                  2EB7              & 1B          & 6D      \\ \hline
+                \end{tabular}
+              \end{center}
+            \item \hfill
+              \begin{center}
+                \begin{tabular}{|c|c|c|}
+                  \hline
+                  Tag         & Index       & Offset  \\ \hline \hline
+                  10010001101 & 00010101000 & 0110010 \\ \hline
+                  048D        & A8          & 32      \\ \hline
+                \end{tabular}
+              \end{center}
+          \end{enumerate}
+        \item \textbf{4-Way Set Associative Cache}
+          \begin{enumerate}[label=(\arabic*)]\itemsep0pt
+            \item \hfill
+              \begin{center}
+                \begin{tabular}{|c|c|c|}
+                  \hline
+                  Tag                 & Index     & Offset  \\ \hline \hline
+                  0001011101011011100 & 000011011 & 1101101 \\ \hline
+                  BADC                & 1B        & 6D      \\ \hline
+                \end{tabular}
+              \end{center}
+            \item \hfill
+              \begin{center}
+                \begin{tabular}{|c|c|c|}
+                  \hline
+                  Tag               & Index     & Offset  \\ \hline \hline
+                  00010010001101000 & 010101000 & 0110010 \\ \hline
+                  2468              & A8        & 32      \\ \hline
+                \end{tabular}
+              \end{center}
+          \end{enumerate}
+        \item \textbf{Fully Associative Cache}
+          \begin{enumerate}[label=(\arabic*)]\itemsep0pt
+            \item \hfill
+              \begin{center}
+                \begin{tabular}{|c|c|}
+                  \hline
+                  Tag                          & Offset  \\ \hline \hline
+                  0001011101011011100000011011 & 1101101 \\ \hline
+                  175B81B                      & 6D      \\ \hline
+                \end{tabular}
+              \end{center}
+            \item \hfill
+              \begin{center}
+                \begin{tabular}{|c|c|c|}
+                  \hline
+                  Tag                    & Offset  \\ \hline \hline
+                  1001000110100010101000 & 0110010 \\ \hline
+                  2468A8                 & 32      \\ \hline
+                \end{tabular}
+              \end{center}
+          \end{enumerate}
+      \end{enumerate}
+        
+    \item \hfill
+      \begin{description}
+        \item[Direct Mapped Cache]\hfill 
+          \[ 17 \text{ bit Tag} + 1 \text{ Valid} + 1 \text{ Dirty} = 19 \text{ bit} \cdot 2048 = 38912 \text{ bit} = 4864\text{ byte} \]
+
+        \item[4-Way Set Associative Cache]\hfill
+          \[ 17 \text{ bit Tag} + 1 \text{ Valid} + 1 \text{ Dirty} + 3 \text{ bit} = 22 \text{ bit} \cdot 2048 = 45056 \text{ bit} = 5632\text{ byte} \]
+
+        \item[Fully Associative Cache]
+          \[ 28 \text{ bit Tag} + 1 \text{ Valid} + 1 \text{ Dirty} + 10\text{ bit} = 40 \text{ bit} = 5\text{ byte} \]
+      \end{description}
+  \end{enumerate}
+\end{solution}
+
+
+% 2. ERLEDIGT
+\begin{problem}
+  
+\end{problem}
+\begin{solution} \hfill
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c||c|c|c||c|c|c|}
+      \hline
+      t     & Adresse & Tag    & Offset & h/m & r/w & Tag    & v & a & Tag    & v & a \\ \hline \hline
+      $t_0$ & -       & -      & -      & -   & -   & 000000 & 0 & 0 & 000000 & 0 & 0 \\ \hline
+      $t_1$ & -       & -      & -      & -   & -   & 000000 & 0 & 0 & 000000 & 0 & 0 \\ \hline
+      $t_2$ & -       & -      & -      & -   & -   & 000000 & 0 & 0 & 000000 & 0 & 0 \\ \hline
+      $t_3$ & 0x23    & 001000 & 11     & m   & w   & 001000 & 0 & 0 & 000000 & 0 & 0 \\ \hline
+      $t_4$ & 0x11    & 000100 & 01     & m   & w   & 001000 & 1 & 1 & 000100 & 0 & 0 \\ \hline
+      $t_5$ & 0x11    & 000100 & 01     & h   & r   & 001000 & 1 & 0 & 000100 & 1 & 1 \\ \hline
+      $t_6$ & 0x33    & 001100 & 11     & m   & w   & 001100 & 1 & 0 & 000100 & 1 & 1 \\ \hline
+      $t_7$ & 0x11    & 000100 & 01     & h   & r   & 001100 & 1 & 1 & 000100 & 1 & 0 \\ \hline
+      $t_8$ & 0x23    & 001000 & 11     & m   & r   & 001000 & 1 & 0 & 000100 & 1 & 1 \\ \hline
+      $t_9$ & 0x11    & 000100 & 01     & h   & w   & 001000 & 1 & 1 & 000100 & 1 & 0 \\ \hline
+    \end{tabular}
+  \end{center}
+
+  Die \emph{miss rate} ist gleich $ 4/7 \approx 57\%$
+\end{solution}
+
+
+% 3. ERLEDIGT
+\begin{problem}
+  
+\end{problem}
+\begin{solution}\hfill
+  \begin{enumerate}[label=(\alph*)]\itemsep0pt
+    \item Es können maximal 2 Blöcke $\cdot$ 4 Sets $\cdot$ 16 Datenwörter $=$ 128 byte
+          an Nutzdaten gespeichert werden.
+
+    \item \hfill\begin{center}
+            \begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+                  & 7   & 6   & 5     & 4     & 3      & 2      & 1      & 0      &     \\ \hline
+              MSB & Tag & Tag & Index & Index & Offset & Offset & Offset & Offset & LSB \\ \hline
+            \end{tabular}
+          \end{center}
+
+    \item \hfill\begin{center}
+            \begin{tabular}{|c|c|c|c|c|c|c|}
+              \hline
+              Adresse   & Adresse      &          &     &       &                  & Anzahl   \\
+              (dezimal) & (binär)      & Hit/Miss & Set & Block & Inhalt           & Zugriffe \\ \hline\hline
+              65        & $0100\,0001$ & Miss     & 0   & 0     & mem{[}64-79{]}   & 1        \\
+              77        & $0100\,1101$ & Hit      & 0   & 0     & mem{[}64-79{]}   & 2        \\
+              111       & $0110\,1111$ & Miss     & 2   & 0     & mem{[}96-111{]}  & 1        \\
+              222       & $1101\,1110$ & Miss     & 1   & 0     & mem{[}208-223{]} & 1        \\
+              42        & $0010\,1010$ & Miss     & 2   & 1     & mem{[}32-47{]}   & 1        \\ \hline
+              121       & $0111\,1001$ & Miss     & 3   & 0     & mem{[}112-127{]} & 1        \\
+              110       & $0110\,1110$ & Hit      & 2   & 0     & mem{[}96-111{]}  & 2        \\
+              48        & $0011\,0000$ & Miss     & 3   & 1     & mem{[}48-63{]}   & 1        \\
+              163       & $1010\,0011$ & Miss     & 2   & 1     & mem{[}160-175{]} & 1        \\
+              208       & $1101\,0000$ & Hit      & 1   & 0     & mem{[}208-223{]} & 2        \\ \hline
+              242       & $1111\,0010$ & Miss     & 3   & 0     & mem{[}240-255{]} & 1        \\
+              220       & $1101\,1100$ & Hit      & 1   & 0     & mem{[}208-223{]} & 3        \\
+              78        & $0100\,1110$ & Hit      & 0   & 0     & mem{[}64-79{]}   & 3        \\
+              120       & $0111\,1000$ & Miss     & 3   & 0     & mem{[}112-127{]} & 1        \\
+              51        & $0011\,0011$ & Hit      & 3   & 1     & mem{[}48-63{]}   & 2        \\ \hline
+            \end{tabular}
+    \end{center}
+
+    \item Die \emph{Hit-Rate} ist $6/15 = 40\%$
+
+    \item Es wurden $25\%$ nicht beschrieben.
+  \end{enumerate}
+\end{solution}
+
+
+\problemnumber{5}
+% 5. ERLEDIGT
+\begin{problem}
+  
+\end{problem}
+\begin{solution}\hfill
+  \begin{enumerate}[label=(\alph*)]\itemsep0pt
+    \item \hfill \begin{center}
+                    \def\svgwidth{0.95\textwidth}\input{5a.pdf_tex}
+                 \end{center}
+
+    \item \hfill
+      \[ \text{L1-Cache: } 100000\cdot 0.1 = 10000 \text{ Misses} \]
+      \[ \text{L2-Cache: } 100000\cdot 0.04 = 4000 \text{ Misses} \]
+
+    \item \hfill
+    \[ 3\cdot 10^9/s = 3\cdot 10^6/ms = 3\cdot 10^3/\mu s = 3/ns \]
+    \begin{align*}
+      t_{L1} &= 3/3 = 1ns \\
+      t_{L2} &= 45/3 = 15ns \\
+      t_{main} &= 150/3 = 50ns \\
+    \end{align*}
+
+    \item \hfill
+      \[ t_{eff\_L1} = 0.9\cdot 3 + 0.1\cdot 150 = 17.7 \text{ Taktzyklen} \]
+      \[ t_{eff\_L2} = \underbrace{0.9\cdot 3}_\text{90\% L1} + \underbrace{0.1\cdot 0.96\cdot 45}_\text{10\% L2} + \underbrace{(1-0.9-0.1\cdot 0.96)\cdot 150}_\text{0.04\% Hauptspeicher} = 7.62 \text{ Taktzyklen} \]
+      \[ 17.7\div 7.62 \approx 2.32 \]
+      Die effektive Speicherzugriffszeit verbessert sich durch den L2-Cache ca.
+      um das 2.32-fache.
+  \end{enumerate}
+    
+\end{solution}
+
+
+% 6. ERLEDIGT
+\begin{problem}
+  
+\end{problem}
+\begin{solution}\hfill
+  \begin{center}
+      \begin{tabular}{|c|c|c|c|}
+        \hline
+        Page-Nr & Frame-Nr & Present-Bit & Zeitpunkt    \\ \hline \hline
+        000     & 00       & 0           &              \\ \hline
+        001     & 10       & 1           & $t_3$        \\ \hline
+        010     & 00       & 1           & $t_1$, $t_5$ \\ \hline
+        011     & 00       & 0           &              \\ \hline
+        100     & 11       & 1           & $t_4$        \\ \hline
+        101     & 00       & 0           &              \\ \hline
+        110     & 00       & 0           &              \\ \hline
+        111     & 01       & 1           & $t_2$        \\ \hline
+      \end{tabular}
+  \end{center}
+
+  \begin{enumerate}[label=(\alph*)]\itemsep0pt
+    \item Virtuelle Adressen sind 20 Bit, physische Adressen 17 bit lang.
+    \item Es sind $2^{17}$ byte physischer Speicher und $2^{20}$ byte 
+          virtueller Speicher adressierbar.
+    \item \hfill 
+      \begin{center}
+        \begin{tabular}{c|c}
+          Page-Nr & Offset          \\ \hline
+          00100   & 110101000111011
+        \end{tabular}
+      \end{center}
+      Page-Nummer: 0x04\\
+      Offset: 0x6A3B\\
+      Frame-Nummer: 0x0\\
+      physische Adresse: 0x06A3B
+    \newpage
+    \item \hfill
+      \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+          \hline
+          Page-Nr & Frame-Nr & Present-Bit      & Zeitpunkt    \\ \hline \hline
+          000     & 00       & $0\rightarrow 1$ & $t_7$        \\ \hline
+          001     & 10       & 1                & $t_3$        \\ \hline
+          010     & 00       & $1\rightarrow 0$ & $t_1$, $t_5$ \\ \hline
+          011     & 00       & 0                &              \\ \hline
+          100     & 11       & 1                & $t_4$        \\ \hline
+          101     & 00       & 0                &              \\ \hline
+          110     & 00       & $0\rightarrow 1$ & $t_6$        \\ \hline
+          111     & 01       & $1\rightarrow 0$ & $t_2$        \\ \hline
+        \end{tabular}
+      \end{center}
+  \end{enumerate}
+\end{solution}
+
+
+% 7. ERLEDIGT
+\begin{problem}
+  
+\end{problem}
+\begin{solution}\hfill
+  \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item Virtuelle Adresse: 3 bit Page-Nummer, 12 bit Offset.\\
+            Physische Adresse: 2 bit Frame-Nummer, 12 bit Offset.\\
+            \begin{center}
+              \begin{tabular}{|c|c|c|c|}
+                \hline
+                Page-Nr & Frame-Nr & Present-Bit & \#Zugriffe \\ \hline \hline
+                000     & XX       & 0           & 000        \\ \hline
+                001     & XX       & 0           & 000        \\ \hline
+                010     & XX       & 0           & 000        \\ \hline
+                011     & XX       & 0           & 000        \\ \hline
+                100     & XX       & 0           & 000        \\ \hline
+                101     & XX       & 0           & 000        \\ \hline
+                110     & XX       & 0           & 000        \\ \hline
+                111     & XX       & 0           & 000        \\ \hline
+              \end{tabular}
+            \end{center}
+
+      \item \hfill
+        \begin{center}
+          \begin{tabular}{|c|c|c|}
+            \hline
+            Frame & Frame-Nr & phys. Adressbereich \\ \hline \hline
+            0     & 00       & 0000...0FFF         \\ \hline
+            1     & 01       & 1000...1FFF         \\ \hline
+            2     & 10       & 2000...2FFF         \\ \hline
+            3     & 11       & 3000...3FFF         \\ \hline
+          \end{tabular}
+        \end{center}
+
+      \item \hfill
+        \begin{center}
+          \begin{tabular}{|c|c|c|}
+            \hline
+            \begin{tabular}[c]{@{}c@{}}Adresse\\ (hex)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Adresse\\ (binär)\end{tabular} & Page-Nr \\ \hline \hline
+            0x4CAD                                                  & 010|0...                                                  & 2       \\ \hline
+            0x178A                                                  & 000|1...                                                  & 0       \\ \hline
+            0x2431                                                  & 001|0...                                                  & 1       \\ \hline
+            0x2B0B                                                  & 001|0...                                                  & 1       \\ \hline
+            0x4000                                                  & 010|0...                                                  & 2       \\ \hline
+            0x7DEA                                                  & 011|1...                                                  & 3       \\ \hline
+            0x6BAC                                                  & 011|0...                                                  & 3       \\ \hline
+            0x4FB1                                                  & 010|0...                                                  & 2       \\ \hline
+          \end{tabular}
+        \end{center}
+        Reihenfolge der Zugriffe (Page-Nummern): $2\rightarrow 0\rightarrow 1\rightarrow 1\rightarrow 2\rightarrow 3\rightarrow 3\rightarrow 2$
+        \begin{itemize}
+          \item Bei den ersten drei Zugriffen treten \emph{Page-Faults} auf, die
+                Pages werden in die Frames 1, 2 und 3 geladen (Frame 0 durch OS blockiert).
+          \item Page 1 ist bereits geladen, erhöhe Zugriffe auf 2.
+          \item Page 2 ist bereits geladen, erhöhe Zugriffe auf 2.
+          \item Page 3 $\rightarrow$ \emph{Page-Fault} $\rightarrow$ kommt in Frame 2,
+                weil Page 0 niedrigste Zugriffe.
+          \item Page 3 bereits geladen $\rightarrow$ Zugriffe auf 2.
+          \item Page 2 bereits geladen $\rightarrow$ Zugriffe auf 3.
+        \end{itemize}
+
+        Die Page-Table schaut daher zu Ende so aus:
+        \begin{center}
+          \begin{tabular}{|c|c|c|c|}
+            \hline
+            Page-Nr & Frame-Nr & Present-Bit      & \#Zugriffe                        \\ \hline \hline
+            000     & 10       & $1\rightarrow 0$ & 001                               \\ \hline
+            001     & 11       & 1                & $001\rightarrow 010$              \\ \hline
+            010     & 01       & 1                & $001\rightarrow 010\rightarrow 011$ \\ \hline
+            011     & 10       & $0\rightarrow 1$ & $001\rightarrow 010$              \\ \hline
+            100     & XX       & 0                & 000                               \\ \hline
+            101     & XX       & 0                & 000                               \\ \hline
+            110     & XX       & 0                & 000                               \\ \hline
+            111     & XX       & 0                & 000                               \\ \hline
+          \end{tabular}
+        \end{center}
+  \end{enumerate}  
+\end{solution}
+
+
+\end{document}

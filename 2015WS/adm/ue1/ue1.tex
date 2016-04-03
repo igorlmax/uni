@@ -1,0 +1,183 @@
+\documentclass[a4paper, margins=3cm]{homework}
+
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+
+\usetikzlibrary{arrows}
+
+\name{Tobias Eidelpes}
+\course{Algebra und Diskrete Mathematik}
+\term{2015WS}
+\hwnum{1}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+	\begin{center}
+    \textsc{Beispiele 18, 25, 26, 67, 74, 81, 85}
+  \end{center}
+
+\problemnumber{18}
+\begin{problem}
+	Zeigen Sie, dass \(\sqrt{10}\) irrational ist.
+\end{problem}
+\begin{solution}
+	Angenommen \(\sqrt{10}\) ist eine rationale Zahl, so ist sie als Bruch \(\frac{a}{b}\) mit \(a, b \in \mathbb{Z}\) darstellbar. Außerdem sind \(a\) und \(b\) teilerfremd.
+	\begin{align*}
+		\sqrt{10} &= \frac{a}{b} \\
+		10 &= \frac{a^2}{b^2} \\
+		a^2 &= 10 \cdot b^2 \Rightarrow 10\; |\; a^2 \Rightarrow 10\; |\; a \\
+		10b^2 &= (10c)^2 \\
+		b^2 &= 10c^2 \Rightarrow 10\; |\; b^2 \Rightarrow 10\; |\; b
+	\end{align*}
+	\(a\) und \(b\) sollten teilerfremd sein, lassen sich jedoch beide durch \(10\) teilen.
+	Daraus folgt, dass \(\sqrt{10}\) nicht als Bruch dargestellt werden kann und somit nicht
+	rational, also irrational, ist.
+\end{solution}
+
+\problemnumber{25}
+\begin{problem}
+	Man bestimme rechnerisch und graphisch Summe und Produkt der komplexen Zahlen \(z_1 = 5+2i\) und \(z_2 = [2, \frac{\pi}{2}]\).
+\end{problem}
+\begin{solution}
+	Umwandeln von \(z_2\) in kartesische Form:
+	\begin{align*}
+		a &= 3cos(\frac{\pi}{2}) = 0 \\
+		b &= 3sin(\frac{\pi}{2}) = 3 \\
+		z_2 &= 0 + 3i
+	\end{align*}
+	Addieren der beiden Zahlen:
+	\[(5+2i) + (0+3i) = 5 + 5i\] \\
+
+	\begin{center}
+		\definecolor{ffqqtt}{rgb}{1.,0.,0.2}
+		\definecolor{qqccqq}{rgb}{0.,0.8,0.}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+		\draw[->,color=black] (-0.25939969326486584,0.) -- (6.90603237483777,0.);
+		\foreach \x in {,1,2,3,4,5,6}
+		\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+		\draw[->,color=black] (0.,-0.23879665447591178) -- (0.,5.386750532440028);
+		\foreach \y in {,1,2,3,4,5}
+		\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+		\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+		\clip(-0.25939969326486584,-0.23879665447591178) rectangle (6.90603237483777,5.386750532440028);
+		\draw [->,color=qqccqq] (0.,0.) -- (5.,2.);
+		\draw [->,color=qqccqq] (0.,0.) -- (0.,3.);
+		\draw [->,color=ffqqtt] (0.,0.) -- (5.,5.);
+		\begin{scriptsize}
+		\draw[color=qqccqq] (3.528220377395973,1.276251373788426) node {$z_1$};
+		\draw[color=qqccqq] (0.18766365933772494,2.406328181756087) node {$z_2$};
+		\draw[color=ffqqtt] (3.019064892487467,3.6233339749520295) node {$z_1 + z_2$};
+		\end{scriptsize}
+		\end{tikzpicture}
+	\end{center}
+
+	Multiplizieren der beiden Zahlen:
+	\[(5+2i) \cdot (0+3i) = 15i+6i^2 = 15i + 6 \cdot (-1) = -6 + 15i\]
+	\begin{center}
+		\definecolor{qqttcc}{rgb}{0.,0.2,0.8}
+		\definecolor{ffqqtt}{rgb}{1.,0.,0.2}
+		\definecolor{qqccqq}{rgb}{0.,0.8,0.}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+		\draw[->,color=black] (-7.,0.) -- (7.,0.);
+		\foreach \x in {-6,-4,-2,2,4,6}
+		\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+		\draw[->,color=black] (0.,-0.7717646040993168) -- (0.,16.);
+		\foreach \y in {,2,4,6,8,10,12,14}
+		\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+		\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+		\clip(-7.,-0.7717646040993168) rectangle (7.,16.);
+		\draw [->,color=qqccqq] (0.,0.) -- (5.,2.);
+		\draw [->,color=qqccqq] (0.,0.) -- (0.,3.);
+		\draw [->,color=ffqqtt] (0.,0.) -- (5.,5.);
+		\draw [->,color=qqttcc] (0.,0.) -- (-6.,15.);
+		\begin{scriptsize}
+		\draw[color=qqccqq] (5.585106382978723,1.8198988005076413) node {$z_2$};
+		\draw[color=qqccqq] (0.5585106382978723,4.18941962757686) node {$z_1$};
+		\draw[color=ffqqtt] (4.058510638297872,5.818465196186948) node {$z_1 + z_2$};
+		\draw[color=qqttcc] (-2.531914893617021,9.372746436790777) node {$z_1 \cdot z_2$};
+		\end{scriptsize}
+		\end{tikzpicture}
+	\end{center}
+\end{solution}
+
+\problemnumber{26}
+\begin{problem}
+	Man berechne ohne Taschenrechner alle Werte von \(\sqrt[4]{1+i}\) in der Form \([r, \varphi]\).
+\end{problem}
+\begin{solution}
+	\[a = 1,\quad b = 1,\quad \varphi = \arctan(\frac{b}{a}),\quad r = \sqrt{1^2+1^2} = \sqrt{2}\]
+	Nach \[\sqrt[n]{z} = \left[ \sqrt[n]{r},\; \frac{\varphi}{n}+\frac{2\pi \cdot k}{n} \right]\]
+	folgt:
+	\[L_1 = \left[ \sqrt[8]{2},\; \frac{\pi}{16} \right]\]
+	\[L_2 = \left[ \sqrt[8]{2},\; \frac{3\pi}{20} \right]\]
+	\[L_3 = \left[ \sqrt[8]{2},\; \frac{5\pi}{20} \right]\]
+	\[L_4 = \left[ \sqrt[8]{2},\; \frac{7\pi}{20} \right]\]
+\end{solution}
+
+\problemnumber{67}
+\begin{problem}
+	Man beweise mittels vollständiger Induktion:
+	\[ \sum_{j=1}^n \frac{1}{j(j+1)} = \frac{n}{n+1} \quad (n \geq 1)\]
+\end{problem}
+\begin{solution}
+	Induktionsanfang: \[n = 1:\quad \frac{1}{1(1+1)} = \frac{1}{1+1} \]
+	Induktionsschritt: \[n \rightarrow n+1\]
+	Induktionsvoraussetzung: \[ \sum_{j=1}^n \frac{1}{j(j+1)} = \frac{n}{n+1} \]
+	Induktionsbehauptung: \[ \sum_{j=1}^{n+1} \frac{1}{j(j+1)} = \frac{n+1}{n+2} \]
+	\[ \sum_{j=1}^n \frac{1}{j(j+1)} + \frac{1}{(n+1)(n+2)} = \frac{n+1}{n+2} \]
+	\[ \sum_{j=1}^n \frac{1}{j(j+1)} + \frac{1}{(n+1)(n+2)} = \frac{n}{n+1} + \frac{1}{(n+1)(n+2)} \]
+	\[ \frac{n(n+2)}{(n+1)(n+2)} + \frac{1}{(n+1)(n+2)} = \frac{n^2+2n+1}{(n+1)(n+2)} = \frac{(n+1)^2}{(n+1)(n+2)} = \frac{n+1}{n+2} \]
+\end{solution}
+
+\problemnumber{81}
+\begin{problem}
+	Man untersuche mittels vollständiger Induktion, für welche \(n \geq 0\) die angegebene Ungleichung gilt:
+	\[4n^2 \leq 2^n\]
+\end{problem}
+\begin{solution}
+	Finden des Induktionsanfangs:
+	\begin{center}
+			\begin{tabular}{lc|c}
+				      & $4n^2$ & $2^n$ \\ \cline{2-3}
+				$n=0\;$ & 0      & 1     \\
+				$n=1\;$ & 4      & 2     \\
+				$n=2\;$ & 16     & 4     \\
+				$n=3\;$ & 36     & 8     \\
+				$n=4\;$ & 64     & 16    \\
+				$n=5\;$ & 100    & 32    \\
+				$n=6\;$ & 144    & 64    \\
+				$n=7\;$ & 196    & 128   \\
+				$n=8\;$ & 256    & 256   \\
+				$n=9\;$ & 324    & 512  
+			\end{tabular}
+	\end{center}
+	Vermutung, dass Ungleichung für \(n \geq 8\) gilt. \\
+	Induktionsvoraussetzung: \[ n:\quad 4n^2 \leq 2^n, \quad (n \geq 8) \]
+	Induktionsbehauptung: \[ n+1:\quad 4(n+1)^2 \leq 2^{n+1} \]
+	Induktionsschritt: \[n \rightarrow n+1\]
+	\begin{align*}
+		4(n+1)^2 &\leq 2 \cdot 2^n \\
+		2(n+1)^2 &\leq 2^n \\
+	\end{align*}
+	Induktionsvoraussetzung für rechte Seite einsetzen:
+	\[ 2(n+1)^2 \leq 4n^2 \leq 2^n \]
+	\( \rightarrow \quad \text{Wenn gültig, dann ist auch ursprüngliche Ungleichung gültig.}\) \\
+	\[ 2(n+1)^2 \leq 4n^2 \]
+	\begin{align*}
+		2(n+1)^2 &\leq 4n^2 \\
+		(n+1)^2 &\leq 2n^2 \\
+		n^2+2n+1 &\leq 2n^2 \quad |\, -n^2-2n-1 \\
+		0 &\leq n^2-2n-1 \quad |\, +2 \\
+		2 &\leq (n+1)^2
+	\end{align*}
+	Da diese Ungleichung für \(n \geq 3\) wahr ist, gilt auch die ursprüngliche Ungleichung \(4n^2\leq 2^n \) für \(n \geq 8\).
+
+\end{solution}
+
+\end{document}

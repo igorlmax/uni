@@ -1,0 +1,83 @@
+### Aufgabe 6 ###
+R1 <- lsh(1+1)                    #schreibe 4 in R1
+R1 <- lsh(R1+R1)                  #verdopple R1 und schiebe nach links (16)
+MAR <- R1; rd                     #schreibe 16 in MAR; set MS=1 und RD/WR=1
+rd                                #schreibe Wert an ADDR 16 in MBR
+R2 <- MBR                         #kopiere Wert an MBR in R2
+R3 <- lsh(1+1)                    #konstruiere 5 für mod5()
+R3 <- R3+1
+R3 <- ~R3                         #wandle in negative Zahl um
+R3 <- R3+1                        #für Subtraktion durch Addition
+:loop
+    R4 <- R2                      #schreibe R2 in R4
+    R2 <- R2+R3; if N goto .end   #subtrahiere R3 von R2 und schreibe in R2
+    goto .loop                    #wiederhole solange, bis R2 negativ
+:end
+    R1 <- R4                      #schreibe Rest in R1
+
+
+### Aufgabe 7 ###
+R10 <- 0                    #set R10 auf 0
+:test                       #test if R8 == 0
+  :test1
+    R8; if Z goto .test2    #if true gehe zu test2
+    goto .loop              #ansonsten continue main loop
+  :test2                    #test if R9 == 0
+    R9; if Z goto .end      #if true gehe zum Ende
+    goto .loop              #ansonsten continue main loop
+:loop
+  R0 <- R8&1                #lsb von R8 in R0
+  R1 <- R9&1                #lsb von R9 in R1
+  R3 <- R0&R1               #UND-Verknüpfung der lsbs
+  R3 <- ~R3                 #negiere UND-Verknüpfung
+  R4 <- ~R0                 #negiere lsb von R8
+  R5 <- ~R1                 #negiere lsb von R9
+  R2 <- R4&R5               #UND-Verknüpfung der negierten lsbs
+  R2 <- ~R2                 #negiere die UND-Verknüpfung
+  R2 <- R2&R3               #verknüpfe R2 und R3 -> XOR
+  R2; if Z goto .sh         #if false (lsbs gleich) goto .sh
+  goto .hd                  #ansonsten erhöhe R10 um 1
+:sh
+  R8 <- rsh(R8)             #shifte R8 nach rechts um 1
+  R9 <- rsh(R9)             #shifte R9 nach rechts um 1
+  goto .test                #gehe zum Anfang
+:hd
+  R10 <- R10+1              #erhöhe Hamming-Distanz in R10 um 1
+  goto .sh                  #shifte R8 u. R9
+:end
+
+
+### Aufgabe 8 ###
+R0; if Z goto .end                      #if no 1s: save some cycles
+R1; if Z goto .end                      #if counter == 0: save some cycles
+R7 <- lsh(1+1)                          #construct MSB (-32768)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7)
+:loop
+    R2 <- (R0&1)                        #get lsb(R0)
+    R3 <- ~R2                           #invert it
+    R3 <- (R3&1); if Z goto .msb        #if inverted lsb == 0 gehe zu .msb
+    R0 <- rsh(R0)                       #else (lsb == 0) shift right 
+    R1 <- R1+-1; if Z goto .end         #decrement counter; if 0: end
+    goto .loop                          #repeat
+:msb
+    R0 <- rsh(R0)                       #if lsb == 1 shift right
+    R0 <- R0+R7                         #add msb
+    R1 <- R1+-1; if Z goto .end         #decrement counter; if 0: end
+    goto .loop                          #repeat
+:end
+    R9 <- lsh(1+1)                      #construct address 16384
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R2 <- R9+-1                         #decrement (16383)
+    MAR <- R2; MBR <- R0; wr            #copy address to MAR & save result
+    wr                                  #in MBR -> save to address 16383

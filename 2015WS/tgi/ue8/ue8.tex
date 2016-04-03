@@ -1,0 +1,185 @@
+\documentclass[a4paper, 12pt, margins=2cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage[linesnumbered, lined, boxed, commentsnumbered]{algorithm2e}
+\usepackage{array}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes}
+\course{Technische Grundlagen der Informatik}
+\term{2015WS}
+\hwnum{8}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+
+
+% 1. ERLEDIGT
+  \begin{problem}
+  \end{problem}
+  \begin{solution} \hfill
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item Pages = 2048 byte groß $\Longrightarrow 2^{11} = 2048 \Longrightarrow$ 11 bit Offset.
+      \item 24 bit Adresse $-$ 11 bit Offset = 13 bit Page-Nummer, um 8192 Pages zu adressieren.
+      \item $\frac{2^{24}}{2^{3}} = 2^{24-3} = 2^{21} \Longrightarrow$ physische Adressen 21 bit lang.
+      \item $2^{24} = 16 \text{ MiB} \Longrightarrow 16 \text{ MiB}\cdot \frac{1}{8} = 2\text{ MiB}$
+      \item 13 bit Page-Nr + 8 Permission Bits + 10 Frame-Nr + 1 Present Bit = 32 bit \\
+            32 bit $\cdot$ 8192 Pages = 32 KiB
+      \item 32 KiB / 2 KiB = 16 Frames
+    \end{enumerate}
+  \end{solution}
+
+
+% 2. ERLEDIGT
+  \begin{problem}
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item 
+        \begin{description}
+          \item[Monitor] 
+            UHD-1 = 3840$\times$2160 $\Longrightarrow 8294400\text{ Pixel}\cdot 24\text{ bit} = 199065600\text{ bit} = 24883200\text{ byte} = 24.8832\text{ MByte}$
+          \item[Kamera] 
+            960$\times$720 = 691200 Pixel $\cdot $ 16 bit pro Pixel = 11059200 bit + 16 bit = 1382402 byte = 1.4 MByte
+        \end{description}
+
+      \item 
+        \begin{description}
+          \item[Monitor]
+            $199065600\cdot 60\approx 11.95\text{ Gbit/s}$
+          \item[Kamera]
+            $11059216\cdot 15\approx 165.9\text{ Mbit/s}$
+        \end{description}
+
+      \item 199065600 bit = 199.0656 Mbit\\
+            25 Gbit = 25000 Mbit\\
+            25000 / 199.0656 $\approx$ 125.5 Bilder pro Sekunde
+
+      \item Anzahl Pixel in diagonaler Richtung:
+              \[ d_p = \sqrt{3840^2 + 2160^2} \]
+              \[ \frac{d_p}{d_i} = \frac{4405.8143}{32}\approx 137.7\text{ ppi}\;\widehat{=}\; 54.18\text{ ppcm} \]
+              \[ 960\div 54 = 17.\dot{7}\text{ cm}\qquad 720\div 54 = 13.\dot{3}\text{ cm} \]
+    \end{enumerate}
+    
+  \end{solution}
+
+\newpage
+
+% 3. AUSSTÄNDIG e)
+  \begin{problem}
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item \[ 2\cdot 1.25 = 2.5\;\widehat{=}\; 2\,500\,000\text{ byte} \]
+
+      \item \[ 5\text{ Gbit/s} = 625\text{ MByte/s} \]
+            \[ 625\cdot 0.8 = 500\text{ MByte/s} \]
+
+      \item 2 GByte = 2000 MByte
+            \[ 2000\div 5 = 400\text{ MByte/s} \]
+            Pro Sekunde werden zusätzlich 100 MByte an Overhead übertragen.
+
+      \item \hfill
+        \begin{enumerate}[label=\arabic*.]\itemsep0pt
+          \item Die Zugriffszeiten auf beide Festplatten wurden nicht mit einberechnet.
+          \item Die Festplatte im PC überträgt bereits auf ein anderes Medium mit 100 MByte/s.
+        \end{enumerate}
+    \end{enumerate}
+  \end{solution}
+
+
+% 4. ERLEDIGT
+  \begin{problem}
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item \[ 4115\div 823 = 5s \]
+      \item \[ 50\cdot 1.42 = 71\text{ KB} \]
+      \item \[ 54\div 1.80 = 30\text{ KB} \]
+      \item \[ 1481\text{ MByte/s} = 11848\text{ Mbit/s} = 11.848\text{ Gbit/s} \]
+            PCIe x4 2.0 würde die Übertragungsgeschwindigkeit der SSD nicht begrenzen.
+    \end{enumerate}
+  \end{solution}
+
+\newpage
+
+% 5. ERLEDIGT
+  \begin{problem}
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{center}
+      \def\svgwidth{1\textwidth}\input{5.pdf_tex}
+    \end{center}
+
+    \[ A\rightarrow D\rightarrow C \]
+  \end{solution}
+
+\newpage
+
+% 7. AUSSTÄNDIG
+  \problemnumber{7}
+  \begin{problem}
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item \hfill
+        \begin{center}
+          \begin{tabular}{|m{4cm}|l|}
+            \hline
+            Layer             & Protokoll \\ \hline \hline
+            Application (5-7) & Telnet    \\ \hline
+            Transport (4)     & TCP       \\ \hline
+            Internet (3)      & IPv4      \\ \hline
+            Network (1-2)     & Ethernet$\qquad$  \\ \hline
+          \end{tabular}
+        \end{center}
+
+      \item
+        \[ 2206 + 36 = 2242 \]
+        \[ 2242\div 236 = 9.5\Longrightarrow 10\text{ Pakete} \]
+
+      \item \hfill 
+
+        Header: 
+        \[ 36+10\cdot 20+10\cdot 24+10\cdot 28 = 756\text{ byte} \]
+        \[ \frac{756}{2206+756} \approx 26\%  \]
+
+      \item
+        \[ 2962\text{ byte} = 23696\text{ bit} \]
+        \[ 23696\div 16000 = 1.481\text{ s} \]
+
+        \[ 2206\text{ byte} = 17648\text{ bit} \]
+        \[ 17648\div 1.481 = 11916\text{ b/s} \approx 11.9\text{ kb/s} \]
+
+      \item \hfill
+        \begin{enumerate}[label=\arabic*.]\itemsep0pt
+          \item Eine höhere Latenz durch mehr Hops.
+          \item Ein VPN verschlüsselt meistens die Daten und diese sind dadurch größer,
+                wodurch die Übertragung länger dauert.
+        \end{enumerate}
+    \end{enumerate}
+  \end{solution}
+
+
+\end{document}

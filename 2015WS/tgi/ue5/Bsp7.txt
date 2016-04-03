@@ -1,0 +1,28 @@
+R10 <- 0                    #set Hamming-Distanz 0
+:test                       #test if R8 == 0
+  :test1
+    R8; if Z goto .test2    #if true gehe zu test2
+    goto .loop              #ansonsten continue main loop
+  :test2                    #test if R9 == 0
+    R9; if Z goto .end      #if true gehe zum Ende
+    goto .loop              #ansonsten continue main loop
+:loop
+  R0 <- R8&1                #lsb von R8 in R0
+  R1 <- R9&1                #lsb von R9 in R1
+  R3 <- R0&R1               #UND-Verknüpfung der lsbs
+  R3 <- ~R3                 #negiere UND-Verknüpfung
+  R4 <- ~R0                 #negiere lsb von R8
+  R5 <- ~R1                 #negiere lsb von R9
+  R2 <- R4&R5               #UND-Verknüpfung der negierten lsbs
+  R2 <- ~R2                 #negiere die UND-Verknüpfung
+  R2 <- R2&R3               #verknüpfe R2 und R3 -> XOR
+  R2; if Z goto .sh         #if false (lsbs gleich) goto .sh
+  goto .hd                  #ansonsten erhöhe R10 um 1
+:sh
+  R8 <- rsh(R8)             #shifte R8 nach rechts um 1
+  R9 <- rsh(R9)             #shifte R9 nach rechts um 1
+  goto .test                #gehe zum Anfang
+:hd
+  R10 <- R10+1              #erhöhe Hamming-Distanz in R10 um 1
+  goto .sh                  #shifte R8 u. R9
+:end

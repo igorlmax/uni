@@ -1,0 +1,262 @@
+\documentclass[a4paper, 12pt, margins=3cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes}
+\course{Algebra und Diskrete Mathematik}
+\term{2015WS}
+\hwnum{9}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+  \begin{center}
+    \textsc{Beispiele 326, 348, 356, 360, 364, 375, 395}
+  \end{center}
+
+
+% ERLEDIGT 326
+  \problemnumber{326}
+  \begin{problem}
+    Gegeben seien die folgenden Permutationen der $S_8$:
+    \[ \pi = (13746),\quad \rho = (143652),\quad \text{und } \sigma = 
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+            5 & 4 & 2 & 1 & 8 & 7 & 6 & 3 \\
+        \end{pmatrix}
+    \]
+    Berechnen Sie $\pi\rho^{-1}\sigma^2$ und $\pi^2\rho\sigma^{-2}$ sowie deren
+    Zyklendarstellungen und Vorzeichen.
+  \end{problem}
+  \begin{solution}
+    \[ \pi = (13746), \quad \rho = (143652),\quad \sigma = (24)(35)(67),\quad \rho^{-1} = (125634), \quad \sigma^2 = (1) = id \]
+    \[ \pi^2 = (13746)(13746) = (17634) \]
+
+    \[ \pi\rho^{-1}\sigma^2 = (13746)(125634)(1) = (13746)(125634) = (125)(6743) \]
+    \[ \pi^2\rho\sigma^{-2} = (17634)(143652)= (6527) \]
+
+    Vorzeichen:
+    \[ sign(\pi\rho^{-1}\sigma^2) = -1 \]
+    \[ sign(\pi^2\rho\sigma^{-2}) = -1 \]
+  \end{solution}
+
+
+% ERLEDIGT 348
+  \problemnumber{348}
+  \begin{problem}
+    Untersuchen Sie, ob die Menge $M$ mit der Operation $\circ$ ein Gruppoid,
+    eine Halbgruppe, ein Monoid bzw. eine Gruppe ist:
+    \[ M = \Q\setminus \{1\},\, a\circ b = a+b-ab \]
+  \end{problem}
+  \begin{solution}
+    Eine algebraische Struktur kann folgende Eigenschaften annehmen:
+    \begin{enumerate}
+      \item \textbf{Abgeschlossenheit:} $G\times G = G$ für $a,b\in G \rightarrow a\circ b\in G$.
+      \item \textbf{Assoziativgesetz:} $a\circ (b\circ c) = (a\circ b)\circ c$ für alle $a,b,c\in G$.
+      \item \textbf{Neutrales Element:} $\exists e\in G\; |\; \forall a\in G: a\circ e = e\circ a = a$.
+      \item \textbf{Inverses Element:} $\forall a\in G\; |\; \exists a'\in G: a\circ a' = a'\circ a = e$.
+      \item \textbf{Kommutativgesetz:} $a\circ b = b\circ a$ für alle $a,b\in G$.
+    \end{enumerate}
+    1. Eigenschaft: \emph{Gruppoid}.\\
+    1. und 2. Eigenschaft: \emph{Halbgruppe}.\\
+    1. 2. und 3. Eigenschaft: \emph{Monoid}.\\
+    1. 2. 3. und 4. Eigenschaft: \emph{Gruppe}.\\
+    1. 2. 3. 4. und 5. Eigenschaft: \emph{Abelsche Gruppe}.
+
+    \subsubsection*{Abgeschlossenheit}
+      Kann das Ergebnis 1 ergeben?
+      \[ a+b-ab = 1 \]
+      \[ a-ab=1-b \]
+      \[ a\cdot (1-b) = 1-b \]
+      \[a = \frac{1-b}{1-b} \]
+      \[ a=1,\quad b=0\]
+      Dasselbe mit $b$ ergibt
+      \[ b=1,\quad a=0 \]
+      Das heißt das Ergebnis der Operation ist nur dann 1, wenn entweder $a$ oder $b$
+      eins sind, das ist aber von vornherein ausgeschlossen. Daraus folgt, dass 
+      die Operation \textbf{abgeschlossen} ist.
+
+    \subsubsection*{Assoziativität}
+      Es muss gelten:
+        \[ a\circ (b\circ c) = (a\circ b)\circ c \]
+      Linke Seite:
+        \[ a\circ (b+c-bc) = a+b+c-bc-ab-ac+abc \]
+      Rechte Seite:
+        \[ (a+b-ab)\circ c = a+b-ab+c-ac-bc+abc \]
+      Beide Seiten sind gleich, daher ist die \textbf{Assoziativität} gegeben.
+
+    \subsubsection*{Neutrales Element (Einheitselement)}
+      Wir prüfen:
+        \[ a\circ e = a+e-ae = a \]
+      Daraus folgt, dass das neutrale Element 0 sein muss, also ein Einheitselement
+      existiert.
+
+    \subsubsection*{Inverses Element}
+      Bei der Operation $a\circ a' = a'\circ a$ soll das Einheitselement $e$, also
+      0 herauskommen.
+      Daraus folgt:
+        \[ a+a'-a'\cdot a = 0 \]
+        \[ a+a'\cdot (1-a) = 0 \]
+        \[ a'\cdot (1-a) = -a \]
+        \[ a' = - \frac{a}{1-a} \]
+      Das ist das inverse Element, wobei $a'$ nicht 1 sein darf, sonst folgt die
+      Division durch Null, was aber sowieso ausgeschlossen ist durch $M = \Q\backslash \{1\}$.
+
+    \subsubsection*{Kommutativität}
+      Es muss gelten: $a\circ b = b\circ a$
+        \[ a\circ b = a+b-ab \]
+        \[ b\circ a = b+a-ba \]
+      Daraus folgt, dass die Kommutativität gegeben ist.
+
+    \subsubsection*{Schlussfolgerung}
+      Die Operation ist eine \emph{Abelsche Gruppe}.
+  \end{solution}
+
+
+
+% ERLEDIGT 356
+  \problemnumber{356}
+  \begin{problem}
+    Man ergänze die folgende Operationstafel so, dass $\langle G=\{a,b,c,d\},*\rangle$
+    eine Gruppe ist.
+
+    \begin{center}
+      \begin{tabular}{c|cccc}
+         $*$ & $a$ & $b$ & $c$ & $d$ \\ \hline
+         $a$ & $a$ & $b$ & $c$ & $d$ \\
+         $b$ & $b$ & $c$ & $d$ & $a$ \\
+         $c$ & $c$ & $d$ & $a$ & $b$ \\
+         $d$ & $d$ & $a$ & $b$ & $c$
+      \end{tabular}
+    \end{center}
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% AUSSTÄNDIG 360
+  \problemnumber{360}
+  \begin{problem}
+    Man zeige: Eine nichtleere Teilmenge $U$ einer Gruppe $G$ (mit neutralem Element
+    $e$) ist genau dann Untergruppe von $G$, wenn \\
+    \begin{parts}
+      \label{360.a}\part $a,b\in U \Rightarrow ab\in U$
+      \label{360.b}\part $e\in U$
+      \label{360.c}\part $a\in U \Rightarrow a^{-1}\in U$\\
+    \end{parts}
+    für alle $a,b\in G$ erfüllt ist. Dies ist genau dann der Fall, wenn
+    $a,b\in U \Rightarrow ab^{-1}\in U$.
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+\newpage
+
+% ERLEDIGT 364
+  \problemnumber{364}
+  \begin{problem}
+    Man bestimme alle Untergruppen einer zyklischen Gruppe der Ordnung 6, d.h.,
+    von $G = \{e,a,a^2,a^3,a^4,a^5\}$.
+  \end{problem}
+  \begin{solution}\hfill
+    \subsubsection*{Zyklische Gruppe}
+      Eine zyklische Gruppe ist eine Gruppe, die von einem einzelnen Element $a$
+      erzeugt wird. Sie besteht nur aus Potenzen des Erzeugers $a$.
+    \subsubsection*{Untergruppe}
+      Eine Untergruppe ist eine nichtleere Teilmenge einer Gruppe und ist selbst
+      eine Gruppe (assoziativ, neutrales Element, Inverse zu jedem Element).
+    \subsubsection*{Kleiner Fermat'scher Satz}
+      Für jedes Element $a\in G$ einer endlichen Gruppe $(G,\circ)$ gilt $a^{|G|} = e$.
+      Auf dieses Beispiel angewandt heißt das: $a^6 = e$.
+    \subsubsection*{Lösung}
+      Zwei Untergruppen haben wir bereits: 
+        \[ U_1 = \{e\} \]
+      und
+        \[ U_2 = \{e,a,a^2,a^3,a^4,a^5\} \]
+      Die anderen Untergruppen findet man, indem man schaut, wann die Gruppe ein
+      neutrales Element besitzt und jedes Element ein Inverses hat. Die Assoziativität
+      erbt die Untergruppe automatisch von der gegebenen Gruppe. Da zyklische Gruppen
+      wie Restklassen gesehen werden können, gilt hier $a^6 = e$.
+
+      Die dritte Untergruppe ist 
+        \[ U_3 = \{e,a^3\} \]
+      da $a^3\circ a^3 = a^6 = e$ ist. $a^3$ ist also das inverse Element zu sich selbst.
+      $\{e,a^4\}$ und $\{e,a^5\}$ sind keine Untergruppen, da ein inverses Element fehlt.
+
+      Als nächstes gilt es Untergruppen mit drei Elementen zu finden. Dabei kann 
+      man sich das ganze Vereinfachen, indem man sich überlegt, dass die Exponenten
+      der Elemente addiert die Ordnung, also 6, ergeben müssen. Daraus folgt:
+        \[ U_4 = \{e, a^2, a^4\} \] 
+        \[ a^2\circ a^4 = a^6 = e \text{ und } a^2\circ a^2 = a^4 \text{ bzw. } a^4\circ a^4 = a^8 = a^6\circ a^2 = e\circ a^2 = a^2 \]
+
+  \end{solution}
+
+
+% ERLEDIGT 375
+  \problemnumber{375}
+  \begin{problem}
+    Man zeige, dass die von $\bar{3}$ erzeugte Untergruppe $U$ von $\langle \Z_{12}, +\rangle$
+    ein Normalteiler von $\langle \Z_{12}, +\rangle$ ist und bestimme die Gruppentafel
+    der Faktorgruppe $\Z_{12}/U$.
+  \end{problem}
+  \begin{solution}\hfill
+    Eine Untergruppe $N\leq G$ heißt Normalteiler, wenn stets LNK=RNK gilt, d.h.
+    $aN = Na, \forall a\in G$. Außerdem gilt:\\
+
+    In abelschen Gruppen ist jede Untergruppe Normalteiler, somit lässt sich dort
+    nach jeder Untergruppe die Faktorgruppe bilden.\\
+
+    \[ U = \{0,3,6,9\} \]
+    $U$ ist Normalteiler, weil $\langle \Z_{12}, +\rangle$ kommutativ ist und daher
+    die Linksnebenklassen mit den Rechtsnebenklassen übereinstimmen müssen.\\
+
+    Nebenklassen:
+      \[ a := 0+U = 3+U = 6+U = 9+U = \{0,3,6,9\} \]
+      \[ b := 1+U = 4+U = 7+U = 10+U = \{1,4,7,10\} \]
+      \[ c := 2+U = 5+U = 8+U = 11+U = \{2,5,8,11\} \]
+
+    Gruppentafel:
+      \begin{center}
+        \begin{tabular}{c|ccc}
+         $+$ & $a$ & $b$ & $c$ \\ \hline
+         $a$ & $a$ & $b$ & $c$ \\
+         $b$ & $b$ & $c$ & $a$ \\
+         $c$ & $c$ & $a$ & $b$ \\        
+        \end{tabular}
+      \end{center}
+    $a$ ist das neutrale Element und $b$ ist zu $c$ invers.
+  \end{solution}
+
+
+% AUSSTÄNDIG 395
+  \problemnumber{395}
+  \begin{problem}
+    Von der Abbildung $f:(\Z_3)^2 \rightarrow (\Z_3)^4$ sei bekannt, dass $f$ ein
+    Gruppenhomomorphismus bezüglich der Addition ist (die jeweils komponentenweise
+    definiert sein soll), sowie dass $f(1,0)=(1,0,0,2), f(1,1)=1,2,0,1$. Man ermittle
+    daraus $f(w)$ für alle $w\in (\Z_3)^2$.
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+\end{document}

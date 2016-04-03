@@ -1,0 +1,145 @@
+\documentclass[a4paper, margins=2.5cm]{homework}
+
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\name{Tobias Eidelpes}
+\course{Algebra und Diskrete Mathematik}
+\term{2015WS}
+\hwnum{3}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+	\begin{center}
+    \textsc{Beispiele 95, 98, 104, 105, 125, 127, 151}
+  \end{center}
+
+\problemnumber{95}
+\begin{problem}
+	Beweisen Sie die folgenden Beziehungen mit Hilfe von Elementtafeln oder geben
+	Sie ein konkretes Gegenbeispiel an.
+	\[ A \cap (B\, \Delta \, C) = (A \cap B)\, \Delta \, (A \cap C) \]
+\end{problem}
+\begin{solution}
+	Die beiden Formeln sind äquivalent! \\
+	\begin{center}
+		\begin{tabular}{|ccc|ccc|ccc|}
+			\hline
+			$A$ & $B$ & $C$ & $A$ & $\cap$     & $(B\, \Delta \, C)$ & $(A \cap B)$ & $\Delta$   & $(A \cap C)$ \\ \hline
+			1   & 1   & 1   & 1   & \textbf{0} & 0                   & 1            & \textbf{0} & 1            \\ \hline
+			1   & 1   & 0   & 1   & \textbf{1} & 1                   & 1            & \textbf{1} & 0            \\ \hline
+			1   & 0   & 1   & 1   & \textbf{1} & 1                   & 0            & \textbf{1} & 1            \\ \hline
+			1   & 0   & 0   & 1   & \textbf{0} & 0                   & 0            & \textbf{0} & 0            \\ \hline
+			0   & 1   & 1   & 0   & \textbf{0} & 0                   & 0            & \textbf{0} & 0            \\ \hline
+			0   & 1   & 0   & 0   & \textbf{0} & 1                   & 0            & \textbf{0} & 0            \\ \hline
+			0   & 0   & 1   & 0   & \textbf{0} & 1                   & 0            & \textbf{0} & 0            \\ \hline
+			0   & 0   & 0   & 0   & \textbf{0} & 0                   & 0            & \textbf{0} & 0            \\ \hline
+		\end{tabular}
+	\end{center}
+\end{solution}
+
+\problemnumber{98}
+\begin{problem}
+	Beweisen oder widerlegen Sie die folgende Identität für Mengen:
+	\[ (A\times B) \cup (B\times A) = (A\cup B) \times (A\cup B) \]
+\end{problem}
+\begin{solution}
+	$(A\times B): \{ (a,b)\, |\, a \in A \wedge b \in B\}$. Das gilt aufgrund des
+	Kommutativgesetzes auch für $(B\times A)$. Die Vereinigung der beiden ist
+	$A\times B$, also $\{ (a,b)\, |\, a \in A \wedge b \in B \}$. \\
+
+	Auf der rechten Seite hat man nun $(A\cup B)$, was $\{ a\, |\, a\in A\wedge a\in B \}$
+	entspricht. Dasselbe gilt für den zweiten Faktor im kartesischen Produkt, welches
+	nun wie folgt dargestellt wird: $\{ (a,b)\, |\, a \in A \wedge b \in B \}$.
+	Daraus folgt, dass die linke Seite der rechten entspricht:
+	\[ (A\times B) \cup (B\times A) = (A\cup B) \times (A\cup B) \]
+	\[ \{ (a,b)\, |\, a \in A \wedge b \in B \} = \{ (a,b)\, |\, a \in A \wedge b \in B \} \]
+	Hiermit ist die Identität der Mengen bewiesen.
+\end{solution}
+
+\problemnumber{104}
+\begin{problem}
+	Man untersuche nachstehend angeführte Relationen $R \subseteq M^2$ in Hinblick
+	auf die Eigenschaften Reflexivität, Symmetrie, Antisymmetrie und Transitivität:
+	\begin{parts}
+		\part 
+		\label{104.a}
+		$M$ = Menge aller Einwohner von Wien, $a\, R\, b \Leftrightarrow a$ ist
+		verheiratet mit $b$
+		\part 
+		\label{104.b}
+		$M$ wie oben, $a\, R\, b \Leftrightarrow a$ ist nicht älter als $b$
+		\part 
+		\label{104.c}
+		$M$ wie oben, $a\, R\, b \Leftrightarrow a$ ist so groß wie $b$
+		\part 
+		\label{104.d}
+		$M = \R$, $a\, R\, b \Leftrightarrow a-b \in \Z$
+		\part 
+		\label{104.e}
+		$M = \R^n$, $(x_1, ..., x_n)\, R\, (y_1, ..., y_n) \Leftrightarrow x_i \leq y_i\; \forall i = 1,..., n$
+	\end{parts}
+\end{problem}
+\begin{solution}
+	\ref{104.a}
+	\begin{description}\itemsep0pt
+		\item[Reflexivität] $a\, R\, a \Longrightarrow$ $a$ verheiratet mit $a$ \lightning \\
+		\item[Symmetrie] $a\, R\, b \Longrightarrow b\, R\, a$ \checkmark \\
+		\item[Antisymmetrie] $a\, R\, b \wedge b\, R\, a \Longrightarrow a=b$ mit sich selbst verheiratet? \lightning \\
+		\item[Transitivität] $a\, R\, b \wedge b\, R\, c \Longrightarrow a\, R\, c$ \lightning \\
+	\end{description}
+	\ref{104.b}
+	\begin{description}\itemsep0pt
+		\item[Reflexivität] $a\, R\, a \Longrightarrow$ $(a \leq a) \wedge (b \leq b)$ \checkmark \\
+		\item[Symmetrie] $a\, R\, b \Longrightarrow b\, R\, a$ $(a\leq b) \wedge (b\leq a)$ \checkmark \\
+		\item[Antisymmetrie] $a\, R\, b \wedge b\, R\, a \Longrightarrow (a\leq b) \vee (b\leq a) \Longrightarrow a=b$ \checkmark \\
+		\item[Transitivität] $a\, R\, b \wedge b\, R\, c \Longrightarrow a\, R\, c \Longrightarrow (a\leq b) \wedge (b\leq c) \Longrightarrow (a\leq c)$ \checkmark \\
+	\end{description}
+	\ref{104.c}
+	\begin{description}\itemsep0pt
+		\item[Reflexivität] $a\, R\, a \Longrightarrow$ $(a=a) \wedge (b=b)$ \checkmark \\
+		\item[Symmetrie] $a\, R\, b \Longrightarrow b\, R\, a \Longrightarrow (a=b)\wedge (b=a)$ \checkmark \\
+		\item[Antisymmetrie] $a\, R\, b \wedge b\, R\, a \Longrightarrow b=a$ \checkmark \\
+		\item[Transitivität] $a\, R\, b \wedge b\, R\, c \Longrightarrow a\, R\, c \Longrightarrow (a=b)\wedge (b=c) \Longrightarrow a=c$ \checkmark \\
+	\end{description}
+	\ref{104.d}
+	\begin{description}\itemsep0pt
+		\item[Reflexivität] $a-b \in a-b$ \checkmark \\
+		\item[Symmetrie] 
+
+	\end{description}
+\end{solution}
+
+\problemnumber{125}
+\begin{problem}
+	Welche der folgenden Eigenschaften Reflexivität, Symmetrie, Antisymmetrie und
+	Transitivität hat folgende Relation $R$ auf $\Z$:
+	\[ mRn \Longleftrightarrow m^4 = n^4 \]
+\end{problem}
+\begin{solution}
+	Die Relation $mRn \Longleftrightarrow m^4=n^4$ ist symmetrisch, antisymmetrisch, 
+	reflexiv und transitiv.
+	\begin{description}\itemsep0pt
+		\item[Symmetrie] $mRn \Longrightarrow nRm: m^4= n^4 \Longrightarrow n^4=m^4$ \hfill \\
+		\item[Reflexivität] $mRm \wedge nRn: m^4=m^4 \wedge n^4=n^4$ \hfill \\
+		\item[Antisymmetrie] $mRn \wedge nRm \Longrightarrow m=n: m^4=n^4 \wedge n^4=m^4 \Longrightarrow m^4=n^4$ \hfill \\
+		\item[Transitivität] $mRn \wedge nRo \Longrightarrow mRo: m^4=n^4 \wedge n^4=o^4 \Longrightarrow m^4=o^4$
+	\end{description}
+\end{solution}
+
+\end{document}

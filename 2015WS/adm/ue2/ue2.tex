@@ -1,0 +1,221 @@
+\documentclass[a4paper, margins=2.5cm]{homework}
+
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\name{Tobias Eidelpes}
+\course{Algebra und Diskrete Mathematik}
+\term{2015WS}
+\hwnum{2}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+	\begin{center}
+    \textsc{Beispiele 11, 12, 43, 47, 53, 59, 64}
+  \end{center}
+
+\problemnumber{11}
+\begin{problem}
+	Handelt es sich bei der aussagenlogischen Formel
+	\[ [(A \rightarrow B) \wedge (B \rightarrow C)] \leftrightarrow (A \rightarrow C) \]
+	um eine Tautologie, um eine Kontradiktion oder um eine erfüllbare Formel?
+\end{problem}
+\begin{solution}
+	Es handelt sich um eine erfüllbare Formel, da die Aussage für mindestens
+	eine Interpretation wahr ist. \\
+
+	\begin{center}
+		\begin{tabular}{|ccc|c|c|c|c|c|}
+			\hline
+			$A$ & $B$ & $C$ & $[(A \rightarrow B)$ & $\wedge$ & $(B \rightarrow C]$ & $\leftrightarrow$ & $(A \rightarrow C)$ \\ \hline
+			1   & 1   & 1   & 1                    & 1        & 1                   & \textbf{1}        & 1                   \\ \hline
+			1   & 1   & 0   & 1                    & 0        & 0                   & \textbf{1}        & 0                   \\ \hline
+			1   & 0   & 1   & 0                    & 0        & 1                   & \textbf{0}        & 1                   \\ \hline
+			1   & 0   & 0   & 0                    & 0        & 1                   & \textbf{1}        & 0                   \\ \hline
+			0   & 1   & 1   & 1                    & 1        & 1                   & \textbf{1}        & 1                   \\ \hline
+			0   & 1   & 0   & 1                    & 0        & 0                   & \textbf{0}        & 1                   \\ \hline
+			0   & 0   & 1   & 1                    & 1        & 1                   & \textbf{1}        & 1                   \\ \hline
+			0   & 0   & 0   & 1                    & 1        & 1                   & \textbf{1}        & 1                   \\ \hline
+		\end{tabular}
+	\end{center}
+\end{solution}
+
+\problemnumber{12}
+\begin{problem}
+	Gelten folgende Formeln? Geben Sie jeweils eine verbale Begründung.
+	\begin{parts}
+		\part
+		\label{12.a}
+		$\forall x \in \N \; \exists y \in \N : x < y$
+		\part
+		\label{12.b}
+		$\exists y \in \N \; \forall x \in \N : x < y$
+		\part
+		\label{12.c}
+		$\forall x \in \N \; \exists y \in \N : y < x$
+		\part
+		\label{12.d}
+		$\forall x \in \Z \; \exists y \in \Z : y < x$
+	\end{parts}
+\end{problem}
+\begin{solution}
+	\ref{12.a}
+	Aussage stimmt, weil die natürlichen Zahlen unendlich sind und somit
+	jede Zahl einen Nachfolger hat. \\
+	\ref{12.b}
+	Aussage ist falsch, weil es einerseits keine negativen Zahlen in $\N$ gibt
+	und damit beispielsweise $0$ keinen Vorgänger hat, andererseits, weil
+	es nie eine Zahl geben kann, die größer als alle anderen ist, da $\N$ unendlich
+	ist. \\
+	\ref{12.c}
+	Aussage ist falsch, da die Zahl $0$ keinen Vorgänger hat. \\
+	\ref{12.d}
+	Aussage ist wahr, da jede Zahl in $\Z$ einen Vorgänger hat.
+\end{solution}
+
+\newpage
+
+\problemnumber{43}
+\begin{problem}
+	Man bestimme den ggT(1109,4999) mit Hilfe des Euklidischen Algorithmus.
+\end{problem}
+\begin{solution}
+	\begin{align*}
+		4999 \text{ mod } 1109 &= 563 \\
+		1109 \text{ mod } 563  &= 546 \\
+		563 \text{ mod } 546   &= 17 \\
+		546 \text{ mod } 17    &= 2 \\
+		17 \text{ mod } 2      &= 1
+	\end{align*}
+	\[ \text{ggT(1109, 4999)} = 1 \]
+\end{solution}
+
+\problemnumber{47}
+\begin{problem}
+	Man bestimme zwei ganze Zahlen $x,y$, welche die Gleichung
+	$243x +198y = 9$ erfüllen.
+\end{problem}
+\begin{solution}
+	\begin{align*}
+		243 &= 1 \cdot 198 + 45 \\
+		198 &= 4 \cdot 45 + 18 \\
+		45 &= 2 \cdot 18 + 9
+	\end{align*}
+	\[ \text{ggT(243, 198)} = 9 \]
+	Erweiterter Euklidischer Algorithmus:
+	\begin{align*}
+		9 &= 45 - 2 \cdot (198 - 4 \cdot 45) \\
+		9 &= -(2 \cdot 198 - 9 \cdot 45) \\
+		9 &= -2 \cdot 198 + 9 \cdot 45 \\
+		9 &= -2 \cdot 198 + 9 \cdot (243-198) \\
+		9 &= 9 \cdot 243 - 11 \cdot 198
+	\end{align*}
+	$\Longrightarrow$ $x=9$ und $y=-11$
+\end{solution}
+
+\problemnumber{53}
+\begin{problem}
+	Bestimmen Sie alle Lösungen der folgenden Kongruenzen bzw. beweisen Sie die
+	Unlösbarkeit (in $\Z$):
+	\begin{parts}
+		\part
+		\label{53.a}
+		$6x \equiv 3 \text{ mod } 9$
+		\part
+		\label{53.b}
+		$6x \equiv 4 \text{ mod } 9$
+	\end{parts}
+\end{problem}
+\begin{solution}
+	\ref{53.a}
+	Lösbar, weil ggT(6, 9) = 3 und 3 ein Teiler von 3 ist.
+	Nach erweitertem euklidischen Algorithmus gilt $3=-1 \cdot 6 + 1 \cdot 9$.
+	Daraus folgt, dass $x \equiv -1 + k \cdot \frac{9}{ggT(6,9)}$, also
+	$x \equiv -1 + k \cdot 3$ \\
+
+	\ref{53.b}
+	Nicht lösbar, weil ggT(6,9) = 3 und 3 kein Teiler von 4 ist. \\
+	$\Longrightarrow$ Wenn $ggT(a,m)|b$, dann kann die Kongruenz durch den größten
+	gemeinsamen Teiler dividiert werden und es folgt daraus eine neue Kongruenz
+	mit $ggT(a',m')=1$
+	$\Longrightarrow$ es gibt eine Zahl $c$, sodass $a' \cdot c = 1 \text{ mod } m'$
+	ist. Da die Voraussetzung aber nicht gegeben ist, gibt es auch kein Inverses
+	und daraus folgt die Unlösbarkeit.
+\end{solution}
+
+\problemnumber{59}
+\begin{problem}
+	Im europäischen Artikelnummernsystem EAN werden Zahlen mit 13 Dezimalziffern
+	der Form $a_1\, a_2\, …\, a_{12}\, p$ verwendet. Dabei wird die letzte der
+	13 Ziffern, das ist die Prüfziffer $p$ im EAN-Code so bestimmt, dass
+	\[ a_1+3a_2+a_3+3a_4+…+a_{11}+3a_{12} + p \equiv 0 \text{ mod } 10 \]
+	gilt. Man zeige, dass beim EAN-Code ein Fehler in einer einzelnen Ziffer stets
+	erkannt wird, während eine Vertauschung von zwei benachbarten Ziffern genau dann
+	nicht erkannt wird, wenn die beiden Ziffern gleich sind oder sich um 5 unterscheiden.
+\end{problem}
+\begin{solution}
+	Wenn ein Fehler in einer einzelnen Ziffer auftritt, dann ist die Summe der
+	Ziffern eine Andere und ergibt nach dem Addieren der Prüfziffer $p$ nicht mehr
+	$0 \text{ mod } 10$. Wenn zwei benachbarte, gleiche Ziffern vertauscht werden,
+	ändert sich nichts an der Summe und der Fehler wird somit nicht erkannt. Wenn
+	sich die beiden Ziffern um 5 unterscheiden, ändert sich ebenfalls nichts an
+	dem Ergebnis, weil
+	\begin{align*}
+		\overbrace{x+3(x+5) \text{ mod } 10}^\text{Richtig} & \equiv
+		\overbrace{(x+5)+3x \text{ mod } 10}^\text{Vertauscht} \\
+		4x+15 \text{ mod } 10 & \equiv 4x+5 \text{ mod } 10 \\
+		4x+5 & \equiv 4x+5
+	\end{align*}
+	Das heißt die Vertauschung verändert die Summe in diesem Fall nicht und der Fehler
+	bleibt unerkannt.
+\end{solution}
+
+\problemnumber{64}
+\begin{problem}
+	Man zeige, dass $n^3-n$ für alle $n \in \N$ stets durch 3 teilbar ist, mittels
+	\begin{parts}
+		\part
+		\label{64.a}
+		eines direkten Beweises,
+		\part
+		\label{64.b}
+		eines Beweises durch vollständige Induktion.
+	\end{parts}
+\end{problem}
+\begin{solution}
+	\ref{64.a}
+	\[ n^3-n = n \cdot (n^2-1) = (n-1) \cdot (n+1) \]
+	$\Longrightarrow$ Das Produkt von drei aufeinanderfolgenden Zahlen, von denen
+	eine zwangsläufig durch 3 teilbar ist.  \\
+	$\Longrightarrow$ Das ganze Produkt ist durch 3 teilbar. \\
+	$\Longrightarrow$ Somit ist bewiesen, dass $n^3-n$ für alle $n \in \N$ durch
+	3 teilbar ist.
+
+	\newpage
+
+	\ref{64.b}
+	Induktionsanfang: \[ \text{Für $n = 1$: }\qquad 1^3 - 1 = 0\qquad 3\, \vert \, 0 \]
+	Induktionsschritt: \[ A(n) \rightarrow A(n+1) \]
+	Induktionsvoraussetzung: \[ A(n) \text{ gilt für ein bestimmtes } n \in \N \]
+	Induktionsbehauptung: \[ A(n+1) \text{ gilt} \]
+	\[ (n+1)^3 - (n+1) \Longleftrightarrow n^3 + 3n^2 + 2n \Longleftrightarrow
+	(n^3-n) + 3n^2 + 3n \Longleftrightarrow (n^3-n) + 3(n^2+n) \]
+	$\Longrightarrow n^3-n$ ist laut Induktionsannahme durch 3 teilbar. \\
+	$\Longrightarrow 3(n^2+n)$ ist aufgrund des Faktors 3 durch 3 teilbar. \\
+	$\Longrightarrow (n+1)^3 - (n+1)$ ist durch 3 teilbar. \\
+	$\Longrightarrow n^3-n$ ist durch 3 teilbar für alle $n \in \N$.
+\end{solution}
+
+\end{document}

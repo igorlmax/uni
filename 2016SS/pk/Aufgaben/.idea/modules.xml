@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Aufgabenblatt1/Aufgabe1/Aufgabe11.iml" filepath="$PROJECT_DIR$/Aufgabenblatt1/Aufgabe1/Aufgabe11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aufgabenblatt1/Aufgabe2/Aufgabe21.iml" filepath="$PROJECT_DIR$/Aufgabenblatt1/Aufgabe2/Aufgabe21.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aufgabenblatt1/Aufgabe3/Aufgabe31.iml" filepath="$PROJECT_DIR$/Aufgabenblatt1/Aufgabe3/Aufgabe31.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aufgabenblatt1/Aufgabe4/Aufgabe41.iml" filepath="$PROJECT_DIR$/Aufgabenblatt1/Aufgabe4/Aufgabe41.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Aufgabenblatt1/Aufgabe5/Aufgabe5.iml" filepath="$PROJECT_DIR$/Aufgabenblatt1/Aufgabe5/Aufgabe5.iml" />
+    </modules>
+  </component>
+</project>

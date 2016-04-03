@@ -1,0 +1,33 @@
+R0; if Z goto .end                      #if no 1s: save some cycles
+R1; if Z goto .end                      #if counter == 0: save some cycles
+R7 <- lsh(1+1)                          #construct MSB (-32768)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7)
+:loop
+    R2 <- (R0&1)                        #get lsb(R0)
+    R3 <- ~R2                           #invert it
+    R3 <- (R3&1); if Z goto .msb        #if inverted lsb == 0 gehe zu .msb
+    R0 <- rsh(R0)                       #else (lsb == 0) shift right 
+    R1 <- R1+-1; if Z goto .end         #decrement counter; if 0: end
+    goto .loop                          #repeat
+:msb
+    R0 <- rsh(R0)                       #if lsb == 1 shift right
+    R0 <- R0+R7                         #add msb
+    R1 <- R1+-1; if Z goto .end         #decrement counter; if 0: end
+    goto .loop                          #repeat
+:end
+    R9 <- lsh(1+1)                      #construct address 16384
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R2 <- R9+-1                         #decrement (16383)
+    MAR <- R2; MBR <- R0; wr            #copy address to MAR & save result
+    wr                                  #in MBR -> save to address 16383

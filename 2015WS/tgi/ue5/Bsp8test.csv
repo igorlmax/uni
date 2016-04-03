@@ -1,0 +1,36 @@
+### Aufgabe 8 ###
+
+# Testfall 0 /  00 _ 2xShift
+
+Input,0,0x0000,0x0002
+OutputMemory,0x3FFF,0x0000
+
+# Testfall 1 /  111 _ 3xShift
+
+Input,0,0x0007,0x0003
+OutputMemory,0x3FFF,0xE000
+
+# Testfall 2 /  0110 _ 4xShift
+
+Input,0,0x0006,0x0004
+OutputMemory,0x3FFF,0x6000
+
+# Testfall 3 /  10111 _ 5xShift
+
+Input,0,0x0017,0x0005
+OutputMemory,0x3FFF,0xB800
+
+# Testfall 4 / 100000 _ 6xShift
+
+Input,0,0x0020,0x0006
+OutputMemory,0x3FFF,0x8000
+
+# Testfall 5 / 1100010 _ 7xShift
+
+Input,0,0x0062,0x0007
+OutputMemory,0x3FFF,0xC400
+
+# Testfall 6 / 0000000110000000 _ 16xShift
+
+Input,0,0x0180,0x0010
+OutputMemory,0x3FFF,0x0180

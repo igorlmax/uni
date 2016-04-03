@@ -1,0 +1,5 @@
+R2 <- ~R1
+R2 <- R2+1
+R2 <- R0+R2
+MBR <- R2; MAR <- R3; wr
+wr

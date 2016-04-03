@@ -1,0 +1,28 @@
+R5 <- lsh(1)
+R5 <- R5+1
+R5 <- lsh(R5+R5)
+R5 <- R5+1
+R5 <- lsh(R5)
+R5 <- R5+1
+R5 <- lsh(R5+R5)
+R5 <- R5+1
+R5 <- lsh(R5)
+R5 <- R5+1
+#
+R6 <- 1
+R6 <- lsh(R6+R6)
+R6 <- lsh(R6)
+R6 <- lsh(R6+1)
+R6 <- lsh(R6+R6)
+R6 <- R6+1
+
+R7 <- 0
+:loop
+    (R6&1); if Z goto .zero
+    R7 <- R7+R5
+:zero
+    R6 <- rsh(R6)
+    (R6); if Z goto .end
+    R5 <- lsh(R5)
+    goto .loop
+:end

@@ -1,0 +1,383 @@
+\documentclass[a4paper, 12pt, margins=2cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+\usepackage{tabularx}
+\usepackage{listings}
+
+\setlength{\parindent}{0pt}
+
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\EUR}}1 {£}{{\pounds}}1
+}
+
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\itshape\color{mymauve},    % comment style
+  deletekeywords={test},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\bfseries\color{mygreen},       % keyword style
+  language=bash,                 % the language of the code
+  otherkeywords={*,goto, rsh, lsh, :loop, :zero, :end, :msb, :sh, :hd, :test, :test1, :test2, wr, rd},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  identifierstyle=\color{blue},
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\scriptsize\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{orange},     % string literal style
+  tabsize=2,                     % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes}
+\course{Technische Grundlagen der Informatik}
+\term{2015WS}
+\hwnum{5}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+  
+% ERLEDIGT
+  \problemnumber{2}
+  \begin{problem}
+  \end{problem}
+  \begin{solution} \hfill
+    \begin{center}
+      \begin{tabular}{>{\centering}m{0.5cm}|m{12.5cm}|m{1.5cm}@{}l@{}}
+        \hline
+        (1)  & Bei der Micro16 Architektur sind Datenwörter 8 Bit lang                                                                                                   & falsch  \\[10mm] \hline
+        (2)  & Bei der Micro16 Architektur werden Mikroinstruktionen durch eine 16 Bit Adresse adressiert                                                                & falsch \\[10mm] \hline
+        (3)  & Das \textit{Memory Address Register} (MAR) ist mit dem Adressbus verbunden.                                                                             & richtig \\[10mm] \hline
+        (4)  & Liegt an der \textit{Memory Select} (MS) Leitung logisch 0 an, wird in das \textit{Memory Buffer Register} (MBR) geschrieben, ansonsten wird geladen. & falsch  \\[10mm] \hline
+        (5)  & Micro-Instruktionen sind beim Micro16 genau 16 Bit lang.                                                                                                  & falsch \\[10mm] \hline
+        (6)  & Die \textit{Micro Sequencing Logic} kann Sprünge ausführen, indem sie den Folgewert des \textit{Micro Instruction Counters} (MIC) bestimmt.           & richtig \\[10mm] \hline
+        (7)  & Am Ausgang Z der ALU liegt genau dann logisch 1 an, wenn im Ergebnis alle Bit logisch 0 sind.                                                             & richtig \\[10mm] \hline
+        (8)  & Mithilfe des S-Bus Decoders werden die Registerwerte über den A-Bus transferiert                                                                          & falsch  \\[10mm] \hline
+        (9)  & Die ALU-Operation Negation invertiert ein Datenwort bitweise.                                                                                             & richtig \\[10mm] \hline
+        (10) & Die Operation \textit{right shift} entspricht einer Multiplikation des Datenworts mit der Zahl 2.                                                       & falsch  \\[10mm] \hline
+        (11) & Die Control Unit teilt den Takt in drei Phasen und steuert damit die Ausführung der Mikroinstruktionen.                                                   & falsch  \\[10mm] \hline
+      \end{tabular}
+    \end{center}
+  \end{solution}
+
+\newpage
+
+% ERLEDIGT
+  \begin{problem}
+  \end{problem}
+  \begin{solution} \hfill
+
+    \vspace*{0.25cm}
+    \def\svgwidth{0.7\textwidth}
+    \input{Aufgabe3.pdf_tex}
+  \end{solution}
+
+% ERLEDIGT
+  \begin{problem}
+  \end{problem}
+  \begin{solution} \hfill
+    
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item \hfill
+
+        \begin{minipage}{0.4\textwidth}
+          \begin{center}
+            \begin{tabular}{rcr}
+                  & :2 &   \\
+              219 & |  & 1 \\
+              109 & |  & 1 \\
+              54  & |  & 0 \\
+              27  & |  & 1 \\
+              13  & |  & 1 \\
+              6   & |  & 0 \\
+              3   & |  & 1 \\
+              1   & |  & 1
+            \end{tabular}
+            \[ x = (219)_{10} = (1101\,1011)_2 \]
+          \end{center}
+        \end{minipage}
+        \begin{minipage}{0.4\textwidth}
+          \begin{center}
+            \begin{tabular}{rcr}
+                 & :2 &   \\
+              73 & |  & 1 \\
+              36 & |  & 0 \\
+              18 & |  & 0 \\
+              9  & |  & 1 \\
+              4  & |  & 0 \\
+              2  & |  & 0 \\
+              1  & |  & 1 \\
+                 &    &   
+            \end{tabular}
+            \[ y = (73)_{10} = (0100\,1001)_2 \]
+          \end{center}
+        \end{minipage}
+
+      \item \hfill
+
+        \[ x = (0000\,0000\,1101\,1011)_2 \text{ im Zweierkomplement} \]
+        \[ y = (0000\,0000\,0100\,1001)_2 \text{ im Zweierkomplement} \]
+\newpage
+      \item \hfill
+
+      \begin{center}
+        \begin{minipage}{0.4\textwidth}
+          \begin{lstlisting}[frame=single]
+R5 <- lsh(1)
+R5 <- R5+1
+R5 <- lsh(R5+R5)
+R5 <- R5+1
+R5 <- lsh(R5)
+R5 <- R5+1
+R5 <- lsh(R5+R5)
+R5 <- R5+1
+R5 <- lsh(R5)
+R5 <- R5+1\end{lstlisting}
+        \end{minipage}
+        \hspace*{1cm}
+        \begin{minipage}{0.4\textwidth}
+          \begin{lstlisting}[frame=single]
+R6 <- 1
+R6 <- lsh(R6+R6)
+R6 <- lsh(R6)
+R6 <- lsh(R6+1)
+R6 <- lsh(R6+R6)
+R6 <- R6+1\end{lstlisting}
+        \end{minipage}
+      \end{center}
+
+      \item \hfill
+
+      \begin{center}
+        \begin{tabular}{|c|c|c|}
+          \hline
+          loop & Register R5 & Register R6 \\ \hline \hline
+          1    & 219         & 73          \\ \hline
+          2    & 438         & 36          \\ \hline
+          3    & 876         & 18          \\ \hline
+          4    & 1752        & 9           \\ \hline
+          5    & 3504        & 4           \\ \hline
+          6    & 7008        & 2           \\ \hline
+          7    & 14016       & 1           \\ \hline
+        \end{tabular}
+      \end{center}
+
+      \item \hfill
+
+
+      \begin{lstlisting}
+R7 <- 0                     #setze R7 (enthält Ergebnis) auf 0
+:loop
+  (R6&1); if Z goto .zero   #wenn R6 nicht 1 ist gehe zu .zero
+  R7 <- R7+R5               #addiere zu R7 den Multiplikand
+:zero
+  R6 <- rsh(R6)             #shifte R6 um eine Stelle nach rechts
+  (R6); if Z goto .end      #wenn R6 0 ist, gehe zu .end ansonsten
+  R5 <- lsh(R5)             #shifte R5 um eine Stelle nach links
+  goto .loop
+:end\end{lstlisting}
+    \end{enumerate}
+
+  \end{solution}
+
+\newpage
+
+% ERLEDIGT
+  \begin{problem}
+  \end{problem}
+  \begin{solution} \hfill
+
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item \hfill
+
+      \begin{center}
+        \begin{tabular}{|>{\centering}m{0.5cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|>{\centering}m{0.7cm}|c|}
+          \hline
+          A\\M\\U\\X & CO\\ND & ALU & SH & M\\B\\R & M\\A\\R & R\\D/\\W\\R & M\\S & E\\N\\S & S-\\BUS & B-\\BUS & A-\\BUS & ADDR     \\ \hline
+          0    & 00   & 11  & 00 & 0   & 0   & 0     & 0  & 1   & 0110  & 0000  & 0101  & 00000000 \\ \hline
+          0    & 00   & 01  & 00 & 0   & 0   & 0     & 0  & 1   & 0110  & 0001  & 0110  & 00000000 \\ \hline
+          0    & 00   & 01  & 00 & 0   & 0   & 0     & 0  & 1   & 0110  & 0110  & 0100  & 00000000 \\ \hline
+          0    & 00   & 00  & 00 & 1   & 1   & 0     & 1  & 0   & 0000  & 0111  & 0110  & 00000000 \\ \hline
+          0    & 00   & 00  & 00 & 0   & 0   & 0     & 1  & 0   & 0000  & 0000  & 0000  & 00000000 \\ \hline
+        \end{tabular}
+      \end{center}
+
+      \item \hfill
+
+      \begin{lstlisting}
+R2 <- ~R1                   #negiert die zu subtrahierende Zahl in R1
+R2 <- R2+1                  #addiert 1 und speichert in R2
+R2 <- R0+R2                 #addiert R2 zu R0 (zieht R2 ab)
+MBR <- R2; MAR <- R3; wr    #speichert R2 in MBR
+wr                          #speichert R2 in MBR\end{lstlisting}
+
+    \item \hfill 
+
+    Diese Mikroinstruktionen ermöglichen die Subtraktion einer Zahl in R1 von einer
+    Zahl in R0 und speichern das Ergebnis im MBR.
+    \end{enumerate}
+
+  \end{solution}
+
+
+% ERLEDIGT
+  \begin{problem}
+  \end{problem}
+  \begin{solution} \hfill
+
+    \begin{lstlisting}
+R1 <- lsh(1+1)                  #schreibe 4 in R1
+R1 <- lsh(R1+R1)                #erhöhe R1 auf 8 und schiebe nach links (16)
+MAR <- R1; rd                   #schreibe 16 in MAR; set MS=1 und RD/WR=1
+rd                              #schreibe Wert an ADDR 16 in MBR
+R2 <- MBR                       #kopiere Wert an MBR in R2
+R3 <- lsh(1+1)                  #konstruiere 5 für mod5()
+R3 <- R3+1
+R3 <- ~R3                       #wandle in negative Zahl um
+R3 <- R3+1                      #für Subtraktion durch Addition
+:loop
+  R4 <- R2                      #schreibe R2 in R4
+  R2 <- R2+R3; if N goto .end   #subtrahiere R3 von R2 und schreibe in R2
+  goto .loop                    #wiederhole solange, bis R2 negativ
+:end
+  R1 <- R4                      #schreibe Rest in R1\end{lstlisting}
+  \end{solution}
+
+\newpage
+ 
+% AUSSTÄNDIG 
+  \begin{problem}
+  \end{problem}
+  \begin{solution} \hfill
+
+    \begin{lstlisting}
+R10 <- 0                    #set Hamming-Distanz 0
+:test                       #test if R8 == 0
+  :test1
+    R8; if Z goto .test2    #if true gehe zu test2
+    goto .loop              #ansonsten continue main loop
+  :test2                    #test if R9 == 0
+    R9; if Z goto .end      #if true gehe zum Ende
+    goto .loop              #ansonsten continue main loop
+:loop
+  R0 <- R8&1                #lsb von R8 in R0
+  R1 <- R9&1                #lsb von R9 in R1
+  R3 <- R0&R1               #UND-Verknüpfung der lsbs
+  R3 <- ~R3                 #negiere UND-Verknüpfung
+  R4 <- ~R0                 #negiere lsb von R8
+  R5 <- ~R1                 #negiere lsb von R9
+  R2 <- R4&R5               #UND-Verknüpfung der negierten lsbs
+  R2 <- ~R2                 #negiere die UND-Verknüpfung
+  R2 <- R2&R3               #verknüpfe R2 und R3 -> XOR
+  R2; if Z goto .sh         #if false (lsbs gleich) goto .sh
+  goto .hd                  #ansonsten erhöhe R10 um 1
+:sh
+  R8 <- rsh(R8)             #shifte R8 nach rechts um 1
+  R9 <- rsh(R9)             #shifte R9 nach rechts um 1
+  goto .test                #gehe zum Anfang
+:hd
+  R10 <- R10+1              #erhöhe Hamming-Distanz in R10 um 1
+  goto .sh                  #shifte R8 u. R9
+:end\end{lstlisting}
+   \[ R0 \oplus R1 = \neg (R0 \wedge R1) \wedge \neg (\neg R0 \wedge \neg R1) \]
+    \begin{center}
+      \begin{tabular}{cc|cc|c|cc}
+        $R0$ & $R1$ & $\neg$ & $(R0 \wedge R1)$ & $\wedge$ & $\neg$ & $(\neg R0 \wedge \neg R1)$ \\ \hline
+        0    & 0    & 1      & 0                & 0        & 0      & 1                          \\
+        0    & 1    & 1      & 0                & 1        & 1      & 0                          \\
+        1    & 0    & 1      & 0                & 1        & 1      & 0                          \\
+        1    & 1    & 0      & 1                & 0        & 1      & 0                         
+      \end{tabular}
+    \end{center}
+  \end{solution}
+
+\newpage
+
+% ERLEDIGT
+  \begin{problem}
+  \end{problem}
+  \begin{solution} \hfill
+
+    \begin{lstlisting}
+R0; if Z goto .end                      #if no 1s: save some cycles
+R1; if Z goto .end                      #if counter == 0: save some cycles
+R7 <- lsh(1+1)                          #construct MSB (-32768)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7+R7)
+R7 <- lsh(R7)
+:loop
+    R2 <- (R0&1)                        #get lsb(R0)
+    R3 <- ~R2                           #invert it
+    R3 <- (R3&1); if Z goto .msb        #if inverted lsb == 0 gehe zu .msb
+    R0 <- rsh(R0)                       #else (lsb == 0) shift right 
+    R1 <- R1+-1; if Z goto .end         #decrement counter; if 0: end
+    goto .loop                          #repeat
+:msb
+    R0 <- rsh(R0)                       #if lsb == 1 shift right
+    R0 <- R0+R7                         #add msb
+    R1 <- R1+-1; if Z goto .end         #decrement counter; if 0: end
+    goto .loop                          #repeat
+:end
+    R9 <- lsh(1+1)                      #construct address 16384
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R9 <- lsh(R9+R9)
+    R2 <- R9+-1                         #decrement (16383)
+    MAR <- R2; MBR <- R0; wr            #copy address to MAR & save result
+    wr                                  #in MBR -> save to address 16383\end{lstlisting}
+  \end{solution}
+
+
+\end{document}
+

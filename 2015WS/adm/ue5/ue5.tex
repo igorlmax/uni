@@ -1,0 +1,188 @@
+\documentclass[a4paper, 12pt, margins=2.5cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes}
+\course{Algebra und Diskrete Mathematik}
+\term{2015WS}
+\hwnum{5}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+  \begin{center}
+    \textsc{Beispiele 168, 170, 173, 178, 186, 191, 200}
+  \end{center}
+
+% ERLEDIGT
+  \problemnumber{168}
+  \begin{problem}
+    Wie viele verschiedene Tipps müssen beim Lotto \glqq 6 aus 45\grqq\ abgegeben
+    werden, um sicher einen Sechser zu erzielen? Wie viele verschiedene Tipps 
+    führen zu keinem Gewinn (d.h., diese Tipps enthalten maximal zwei richtige
+    Zahlen), bei wie vielen möglichen Tipps stimmt mindestens eine Zahl, bei wie
+    vielen sind alle Zahlen falsch?
+  \end{problem}
+  \begin{solution}
+    Um sicher einen Sechser zu erzielen, müssen von $\binom{45}{6}$ möglichen
+    Tipps $\binom{45}{6}$ Tipps abgegeben werden, da einer von allen Tipps ein
+    Sechser ist.
+    \begin{itemize}\itemsep0pt
+      \item Mögliche Tipps ohne richtige Zahlen: $\binom{6}{0}\cdot \binom{39}{6} = 3262623$
+      \item Mögliche Tipps mit einer richtigen Zahl: $\binom{6}{1}\cdot \binom{39}{5} = 3454542$
+      \item Mögliche Tipps mit zwei richtigen Zahlen: $\binom{6}{2}\cdot \binom{39}{4} = 1233765$
+    \end{itemize}
+    Nun müssen die einzelnen Tippmöglichkeiten addiert werden:
+    \[
+      \binom{6}{0}\cdot \binom{39}{6} + \binom{6}{1}\cdot \binom{39}{5} +
+      \binom{6}{2}\cdot \binom{39}{4} = 7950930
+    \]
+    
+  \end{solution}
+
+
+% ERLEDIGT
+  \problemnumber{170}
+  \begin{problem}
+    Wieviele natürliche Zahlen $n < 100\,000$ enthalten in ihrer Dezimalentwicklung
+    genau dreimal die Ziffer drei?
+  \end{problem}
+  \begin{solution}
+    Da wir alle Zahlen von $0-99\,999$ betrachten, gibt es $100\,000$ Möglichkeiten.
+    $3$ von $5$ Ziffern müssen einen dreier enthalten, $2$ Ziffern dürfen alle
+    Zahlen von $0-2$ und $4-9$ annehmen. \\
+
+    Alle möglichen Kombinationen, die an $3$ von $5$ Stellen dreier enthalten
+    bekommt man durch
+    \[ \binom{5}{3} = \frac{5!}{3! \cdot (5-3)!} = \frac{120}{12} = 10. \]
+    Nun werden die restlichen zwei Ziffern mit Kombinationen von $0-2$ und $4-9$
+    aufgefüllt, was 9 Möglichkeiten pro Ziffer entspricht. Das für beide Ziffern ist
+    \[ 9\cdot 9 = 81\]
+    multipliziert mit $10$:
+    \[ 10 \cdot 81 = 810 \text{ Kombinationen} \]
+  \end{solution}
+
+
+% AUSSTÄNDIG
+  \problemnumber{173}
+  \begin{problem}
+    Man beweise die Formel
+    \[ \binom{2n}{n} = \sum_{k=0}^n{\binom{n}{k}^2} = \sum_{k=0}^n{\binom{n}{k}\binom{n}{n-k}}. \]
+    (Hinweis: Man betrachte die Koeffizienten von $(1+x)^n (1+x)^n = (1+x)^{2n}$.)
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% ERLEDIGT
+  \problemnumber{178}
+  \begin{problem}
+    Berechnen Sie unter Benützung des Binomischen Lehrsatzes (und ohne Benützung
+    der Differentialrechnung):
+    \[ \sum_{k=0}^{n}{\binom{n}{k}k5^k} \]
+  \end{problem}
+  \begin{solution}
+    Dafür muss der binomische Lehrsatz 
+    \[ \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k = (x+y)^n \]
+    so umgeformt werden, dass er auf die Angabe angewendet werden kann.
+    \[ \sum_{k=1}^{n}{k \binom{n}{k} 5^k} \]
+    Nun wird $k$ ersteinmal in den Binomialkoeffizienten hineinmultipliziert.
+    \[  k\binom{n}{k} = \frac{n!}{k!(n-k)!}\cdot k = \frac{k\cdot n!}{k!(n-k!)} = 
+        \frac{k\cdot n!}{k!\cdot k\cdot (n-1-k)!} = \frac{n!}{k!(n-1-k)!} =
+        n\binom{n-1}{k-1}
+    \]
+    Anschließend wird in die Angabe eingesetzt:
+    \[
+      \sum_{k=1}^{n}{n\binom{n-1}{k-1} 5^k} = n\sum_{k=1}^{n}{\binom{n-1}{k-1} 5^k} =
+      \underbrace{n\sum_{k=0}^{n-1}{n\binom{n-1}{k} 5^{k+1}}}_\text{Indexverschiebung $k=k-1$} = 5n\sum_{k=0}^{n-1}{\binom{n-1}{k} 5^k}
+    \]
+    Jetzt in binomischen Lehrsatz einsetzen mit $x=1$, $y=5$ und $n=n-1$.
+    \[
+      \sum_{k=0}^{n-1}{\binom{n-1}{k} 1^{n-1-k} 5^k} = \sum_{k=0}^{n-1}{\binom{n-1}{k} 5^k} =
+      (1+5)^{n-1}
+    \]
+    Das Ergebnis:
+    \[ 5n\sum_{k=0}^{n-1}{\binom{n-1}{k} 5^k} = 5n (1+5)^{n-1} \]
+
+  \end{solution}
+
+
+% ERLEDIGT
+  \problemnumber{186}
+  \begin{problem}
+    Zeigen Sie mithilfe des Schubfachprinzips: Unter je 15 natürlichen Zahlen
+    gibt es mindestens zwei, deren Differenz durch 14 teilbar ist.
+  \end{problem}
+  \begin{solution}
+    Man betrachte alle Restklassen Modulo $14$:
+    \[ x \equiv y\; \text{ (mod) }m \Leftrightarrow m\; |\; x-y \]
+    Nun gibt man jeder Restklasse ein Schubfach also bekommt man 14 Fächer. Da
+    wir 15 Zahlen haben, können wir 14 im besten Fall so wählen, dass jede der 
+    14 Zahlen in einem Schubfach landet. Die letzte Zahl muss nun wohl oder übel
+    in ein Schubfach in dem schon eine Zahl ist. Dadurch liegen zwei Zahlen in
+    einer Restklasse und daraus folgt, dass ihre Differenz durch 14 teilbar ist.
+  \end{solution}
+
+
+% AUSSTÄNDIG
+  \problemnumber{191}
+  \begin{problem}
+    Wieviele natürliche Zahlen $n$ mit $1\leq n \leq 10^6$ gibt es, die weder
+    Quadrat, noch dritte, vierte oder fünfte Potenz einer natürlichen Zahl sind?
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% ERLEDIGT
+  \problemnumber{200}
+  \begin{problem}
+    Man bestimme die Anzahl aller Anordnungen (Permutationen) der Buchstaben 
+    \texttt{a,b,c,d,e,f,g,h,} in denen weder der Block \glqq \texttt{acg}\grqq\ 
+    noch der Block \glqq \texttt{cgbe}\grqq\ vorkommt. (Hinweis: Die Anzahl der
+    Permutationen einer $n$-elementigen Menge ist $n!$.)
+  \end{problem}
+  \begin{solution}
+    Alle möglichen Anordnungen ohne Berücksichtigung der Aufgabenstellung:
+    \[ 8! = 40320 \]
+    weil wir acht Buchstaben (\texttt{a-h}) haben. Für den Block \texttt{acg}
+    ergeben sich sechs mögliche Anordnungen mit fünf anordbaren Buchstaben, das heißt:
+    \[ 6\cdot 5! = 720 \]
+    Für den Block \texttt{cgbe} gibt es fünf mögliche Anordnungen mit vier 
+    anordbaren Buchstaben, das heißt:
+    \[ 5\cdot 4! = 120 \]
+    Jetzt gibt es aber auch Anordnungen, in denen beide Blöcke vorkommen, das
+    heißt Anordnungen nach dem Schema \texttt{acgbe}. Hier sind vier Anordnungen
+    möglich mit drei anordbaren Buchstaben:
+    \[ 4\cdot 3! = 24 \]
+    Aus diesen Mengen von Anordnungen muss nun die korrekte Anzahl an Anordnungen
+    ermittelt werden. Dazu müssen von der Gesamtmenge ($8!$) die Anordnungen für
+    Block \texttt{acg} und für Block \texttt{cgbe} subtrahiert und die 
+    Möglichkeiten für Block \texttt{acgbe} addiert werden. Das muss deshalb
+    geschehen, weil sonst die Anordnungen in denen beide Blöcke enthalten sind
+    am Anfang nur einmal \glqq hineinkommen\grqq\ ($8!$), aber zweimal abgezogen
+    werden, nämlich einmal bei Block \texttt{acg} und das zweite Mal bei Block
+    \texttt{cgbe}. Also:
+    \[ 8! - 6\cdot 5! - 5\cdot 4! + 4\cdot 3! = 40320 - 720 - 120 + 24 = 39504 \]
+  \end{solution}
+\end{document}

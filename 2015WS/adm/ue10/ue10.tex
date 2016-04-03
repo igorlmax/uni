@@ -1,0 +1,148 @@
+\documentclass[a4paper, 12pt, margins=3cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes}
+\course{Algebra und Diskrete Mathematik}
+\term{2015WS}
+\hwnum{10}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+  \begin{center}
+    \textsc{Beispiele 408, 422, 437, 442, 458, 474, 476}
+  \end{center}
+
+
+% AUSSTÄNDIG 408
+  \problemnumber{408}
+  \begin{problem}
+    Untersuchen Sie, ob die folgende Struktur ein Ring, Integritätsring bzw. Körper
+    ist:\\
+
+    $M = \Q[\sqrt{7}] = \{ a+b\sqrt{7}\;|\;a,b\in \Q \}$ mit der Addition und
+    Multiplikation aus $\R$. 
+  \end{problem}
+  \begin{solution}\hfill
+    \subsection*{Addition}
+
+      \subsubsection*{Abgeschlossenheit}
+        \[ (w+x\cdot\sqrt{7}) + (y+z\cdot\sqrt{7}) = (w+y) + ((x+z)\cdot\sqrt{7}) \]
+        \[ w+y\in\Q, x+z\in\Q \Longrightarrow \text{abgeschlossen} \]
+
+      \subsubsection*{Assoziativität}
+        \[ a\circ (b\circ c) = (a\circ b)\circ c \]
+        \[ a = (u+v\cdot\sqrt{7}) \]
+        \[ b = (w+x\cdot\sqrt{7}) \]
+        \[ c = (y+z\cdot\sqrt{7}) \]
+        \begin{align*}
+          (u+v\cdot\sqrt{7}) + ((w+x\cdot\sqrt{7}) + (y+z\cdot\sqrt{7})) &= ((u+v\cdot\sqrt{7}) + (w+x\cdot\sqrt{7})) + (y+z\cdot\sqrt{7})\\ 
+          (u+w+y) + (v+x+z)\cdot\sqrt{7} &= (u+w+y) + (v+x+z)\cdot\sqrt{7}
+        \end{align*}
+        \[ \Longrightarrow \text{assoziativ} \]
+
+      \subsubsection*{Neutrales Element}
+        \[ e = 0+0\cdot\sqrt{7}=0 \]
+
+      \subsubsection*{Inverses Element}
+        \[ (x+y\cdot\sqrt{7})^{-1} = (-x) + (-y)\cdot\sqrt{7} \]
+
+      \subsubsection*{Kommutativität}
+        Gegeben durch die Kommutativität der Addition und Multiplikation.
+  \end{solution}
+
+
+% AUSSTÄNDIG 442
+  \problemnumber{422}
+  \begin{problem}
+    Sei $\langle R,+,\cdot\rangle$ ein Ring. Man zeige, dass dann auch $R\times R$
+    mit den Operationen 
+    \[ (a,b) + (c,d) = (a+c,b+d) \]
+    \[ (a,b)\cdot (c,d) = (a\cdot c,b\cdot d) \]
+    ein Ring ist.
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% AUSSTÄNDIG 437
+  \problemnumber{437}
+  \begin{problem}
+    Man untersuche das Polynom $x^2 + x + 1$ auf Irreduzibilität a) über $\Q$,
+    b) über $\Z_3$.
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% AUSSTÄNDIG 442
+  \problemnumber{442}
+  \begin{problem}
+    Man zeige, dass die folgende algebraische Struktur ein Verband ist. Ist dieser
+    distributiv oder eine Boolsche Algebra?
+    \begin{parts}
+      \part $(\mathbf{P}(A), \cap , \cup)$
+      \part $(\{ X\subseteq \N \;|\; X\text{ ist endlich oder }\N\,\backslash\, X\text{ ist endlich} \}, \cap, \cup)$
+    \end{parts}
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% AUSSTÄNDIG 458
+  \problemnumber{458}
+  \begin{problem}
+    Untersuchen Sie, ob $W$ Teilraum des Vektorraums $\R^3$ über $\R$ ist und
+    beschreiben Sie die Menge $W$ geometrisch:
+    \[ W = \{ (x,y,z) \;|\; x+y+z\geq 0 \} \]
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% AUSSTÄNDIG 474
+  \problemnumber{474}
+  \begin{problem}
+    Zeigen Sie: Die Menge aller Polynome $a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4$
+    vom Grad kleiner gleich 4 mit Koeffizienten $a_i$ aus $\Q$ bildet mit der
+    üblichen Addition und dem üblichen Produkt mit einem Skalar einen Vektorraum
+    über $\Q$.
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% AUSSTÄNDIG 476
+  \problemnumber{476}
+  \begin{problem}
+    Bestimmen Sie den kleinsten Teilraum des Vektorraumes aus 474) der die Polynome
+    $x-x^2$ und $x+x^3$ enthält.
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+\end{document}

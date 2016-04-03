@@ -1,0 +1,142 @@
+\documentclass[a4paper, 12pt, margins=3cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes}
+\course{Algebra und Diskrete Mathematik}
+\term{2015WS}
+\hwnum{11}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+  \begin{center}
+    \textsc{Beispiele 495, 544, 556}
+  \end{center}
+
+
+% AUSSTÄNDIG 495
+  \problemnumber{495}
+  \begin{problem}
+    Untersuchen Sie, ob die folgenden Vektoren des $\Z_5^4$ linear unabhängig sind:
+    $(1,2,3,4),\quad (2,3,4,1),\quad (3,4,2,1)$.
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% ERLEDIGT 544
+  \problemnumber{544}
+  \begin{problem}
+    Bestimmen Sie den Rang der folgenden reellen Matrix:
+    \[ 
+      \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 \\
+        2 & 3 & 4 & 5 & 6 \\
+        3 & 4 & 5 & 6 & 7 \\
+        4 & 5 & 6 & 7 & 8
+      \end{pmatrix}
+    \]
+
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}\itemsep0pt
+      \item Erste Zeile mal $2$.
+      \item Zweite Zeile $-$ erste Zeile.
+      \item Erste Zeile dividiert durch 2.
+      \item Erste Zeile mal 3.
+      \item Dritte Zeile $-$ erste Zeile.
+      \item Erste Zeile dividiert durch 3.
+      \item Erste Zeile mal 4.
+      \item Vierte Zeile $-$ erste Zeile.
+      \item Zweite Zeile mal -1.
+      \item Zweite Zeile mal -2.
+      \item Dritte Zeile $-$ zweite Zeile.
+      \item Zweite Zeile dividiert durch -2.
+      \item Zweite Zeile mal -3.
+      \item Vierte Zeile - zweite Zeile.
+      \item Zweite Zeile mal -1.
+    \end{enumerate}
+    \[
+      \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5\\
+        0 & 1 & 2 & 3 & 4\\
+        0 & 0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 & 0
+      \end{pmatrix}
+    \]
+    Zwei linear unabhängige Zeilen, deshalb ist der Rang = 2.
+  \end{solution}
+
+
+% ERLEDIGT 556 
+  \problemnumber{556}
+  \begin{problem}
+    Bestimmen Sie die inverse Matrix $A^{-1}$.
+    \[ A =
+      \begin{pmatrix}
+        -1 & 3 & 2 \\
+        -2 & 4 & 6 \\
+        1 & -2 & 2
+      \end{pmatrix}
+    \]
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{center}
+      \begin{tabular}{ccclccc|l}
+           & A  &    & $\quad$ &    & E   &    & Umformungen          \\ \hline
+        -1 & 3  & 2  &          & 1  & 0   & 0  & $Z_1 = Z_1 + Z_3$   \\
+        -2 & 4  & 6  &          & 0  & 1   & 0  & $Z_2 = Z_2 + 2\cdot Z_3$  \\
+        1  & -2 & 2  &          & 0  & 0   & 1  & $Z_3 = Z_3 - Z_1$   \\ \hline
+        0  & 1  & 4  &          & 1  & 0   & 1  & $Z_1 = 5\cdot Z_1 - 2\cdot Z_2$ \\
+        0  & 0  & 10 &          & 0  & 1   & 2  &             \\
+        1  & -2 & 2  &          & 0  & 0   & 1  & $Z_3 = Z_3 + 2\cdot Z_1$  \\ \hline
+        0  & 5  & 0  &          & 5  & -2  & 1  & $Z_1 = 2\cdot Z_1$           \\
+        0  & 0  & 10 &          & 0  & 1   & 2  &             \\
+        1  & 0  & 10 &          & 2  & 0   & 3  & $Z_3 = (Z_3 - Z_2)\cdot 10$            \\ \hline
+        0  & 10 & 0  &          & 10 & -4  & 2  & tausche $Z_1$ mit $Z_2$       \\
+        0  & 0  & 10 &          & 0  & 1   & 2  & tausche $Z_2$ mit $Z_3$      \\
+        10 & 0  & 0  &          & 20 & -10 & 10 & tausche $Z_3$ mit $Z_1$           \\ \hline
+        10 & 0  & 0  &          & 20 & -10 & 10 &             \\
+        0  & 10 & 0  &          & 10 & -4  & 2  &             \\
+        0  & 0  & 10 &          & 0  & 1   & 2  &            
+      \end{tabular}
+    \end{center}
+\vspace*{0.5cm}
+    \[ 
+      A^{-1} = \frac{1}{10}\cdot
+      \begin{pmatrix}
+        20 & -10 & 10 \\
+        10 & -4 & 2 \\
+        0 & 1 & 2
+      \end{pmatrix}
+      = 
+      \begin{pmatrix}
+        2 & -1 & 1 \\
+        1 & -0.4 & 0.2 \\
+        0 & 0.1 & 0.2
+      \end{pmatrix}
+    \]
+  \end{solution}
+
+
+\end{document}

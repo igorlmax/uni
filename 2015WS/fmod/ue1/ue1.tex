@@ -1,0 +1,166 @@
+\documentclass[a4paper, margins=3cm]{homework}
+
+\name{Tobias Eidelpes}
+\course{Formale Modellierung}
+\term{2015WS}
+\hwnum{1}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+
+\subsection*{Lösung Aufgabe 1} 
+	(a) \\
+	\begin{center}
+		Alle x sind y. \\
+		Manche z sind x. \\
+		Manche z sind y. \\
+		Gültig!
+	\end{center}
+	Alle rationalen Zahlen sind als Bruch darstellbar. \\
+	Manche reelle Zahlen sind rationale Zahlen. \\
+	Manche reelle Zahlen sind als Bruch darstellbar. \\
+	(b) \\
+	\begin{center}
+		Kein x ist ein y. \\
+		Alle z sind x. \\
+		Kein z ist ein y. \\
+		Gültig!
+	\end{center}
+	Kein Parallelogram ist ein Kreis. \\
+	Alle Rauten sind Parallelogramme. \\
+	Keine Raute ist ein Kreis. \\
+	(c) \\
+	\begin{center}
+		Alle x machen y. \\
+		Kein z ist ein x. \\
+		Kein z macht y. \\
+		Gültig!
+	\end{center}
+	Alle Katzen haben ein Fell. \\
+	Kein Mensch ist eine Katze. \\
+	Kein Mensch hat ein Fell.
+
+
+\subsection*{Lösung Aufgabe 2}
+	(a)
+	\begin{center}
+		Die Erdbeeren sind süß.\\
+		x = Die Erdbeeren\\
+		y = sind süß \\
+		$x = y$
+	\end{center}
+	\newpage
+	(b)
+	\begin{center}
+		Ich gehe ins Kino oder ich bleibe daheim. \\
+		x = Gehe ins Kino \\
+		y = bleibe daheim \\
+		$x \vee y$
+	\end{center}
+	(c)
+	\begin{center}
+		Wenn ich mich nicht beeile, werde ich die Vorlesung versäumen. \\
+		x = Ich beeile mich \\
+		y = ich versäume die Vorlesung \\
+		$\neg x \supset y$ 
+	\end{center}
+	(d)
+	\begin{center}
+		Nur wenn ich jetzt losfahre komme ich rechtzeitig zum Flughafen. \\
+		x = jetzt losfahre \\
+		y = komme rechtzeitig \\
+		$x \supset y$
+	\end{center}
+	(e)
+	\begin{center}
+		Entweder fahre ich im Juli oder im August auf Urlaub. Beides geht sich zeitlich nicht
+		aus. \\
+		x = fahre im Juli \\
+		y = fahre im August \\
+		$x \not\equiv y$
+	\end{center}
+	(f)
+	\begin{center}
+		Ich koche heute nicht, lasse mir jedoch eine Pizza liefern. \\
+		x = Ich koche heute \\
+		y = lass Pizza liefern \\
+		$\neg x \supset y$
+	\end{center}
+	(g)
+	\begin{center}
+		Wenn der Bus nicht rechtzeitig kommt, so werde ich nicht pünktlich sein. \\
+		x = Bus kommt rechtzeitig \\
+		y = ich bin pünktlich \\
+		$\neg x \supset \neg y$
+	\end{center}
+	(h)
+	\begin{center}
+		Ich putze nur dann die Fenster, wenn es nicht regnet. \\
+		x = Putze die Fenster \\
+		y = es regnet \\
+		$x \supset \neg y$
+	\end{center}
+
+\newpage
+
+\subsection*{Lösung Aufgabe 5}
+(a)
+$A, B \text{ und } C$ sind Formeln. \\
+$A \wedge B$ ist eine Formel. \\
+Wenn $A\wedge B$ und $C$ Formeln sind, so ist auch $(A\wedge B) \supset C$ eine Formel.\\
+$B \supset C$ ist eine Formel. \\
+$A \supset (B \supset C)$ ebenfalls. \\
+$(((A \wedge B) \supset C) \equiv (A \supset (B \supset C)))$ ist eine Formel. \\
+
+(b) \\
+$I(A) = 0,\quad I(B)=1,\quad I(C)=1$ \\
+$A \wedge B\quad 0$ \\
+$0 \supset C \quad 1$ \\
+$B \supset C \quad 1$ \\
+$A \supset 1 \quad 1$ \\
+$1 \equiv 1 \quad 1$ \\
+$val_I(F)=1$ \\
+
+(c)
+\begin{center}
+	\begin{tabular}{ccc|ccccc|c|ccccc}
+	A & B & C & ((A & $\wedge$ & B) & $\supset$ & C) & $\equiv$ & (A & $\supset$ & (B & $\supset$ & C)) \\ \hline
+	1 & 1 & 1 & 1   & 1        & 1  & 1         & 1  & 1        & 1  & 1         & 1  & 1         & 1   \\
+	1 & 1 & 0 & 1   & 1        & 1  & 0         & 0  & 1        & 1  & 0         & 1  & 0         & 0   \\
+	1 & 0 & 1 & 1   & 0        & 0  & 1         & 1  & 1        & 1  & 1         & 0  & 1         & 1   \\
+	1 & 0 & 0 & 1   & 0        & 0  & 1         & 0  & 1        & 1  & 1         & 0  & 1         & 0   \\
+	0 & 1 & 1 & 0   & 0        & 1  & 1         & 1  & 1        & 0  & 1         & 1  & 1         & 1   \\
+	0 & 1 & 0 & 0   & 0        & 1  & 1         & 0  & 1        & 0  & 1         & 1  & 0         & 0   \\
+	0 & 0 & 1 & 0   & 1        & 0  & 1         & 1  & 1        & 0  & 1         & 0  & 1         & 1   \\
+	0 & 0 & 0 & 0   & 1        & 0  & 0         & 0  & 1        & 0  & 1         & 0  & 1         & 0  
+	\end{tabular}
+	$val_I(F)=1 \text{ für alle } I$
+	$\Rightarrow$ $F$ ist gültig und erfüllbar (Tautologie)
+\end{center}
+
+\subsection*{Lösung Aufgabe 8}
+(a)
+\begin{center}
+	DNF: $A\wedge B \wedge \neg C$ \\
+	KNF: $(\neg A \vee \neg B \vee \neg C) \wedge (A\vee \neg B \vee C)\wedge (A\vee \neg B\vee \neg C)$\\
+
+	DNF: $(\neg A \wedge B \wedge C) \vee (\neg A \wedge B \wedge \neg C) \vee (\neg A \wedge \neg B \wedge \neg C)$ \\
+	KNF: $\neg A \vee \neg B \vee C$
+\end{center}
+
+\subsection*{Lösung Aufgabe 10}
+(a)
+\begin{center}
+	$F$ \\ 
+	$A \not\equiv B$ \\
+	$(B \vee E) \supset \neg W$ \\
+	$A \vee B$ \\
+	$A \supset (B \wedge F)$
+\end{center}
+(b)
+Die Zutaten sind $B$, $E$ und $F$. $F$, damit der Trank dickflüssig wird, nach Aussage
+Nummer 4 kommt $E$ dazu, $A$ kommt jedoch durch Aussage 1 nicht hinein, dafür aber $B$
+nach Aussage 2.
+\end{document}

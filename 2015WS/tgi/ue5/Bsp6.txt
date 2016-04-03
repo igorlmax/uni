@@ -1,0 +1,15 @@
+R1 <- lsh(1+1)                    #schreibe 4 in R1
+R1 <- lsh(R1+R1)                  #verdopple R1 und schiebe nach links (16)
+MAR <- R1; rd                     #schreibe 16 in MAR; set MS=1 und RD/WR=1
+rd                                #schreibe Wert an ADDR 16 in MBR
+R2 <- MBR                         #kopiere Wert an MBR in R2
+R3 <- lsh(1+1)                    #konstruiere 5 für mod5()
+R3 <- R3+1
+R3 <- ~R3                         #wandle in negative Zahl um
+R3 <- R3+1                        #für Subtraktion durch Addition
+:loop
+    R4 <- R2                      #schreibe R2 in R4
+    R2 <- R2+R3; if N goto .end   #subtrahiere R3 von R2 und schreibe in R2
+    goto .loop                    #wiederhole solange, bis R2 negativ
+:end
+    R1 <- R4                      #schreibe Rest in R1

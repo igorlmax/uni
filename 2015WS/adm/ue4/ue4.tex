@@ -1,0 +1,110 @@
+\documentclass[a4paper, 12pt, margins=3cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\name{Tobias Eidelpes}
+\course{Algebra und Diskrete Mathematik}
+\term{2015WS}
+\hwnum{4}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+  \begin{center}
+    \textsc{Beispiele 138, 142, 155}
+  \end{center}
+
+  \problemnumber{138}
+  \begin{problem}
+    Seien $f:A\rightarrow B$ und $g:B\rightarrow C$ Abbildungen. Zeigen Sie, dass
+    aus der Surjektivität von $g\circ f$ die Surjektivität von $g$ und aus der
+    Injektivität von $g\circ f$ die Injektivität von $f$ folgt.
+  \end{problem}
+  \begin{solution}
+    Aus der Surjektivität von $g\circ f$ folgt, dass es für jedes $c\in C$ ein 
+    $a\in A$ geben muss, für das gilt: $(g\circ f)(a) = g(f(a)) = c$. $f(a)$ wird
+    mit b substituiert und es gilt: $g(b) = c$. Damit $g\circ f$ surjektiv sein
+    kann, muss $g$ surjektiv sein, damit jedem $c\in C$ ein $b\in B$ zugeordnet
+    wird. $f$ muss aber auch surjektiv sein, da sonst $b$ nicht jedes Element
+    aus $B$ sein kann. \\
+
+    Aus der Injektivität von $g\circ f$ folgt
+    \[ (g\circ f)(a) = g(f(a)) = g(f(b)) = (g\circ f)(b)\Rightarrow a = b \]
+    Für $f(a)$ setzen wir $m$ ein und für $f(b)$ $n$. Daraus folgt:
+    \[ (a = b) \Longleftrightarrow f(a) = f(b) \Longleftrightarrow m = n \]
+    In die obige Formel für $f(a)$ $m$, für $f(b)$ $n$ und für $(a = b)$ $(m = n)$
+    eingesetzt:
+    \[ g(m) = g(n) \Rightarrow m = n \] 
+    Somit ist $g$ injektiv. Dadurch gilt:
+    \[ g(f(a)) = g(f(b)) \Rightarrow f(a) = f(b) \text{ außerdem}\]
+    \[ g(f(a)) = g(f(b)) \Rightarrow a = b \]
+    Deshalb gilt auch
+    \[f(a) = f(b) \Rightarrow a = b\]
+    was wiederum aussagt, dass $f$ ebenfalls injektiv ist.
+  \end{solution}
+
+  \problemnumber{142}
+  \begin{problem}
+    Man zeige, dass die Funktion $f: \R \backslash  \{6\} \rightarrow \R \backslash  \{-10\}$,
+    $y = \frac{10x+1}{6-x}$ bijektiv ist und bestimme ihre Umkehrfunktion.
+  \end{problem}
+  \begin{solution}
+    \begin{align*}
+      y &= \frac{10x+1}{6-x} \\
+      y\cdot (6-x) &= 10x+1 \\
+      6y - xy &= 10x+1 \\
+      6y-1 &= 10x+xy \\
+      6y-1 &= x\cdot (10+y) \\
+      x &= \frac{6y-1}{10+y}
+    \end{align*}
+    Umkehrfunktion: $f^{-1}(x)=\frac{6x-1}{10+x}$ \\
+
+    Injektivität wird dadurch überprüft, dass zwei idente Funktionswerte den 
+    gleichen Ausgangswert besitzen. \\
+    $f(x_1) = f(x_2) \Longrightarrow x_1 = x_2$
+    \begin{align*}
+      \frac{10x_1+1}{6-x_1} &= \frac{10x_2+1}{6-x_2} \\
+      (10x_1+1) \cdot (6-x_2) &= (10x_2+1) \cdot (6-x_1) \\
+      60x_1 - 10x_1x_2+6-x_2 &= 60x_2-10x_1x_2+6-x_1 \\
+      60x_1-x_2 &= 60x_2-x_1 \\
+      61x_1 &= 61x_2 \\
+      x_1 &= x_2
+    \end{align*}
+
+    Surjektivität wird dadurch überprüft, dass die Funktion für jeden Funktionswert
+    mindestens einen Ausgangswert haben muss.\\
+
+    \[ f^{-1} = \frac{6x-1}{10+x} \in \R \backslash \{-10\} \quad \text{\checkmark} \]
+  \end{solution}
+  
+  \problemnumber{155}
+  \begin{problem}
+      Wieviele \glqq Wörter\grqq\ der Länge 28 gibt es, bei denen genau 5-mal
+      der Buchstabe \texttt{a}, 14-mal \texttt{b}, 5-mal \texttt{c}, 3-mal \texttt{d}
+      vorkommen und genau einmal \texttt{e} vorkommt?
+  \end{problem}
+  \begin{solution}
+    \[ 
+      \frac{(k_1+k_2+...+k_n)!}{k_1! \cdot k_2! \cdot ... \cdot k_n!} = 
+      \frac{(5+14+5+3+1)!}{5!\cdot 14! \cdot 5! \cdot 3! \cdot 1!}
+      \approx 4.048\cdot 10^{13}
+    \]
+  \end{solution}
+\end{document}

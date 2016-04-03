@@ -1,0 +1,122 @@
+\documentclass[a4paper, 12pt, margins=3cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes}
+\course{Algebra und Diskrete Mathematik}
+\term{2015WS}
+\hwnum{8}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+
+
+  \begin{center}
+    \textsc{Beispiele 207, 232, 331}
+  \end{center}
+
+
+% 207 ERLEDIGT
+  \problemnumber{207}
+  \begin{problem}
+    Wie viele Möglichkeiten gibt es, $2n$ Punkte auf einer Geraden so oberhalb der
+    Geraden paarweise zu verbinden, dass sich die Verbindungslinien nicht kreuzen?
+  \end{problem}
+  \begin{solution}
+    Dieses Problem kann mithilfe der Catalan-Zahlen gelöst werden:
+    \[ C_n = \frac{1}{n+1}\cdot \binom{2n}{n} \]
+    wobei $n$ die Anzahl der Punktpaare ist und $C_n$ folglich alle Kombinationen
+    diese Paare miteinander zu verbinden, ohne dass Überschneidungen stattfinden,
+    darstellt. Das ganze als Rekursionsformel:
+    \[ C_{n} = \sum_{k=1}^{n}{C_{k-1}C_{n-k}} \] 
+  \end{solution}
+
+
+% 232 AUSSTÄNDIG
+  \problemnumber{232}
+  \begin{problem}
+    Lösen Sie die Rekursion mit der Ansatzmethode:
+    \[ a_n = 3a_{n-1} + 3^{n-1}\qquad (n\geq 1), a_0 = 2 \]
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+% 331 AUSSTÄNDIG
+  \problemnumber{331}
+  \begin{problem}
+    Gegeben seien die folgenden zweistelligen partiellen Operationen $\bullet$ in
+    der Menge $M$. Man untersuche, in welchem Fall eine Operation in $M$ vorliegt.
+    Welche der Operationen sind assoziativ, welche kommutativ?
+    \begin{parts}
+      \part \label{331.a} $ M = \{ -1, 0, 1 \},\, \bullet \text{ gewöhnliche Addition bzw. Multiplikation} $
+      \part \label{331.b} $ M = \N,\, a\bullet b = 2^{ab} $
+      \part \label{331.c} $ M = \Q,\, a\bullet b = ab + 1 $
+      \part \label{331.d} $ M = \R,\, a\bullet b = |a + b| $
+      \part \label{331.e} $ M \neq \emptyset,\, a\bullet b = a $
+    \end{parts}
+  \end{problem}
+  \begin{solution} \hfill
+
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item \hfill
+        \begin{description}\itemsep0pt
+          \item[Addition] Keine Operation in $M$, weil $1+1=2\notin M$ (nicht abgeschlossen, kommutativ, assoziativ)
+          \item[Multiplikation] Operation in $M$, weil alle Multiplikationen Elemente aus $M$ sind. (abgeschlossen, kommutativ, assoziativ)
+        \end{description}
+      \item
+      \item \hfill
+        \begin{description}\itemsep0pt
+          \item[Addition] Operation in $\Q$ \\
+                Assoziativ: nein
+                            \[ (a\bullet b)\bullet c = (ab+1)\bullet c = (ab+1) + c+1 = ab+c+2 \]
+                            \[ a\bullet (b\bullet c) = a\bullet (bc+1) = a + 1 + (bc+1) = a+bc+2 \]
+                            \[ \Longrightarrow \text{nicht gleich, daher nicht assoziativ} \]
+                Kommutativ: ja
+          \item[Multiplikation] Operation in $\Q$ \\
+                Assoziativ: nein
+                            \[ (a\bullet b)\bullet c = (ab+1)\bullet c = (ab+1)\cdot c+1 = abc + c + 1 \]
+                            \[ a\bullet (b\bullet c) = a\bullet (bc+1) = a\cdot (bc+1)+1 = abc + a + 1 \]
+                            \[ \Longrightarrow \text{nicht gleich, daher nicht assoziativ} \]
+                Kommutativ: ja
+        \end{description}
+      \item \hfill
+
+        abgeschlossen ja, kommutativ ja \\
+        assoziativ:
+        \[ (a\bullet b)\bullet c = ||a+b|+c| = ||4-3|-5| = 4 \]
+        \[ a\bullet (b\bullet c) = |a+|b+c|| = |4+|-3-5|| = 12 \]
+        \[ \Longrightarrow \text{nicht gleich, daher nicht assoziativ} \]
+
+      \item \hfill 
+
+        abgeschlossen ja, kommutativ nein, denn $a\bullet b = a$, aber $b\bullet a = b$
+        assoziativ:
+        \[ (a\bullet b)\bullet c = a\bullet c = a \]
+        \[ a\bullet (b\bullet c) = a\bullet b = a \]
+        \[ \Longrightarrow \text{gleich, daher assoziativ} \]
+    \end{enumerate}
+  \end{solution}
+
+
+\end{document}

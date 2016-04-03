@@ -1,0 +1,514 @@
+\documentclass[a4paper, margins=3cm, newpage]{homework}
+
+\usepackage{polynom}
+
+\polyset{%
+  style=C,
+  delims={\big(}{\big)},
+  div=:
+}
+
+\name{Tobias Eidelpes}
+\course{Technische Grundlagen der Informatik}
+\term{2015WS}
+\hwnum{1}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+
+\begin{problem}
+Gegeben sind die folgenden Dezimalzahlen:
+\begin{align*}
+	A &= (108.1625)_{10} \\
+	B &= (-25.40625)_{10}
+\end{align*}
+Wandeln Sie die Zahlen \(A\) und \(B\) direkt in die nachfolgend angegebenen Zahlensysteme um. Geben Sie das Ergebnis auf \emph{n} Nachkommastellen genau an. Runden Sie Ihr Ergebnis durch \emph{round to nearest} (Optimale Rundung) auf \emph{n} Nachkommastellen. Falls es zwei nächstliegende Zahlen gibt, verwenden Sie \emph{round to even}.
+Geben Sie Ihre Berechnungen sowie die verwendete Rundungsmethode an!
+\begin{parts}
+\part
+\label{1.a}
+Binärsystem, \(n=4\)
+\part
+\label{1.b}
+Hexadezimalsystem, \(n=2\)
+\part
+\label{1.c}
+Ternäres Zahlensystem, \(n=4\)
+\end{parts}
+\end{problem}
+
+\begin{solution}
+\ref{1.a} für \(A\) \\
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	108 \text{ mod } 2 \quad &0 \\
+	44 \text{ mod } 2 \quad &0 \\
+	27 \text{ mod } 2 \quad &1 \\
+	13 \text{ mod } 2 \quad &1 \\
+	6 \text{ mod } 2 \quad &0 \\
+	3 \text{ mod } 2 \quad &1 \\
+	1 \text{ mod } 2 \quad &1 \\
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	0.1625 \cdot 2 = 0.3250 \quad & 0 \\
+	0.3250 \cdot 2 = 0.65 \quad & 0 \\
+	0.65 \cdot 2 = 1.3 \quad & 1 \\
+	0.3 \cdot 2 = 0.6 \quad & 0 \\
+	0.6 \cdot 2 = 1.2 \quad & 1 \\
+	0.2 \cdot 2 = 0.4 \quad & 0 \\
+	0.4 \cdot 2 = 0.8 \quad & 0 \\
+	0.8 \cdot 2 = 1.6 \quad & 1 \\
+\end{align*}
+\end{minipage}
+
+\[(108.1625)_{10} = (1101100.0011)_2\]
+Rundungsmethode: \emph{round to nearest} \\
+
+\ref{1.a} für \(B\) \\
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	25 \text{ mod } 2 \quad &1 \\
+	12 \text{ mod } 2 \quad &0 \\
+	6 \text{ mod } 2 \quad &0 \\
+	3 \text{ mod } 2 \quad &1 \\
+	1 \text{ mod } 2 \quad &1 \\
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	0.40625 \cdot 2 = 0.8125 \quad & 0 \\
+	0.8125 \cdot 2 = 1.625 \quad & 1 \\
+	0.625 \cdot 2 = 1.25 \quad & 1 \\
+	0.25 \cdot 2 = 0.5 \quad & 0 \\
+	0.5 \cdot 2 = 1 \quad & 1 \\
+\end{align*}
+\end{minipage}
+
+\[(-25.40625)_{10} = (-11001.0110)_2\]
+Rundungsmethode: \emph{round to even} 
+
+\ref{1.b} für \(A\) \\
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	108 \text{ mod } 16 \quad &C \\
+	6 \text{ mod } 16 \quad &6 \\
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	0.1625 \cdot 16 = 2.6 \quad & 2 \\
+	0.6 \cdot 16 = 9.6 \quad & 9 \\
+	0.6 \cdot 16 = 9.6 \quad & 9
+\end{align*}
+\end{minipage}
+
+\[(108.1625)_{10} = (6C.2A)_{16}\]
+Rundungsmethode: \emph{round to nearest} \\
+
+\ref{1.b} für \(B\) \\
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	25 \text{ mod } 16 \quad &9 \\
+	1 \text{ mod } 16 \quad &1 
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	0.40625 \cdot 16 = 6.5 \quad & 6 \\
+	0.5 \cdot 16 = 8 \quad & 8 
+\end{align*}
+\end{minipage}
+
+\[(-25.40625)_{10} = (-19.68)_{16}\]
+Rundungsmethode: \emph{exakt}
+
+\ref{1.c} für \(A\) \\
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	108 \text{ mod } 3 \quad &0 \\
+	36 \text{ mod } 3 \quad &0 \\ 
+	12 \text{ mod } 3 \quad &0 \\
+	4 \text{ mod } 3 \quad &1 \\
+	1 \text{ mod } 3 \quad &1
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	0.1625 \cdot 3 = 0.4875 \quad & 0 \\
+	0.4875 \cdot 3 = 1.4625 \quad & 1 \\ 
+	0.4625 \cdot 3 = 1.3875 \quad & 1 \\ 
+	0.3875 \cdot 3 = 1.1625 \quad & 1 \\ 
+	0.1625 \cdot 3 = 0.4875 \quad & 0
+\end{align*}
+\end{minipage}
+
+\[(108.1625)_{10} = (11000.0111)_3\]
+Rundungsmethode: \emph{round to nearest} \\
+
+\ref{1.c} für \(B\) \\
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	25 \text{ mod } 3 \quad &1 \\
+	8 \text{ mod } 3 \quad &2 \\ 
+	2 \text{ mod } 3 \quad &2 \\
+\end{align*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+	0.40625 \cdot 3 = 1.21875 \quad & 1 \\
+	0.21875 \cdot 3 = 0.65625 \quad & 0 \\ 
+	0.65625 \cdot 3 = 1.96875\quad & 1 \\ 
+	0.96875 \cdot 3 = 2.90625 \quad & 2 \\ 
+	0.90625 \cdot 3 = 2.71875 \quad & 2
+\end{align*}
+\end{minipage}
+
+\[(-25.40625)_{10} = (-221.1020)_3\]
+Rundungsmethode: \emph{round to nearest}
+
+\end{solution}
+
+\begin{problem}
+Führen Sie die folgenden Umwandlungen \emph{ohne} Umweg über das Dezimalsystem durch!
+\begin{parts}
+\part
+\label{2.a}
+Wandeln Sie die Hexadezimalzahl \((67.EC)_{16}\) in eine Binärzahl um.
+\part
+\label{2.b}
+Wandeln Sie die Binärzahl \((1101100.11101)_2\) in eine Quarterärzahl um.
+\part
+\label{2.c}
+Wandeln Sie die Zahl \((824.75)_9\) in eine ternäre Zahl um.
+\end{parts}
+\end{problem}
+
+\begin{solution}
+\ref{2.a}
+\begin{align*}
+	&6& &7& &.& &E& &C& \\
+	&0110& &0111& &.& &1110& &1100&
+\end{align*}
+\[(01100111.11101100)_2 = (67.EC)_{16}\] \\
+
+\ref{2.b}
+\begin{align*}
+	&01& &10& &11& &00& &.& &11& &10& &10& &00& \\
+	&1& &2& &3& &0& &.& &3& &2& &2& &0&
+\end{align*}
+\[(1101100.11101)_2 = (1230.322)_{4}\] \\
+
+\ref{2.c}
+\begin{align*}
+	&8& &2& &4& &.& &7& &5& \\
+	&22& &02& &11& &.& &21& &12&
+\end{align*}
+\[(824.75)_9 = (220211.2112)_3\]
+
+\end{solution}
+
+\begin{problem}
+Es sind die folgenden Binärzahlen gegeben:
+\begin{align*}
+	A &= (10011.01)_2 \\
+	B &= (1110.11)_2 \\
+	C &= (100)_2 \\
+	D &= (-101.1)_2
+\end{align*}
+Führen Sie mit diesen Zahlen die folgenden arithmetischen Operationen binär(!) durch. Berechnen Sie die Ergebnisse exakt und geben Sie Ihren Rechenweg an!
+\begin{parts}
+\part
+\label{3.a}
+Addition: \(A + B\)
+\part
+\label{3.b}
+Subtraktion: \(A - B\)
+\part
+\label{3.c}
+Division: \(B\div C\)
+\end{parts}
+\end{problem}
+
+\begin{solution}
+\ref{3.a}
+\begin{center}
+\begin{tabular*}{0.17\textwidth}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}}
+	 & &  & 1 & 0 & 0 & 1 & 1 & . & 0 & 1 \\
+	+& & &   & 1 & 1 & 1 & 0 & . & 1 & 1 \\
+	\hline
+	& & 1 & 0 & 0 & 0 & 1 & 0 & . & 0 & 0 \\
+\end{tabular*}
+\end{center}
+\[A+B = (100010)_2\]
+ 
+\ref{3.b}
+\begin{center}
+\begin{tabular*}{0.17\textwidth}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}}
+	 & &  & 1 & 0 & 0 & 1 & 1 & . & 0 & 1 \\
+	-& & &   & 1 & 1 & 1 & 0 & . & 1 & 1 \\
+	\hline
+	& &  & 0 & 0 & 1 & 0 & 0 & . & 1 & 0 \\
+\end{tabular*}
+\end{center}
+\[A-B = (100.1)_2\]
+
+\ref{3.c}
+\begin{center}
+\begin{tabular}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}}
+	  & 1 & 1 & 1 & 0. & 1 & 1 & $\div$ & 1 & 0 & 0 & = & 1 & 1 & . & 1 & 0 & 1 & 1 \\
+	- & 1 & 0 & 0 &&&&&&&&&&&&&&&& \\
+	\hline
+	  & 0 & 1 & 1 & 0&&&&&&&&&&&&&& \\
+	- &   & 1 & 0 & 0&&&&&&&&&&&&&& \\
+	\hline
+	  &   & 0 & 1 & 0& 1 &&&&&&&&&&&&& \\
+	- &   & 0 & 1 & 0 & 0 &  &&&&&&&&&&&&& \\
+	\hline
+	  &   &   & 0 & 0 & 1 & 1 &&&&&&&&&&&&& \\
+	- &   &   & 0 & 0 & 0 & 0 &&&&&&&&&&&&& \\
+	\hline
+	  &   &   &   &   & 1 & 1 & 0 &&&&&&&&&&&& \\
+	- &   &   &   &   & 1 & 0 & 0 &&&&&&&&&&&& \\
+	\hline 
+	  &   &   &   &   & 0 & 1 & 0 & 0 &&&&&&&&&&& \\
+	- &   &   &   &   &   & 1 & 0 & 0 &&&&&&&&&&& \\
+	\hline
+	 &   &   &   &   &  &  &  & 0 &&&&&&&&&&&
+\end{tabular}
+\end{center}
+\[A\div B = (11.1011)_2\]
+
+\end{solution}
+
+\begin{problem}
+Es sind folgende Zahlen gegeben:
+\begin{align*}
+	A &= (2A3)_{16} \\
+	B &= (-102)_4 \\
+	C &= (0)_2
+\end{align*}
+Geben Sie die Zahlen \(A\), \(B\) und \(C\) als 12 Bit lange Maschinenwörter in den nachfolgenden Zahlendarstellungen
+jeweils in binärer – z.B. 010 1110 0111 – und in hexadezimaler – z.B. $2E7$ – \underline{Notation} an. Falls es in einer
+Zahlendarstellung für dieselbe Zahl unterschiedliche Darstellungen gibt, geben Sie alle an!
+\begin{parts}
+\part
+\label{4.a}
+Vorzeichen und Betrag
+\part
+\label{4.b}
+Einerkomplementdarstellung
+\part
+\label{4.c}
+Zweierkomplementdarstellung
+\part
+\label{4.d}
+Exzessdarstellung (Exzess \(= 2^7 - 1\))
+\end{parts}
+\end{problem}
+
+\begin{solution}
+\ref{4.a} für \(A\) \\
+\[(2A3)_{16} = (0010\;1010\;0011)_2\]
+\begin{center}
+Vorzeichen und Betrag: \(0 \;|\; 010\;1010\;0011 = (2A3)_{16}\)
+\end{center}
+
+\ref{4.a} für \(B\) \\
+\[(-102)_4 = (-0000\;0001\;0010)_2 = (-012)_{16}\]
+\begin{center}
+Vorzeichen und Betrag: \(1 \;|\; 000\;0001\;0010 = (812)_{16}\) 
+\end{center}
+
+\ref{4.a} für \(C\) \\
+\[(0)_2 = (0)_{16}\]
+\begin{align*}
+	\text{Vorzeichen und Betrag: } &0 \;|\; 000\;000\;000 = (0)_{16} \text{ und} \\
+								  &1 \;|\; 000\;000\;000 = (800)_{16} \\
+\end{align*}
+
+\ref{4.b} für \(A\) \\
+\[(2A3)_{16} = (0010\;1010\;0011)_2\]
+\begin{center}
+	Einerkomplement: \((0010\;1010\;0011)_2 = (2A3)_{16}\)
+\end{center}
+
+\ref{4.b} für \(B\) \\
+\[(-102)_4 = (-0000\;0001\;0010)_2 = (-012)_{16}\]
+\begin{center}
+	Einerkomplement: \((1111\;1110\;1101)_2 = (7ED)_{16}\)
+\end{center}
+
+\ref{4.b} für \(C\) \\
+\[(0)_2 = (0)_{16}\]
+\begin{align*}
+	\text{Einerkomplement: } & (0000\;0000\;0000)_2 = (0)_{16} \text{ und} \\
+							 & (1111\;1111\;1111)_2 = (FFF)_{16}
+\end{align*}
+
+\ref{4.c} für \(A\) \\
+\[(2A3)_{16} = (0010\;1010\;0011)_2\]
+\begin{center}
+	Zweierkomplement: \((0010\;1010\;0011)_2 = (2A3)_{16}\)
+\end{center}
+
+\ref{4.c} für \(B\) \\
+\[(-102)_4 = (-0000\;0001\;0010)_2 = (-012)_{16}\]
+\begin{center}
+	Zweierkomplement: \((1111\;1110\;1110)_2 = (FEE)_{16}\)
+\end{center}
+
+\ref{4.c} für \(C\) \\
+\[(0)_2 = (0)_{16}\]
+\begin{center}
+	Zweierkomplement: \((0000\;0000\;0000)_2 = (0)_{16}\)
+\end{center}
+
+\ref{4.d} für \(A\) \\
+\[(2A3)_{16} = (0010\;1010\;0011)_2\]
+\begin{center}
+	Exzessdarstellung mit Exzess \(= 2^7 -1\): 
+	\begin{tabular}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}}
+		& 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\
+	+	& 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+	\hline
+		& 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0
+	\end{tabular}
+	\[(0011\;0010\;0010)_2 = (322)_{16}\]
+\end{center}
+
+\ref{4.d} für \(B\)
+\[(-102)_4 = (-0000\;0001\;0010)_2 = (-012)_{16}\]
+\begin{center}
+	Exzessdarstellung mit Exzess \(= 2^7 -1\): 
+	\begin{tabular}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}}
+	-	& 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 \\
+	+	& 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+	\hline
+		& 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1
+	\end{tabular} \\
+	(ist dasselbe wie Exzess weniger \(B\))
+\end{center}
+\[(0000\;0110\:1101) = (06D)_{16}\]
+
+\ref{4.d} für \(C\)
+\[(0)_2 = (0)_{16}\]
+\begin{center}
+	Exzessdarstellung mit Exzess \(= 2^7 -1\): 
+	\begin{tabular}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}}
+		& 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+	+	& 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+	\hline
+		& 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+	\end{tabular} \\
+\end{center}
+\[(0000\;0111\;1111)_2 = (07F)_{16}\]
+\end{solution}
+
+\begin{problem}
+	Folgende Bitmuster sind gegeben: \(Z_1 = (00001100)_2\) und \(Z_2 = (10011011)_2\).
+	Interpretieren Sie $Z_1$ und $Z_2$ als Binärzahlen, die beide jeweils in einer der nachfolgend angegebenen Darstellungen $a)$ bis $c)$ codiert sind. Führen Sie damit die Berechnung $-(Z_1 + Z_2)$
+	mit einer Maschinenwortlänge von 8 Bit binär durch und geben Sie Zwischenschritte an. Geben Sie das Ergebnis der Berechnung auch als decodierte Dezimalzahl an! 
+	\begin{parts}
+		\part
+		\label{5.a}
+		Darstellung durch Vorzeichen und Betrag
+		\part
+		\label{5.b}
+		Zweierkomplementdarstellung
+		\part
+		\label{5.c}
+		Exzessdarstellung mit Exzess = $(10000001)_2$
+	\end{parts}
+\end{problem}
+\begin{solution}
+	\ref{5.a}
+	\[ Z_1 = (0\,|\, 0001100)_2 = (+12)_{10} \]
+	\[ Z_2 = (1\,|\, 0011011)_2 = (-27)_{10} \]
+	\begin{center}
+		$(Z_1 + Z_2) = $
+		\begin{tabular}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}}
+		  & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 \\
+		- & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 \\ \hline
+		  & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1
+		\end{tabular}
+	\end{center}
+	\[-(Z_1+Z_2) = (-0000\;1111)_2 = (1\;|\; 0001111)_2\]
+
+	\ref{5.b}
+	\[Z_1 = (1111\;0100)_2 = (-244)_{10}\]
+	\[Z_2 = (0110\;0101)_2 = (101)_{10}\]
+	\begin{center}
+		\((Z_1+Z_2 = )\)
+		\begin{tabular}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}}
+		  & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 \\
+		+ & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 1 \\ \hline
+		  & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 1
+		\end{tabular}
+	\end{center}
+	\[-(Z_1 + Z_2) = (0101\;1001)_2\]
+
+	\ref{5.c}
+	\[Z_1 = (00001100)_2 - (01111111)_2 = (-01110011)_2 = (-115)_{10}\]
+	\[Z_2 = (10001101)_2 - (01111111)_2 = (00001110)_2 = (14)_{10}\]
+	\begin{center}
+		\((Z_1+Z_2)=\)
+		\begin{tabular}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}}
+		  & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 \\
+		+ & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 1 \\ \hline
+		  & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 1
+		\end{tabular}
+	\end{center}
+	\[-(Z_1+Z_2)= (0010\;1000)_2\]
+\end{solution}
+
+\begin{problem}
+	Wandeln Sie die Zahl $(1.6875)_{10}$ in eine Binärzahl mit 3 Nachkommastellen
+	um - alle weiteren Nachkommastellen werden abgeschnitten.
+	\begin{parts}
+		\part
+		\label{6.a}
+		Berechnen Sie den absoluten sowie den relativen Rundungsfehler, der bei der Umrechnung
+		ins Binärsystem entstanden ist.
+		\part
+		\label{6.b}
+		Durch die Rundungsmethode werden alle reellen Zahlen aus einem Intervall $[a,b[\; \in \mathbb{R}$ auf dieselbe Binärzahl abgebildet. Geben Sie die dezimalen Werte $a,b$ für das Intervall an, in dem $(1.6875)_{10}$ liegt!
+	\end{parts}
+\end{problem}
+\begin{solution}
+	\ref{6.a}
+	\[(1.6875)_{10} = (1.1011)_2 \approx (1.101)_2 = (1.625)_{10}\]
+	\begin{align*}
+		\text{relativer Fehler: }& 1-(1.625\div 1.6875) \approx 0.037 \approx 3.7\% \\
+		\text{absoluter Fehler: }& 1.6875-1.6250 = 0.0625
+	\end{align*}
+
+	\ref{6.b}
+	\[ [1.6250, 1.7499] \]
+\end{solution}
+
+\begin{problem}
+	Stellen Sie die nachfolgenden Zahlen $A$ und $B$ im \emph{Single Precision}-Format
+	(mit implizitem ersten Bit) der IEEE 754 Gleitpunkt-Zahlensysteme dar.
+	\[ A=(0.D266)_{16} \]
+	\[ B=(-310.11)_{4} \]
+\end{problem}
+
+\begin{solution}
+	\[(0.D266)_{16} = (0.1101\;0010\;0110\;0110)_2\]
+	\[\text{Normalisierung: } (1.101\;0010\;0110\;0110)_2 \cdot 2^{-1}\]
+	\[ \text{Exponent: } (01111111) - (00000001) = (01111110) \]
+	\[ \text{Vorzeichen: } (0)_2 \]
+	\[ 0\;|\; 01111110\;|\; 11010010011001100000000 \]
+
+	\[(-310.11)_4 = (-110100.0101)_2\]
+	\[ \text{Normalisierung: } (1.101000101)_2 \cdot 2^5 \]
+	\[ \text{Exponent: } (01111111) + (00000101) = (10000100) \]
+	\[ \text{Vorzeichen: } (1)_2 \]
+	\[ 1\;|\; 10000100\;|\; 11010001010000000000000 \]
+\end{solution}
+
+\end{document}

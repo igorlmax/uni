@@ -1,0 +1,46 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{fmodue}[2012/03/17 v0.5 FMod Uebungen]
+
+\usepackage{amsmath,amssymb}
+
+\newtheorem{ex}{Aufgabe}
+\newenvironment{exercise}[1]%
+   {\def\tmp{}%
+    \def\points{#1}%
+    \ifx\points\tmp
+      \begin{ex}
+    \else
+      \def\tmp{1}%
+      \begin{ex}[#1 Punkt\ifx\points\tmp\else e\fi]
+    \fi
+    \normalfont
+   }%
+   {\end{ex}%
+   }
+
+\usepackage{enumerate}
+\newenvironment{subexercises}%
+   {\begin{enumerate}[(a)]}%
+   {\end{enumerate}}
+\newenvironment{subsubexercises}%
+   {\begin{enumerate}[(1)]}%
+   {\end{enumerate}}
+
+\newenvironment{solution}%
+   {\subsection*{L\"osung}}%
+   {\relax}
+\let\subsolutions\subexercises
+\let\endsubsolutions\endsubexercises
+\let\subsubsolutions\subsubexercises
+\let\endsubsubsolutions\endsubsubexercises
+
+\DeclareOption{solution}%
+  {% Dirty hack, affects all theorem definitions
+   \def\@begintheorem#1#2{\section*{#1\ #2}}
+   \def\@opargbegintheorem#1#2#3{\section*{#1\ #2 {\normalsize(#3)}}}
+   \def\@endtheorem{\relax}
+  }
+\ProcessOptions
+
+\parindent0pt
+\parsep 6pt plus 2pt minus 2pt

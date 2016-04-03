@@ -1,0 +1,128 @@
+\documentclass[a4paper, 12pt, margins=3cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes\\Matrikelnr.: 1527193}
+\course{Algorithmen und Datenstrukturen 1\\}
+\term{2016SS}
+\hwnum{1}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+
+% ERLEDIGT
+  \problemnumber{1}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution} \hfill
+    \begin{enumerate}\itemsep0pt
+      \item W-B
+      \item W-B \\ X-C
+      \item W-B \\ X-C \\ Y-A
+      \item W-B \\ X-C \\ Z-A
+      \item W-B \\ X-C \\ Y-D \\ Z-A
+    \end{enumerate}
+  \end{solution}
+
+
+% ERLEDIGT
+  \problemnumber{2}
+  \begin{problem}
+   
+  \end{problem}
+  \begin{solution} \hfill
+    \begin{enumerate}\itemsep0pt
+      \item \[ 10^{12} \cdot 3.6\cdot 10^{3} = 3.6 \cdot 10^{15} \]
+            \[ 100\cdot n^2 = 3.6\cdot 10^{15} \Longleftrightarrow n = \sqrt{3.6\cdot 10^{13}} \]
+            \[ n = 6000000 \]
+
+      \item \[ 10000\cdot 2^n = 3.6\cdot 10^{15} \Longleftrightarrow n = \log_2(3.6\cdot 10^{11}) \]
+            \[ n \approx 38 \]
+
+      \item \[ 2^{2^n} = 3.6\cdot 10^{15} \]
+            \[ n = \log_2(\log_2(3.6\cdot 10^{15})) \]
+            \[ n \approx 5 \]
+    \end{enumerate}
+  \end{solution}
+
+
+% ERLEDIGT
+  \problemnumber{3}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}\itemsep0pt
+      \item Es gilt: \[ f(n) = O(g(n))\text{ woraus folgt, dass } g(n) = \Omega(f(n)) \]
+                     \[ g(n) = O(f(n))\text{ woraus folgt, dass } f(n) = \Omega(g(n)) \]
+
+            Weil nun $f(n) = O(g(n))$ und $f(n) = \Omega(g(n))$ gilt, folgt daraus, dass
+            $f(n) = \Theta(g(n))$ gilt. \\
+            Umgekehrt gilt dasselbe auch für $g(n)$.
+
+      \item $f(n) = g(n)$ gilt nicht, weil sich die beiden Funktionen um konstante
+            Faktoren unterscheiden können.
+    \end{enumerate}
+  \end{solution}
+
+
+% ERLEDIGT
+  \problemnumber{5}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{center}
+      \def\svgwidth{0.5\textwidth}\input{Aufgabe5.pdf_tex}
+    \end{center}
+  \end{solution}
+
+\newpage
+
+% ERLEDIGT
+  \problemnumber{7}
+  \begin{problem}
+
+  \end{problem}
+  \begin{solution}\hfill
+
+        Laufzeit: $O(n)$.
+        \[ r(n) = \frac{1}{3}(n^3-n) \]
+
+        \[ A(2/2),\quad B(3/8),\quad C(4/20),\quad (5/40) \]
+        Durch herumprobieren sieht man, dass das Wachstum größer als quadratisch
+        sein muss, deshalb sind vier Punkte vonnöten, um eine Gleichung dritten
+        Grades der Form $f(x)=ax^3+bx^2+cx+d$ aufstellen zu können. Daraus bilden
+        wir vier Gleichungen:
+        \[ I: 8a+4b+2c+d=2 \]
+        \[ II: 27a+9b+3c+d=8 \]
+        \[ III: 64a+16b+4c+d=20 \]
+        \[ IV: 125a+25b+5c+d=40 \]
+        Nach Anwenden des Gaußschen Eliminationsverfahrens erhalten wir für $a=\frac{1}{3}$,
+        für $b=0$, für $c=-\frac{1}{3}$ und für $d=0$. Daraus folgt:
+        \[ r(x) = \frac{1}{3}x^3 + 0x^2 - \frac{1}{3}x + 0 \]
+        \[ r(x) = \frac{1}{3}(x^3-x) \]
+
+  \end{solution}
+
+\end{document}

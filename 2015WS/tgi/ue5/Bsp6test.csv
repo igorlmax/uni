@@ -1,0 +1,28 @@
+################ Aufgabe 6
+
+# 37%5 = 2
+
+InputMemory,0x0010,100101
+
+Output,*,*,10
+
+
+
+# 26%5 = 1
+
+InputMemory,0x0010,11010
+
+Output,*,*,1
+
+
+
+# 119%5 = 4
+
+InputMemory,0x0010,1110111
+
+Output,*,*,100
+
+# 50%5 = 0
+
+InputMemory,0x0010,110010 
+Output,*,*,0

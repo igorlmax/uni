@@ -1,0 +1,218 @@
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{proof}
+
+\usepackage{rotating}
+\newcommand\sw[1]{\begin{sideways}\footnotesize\strut#1\end{sideways}}
+
+\usepackage{tikz}
+\usetikzlibrary{circuits.logic.US,circuits.logic.IEC,positioning}
+\usetikzlibrary{automata,arrows,chains,shapes.misc,scopes,petri}
+\tikzset{FAstyle/.style={shorten >=1pt,node distance=2cm,on grid,auto,
+    every state/.style={draw=blue!50,very thick,top color=white,bottom
+      color=blue!20,minimum size=0pt},>=stealth',thick,draw=black!50}}
+\tikzset{SDstyle/.style={%
+  nonterminal/.style={rectangle, minimum size=6mm, very thick,
+    draw=red!50!black!50, top color=white, bottom color=red!50!black!20,
+    font=\itshape},
+  terminal/.style={rounded rectangle, minimum size=6mm, very thick,
+    draw=blue!50, top color=white, bottom color=blue!20,
+    font=\ttfamily},
+  skip loop/.style={to path={-- ++(0,##1) -| (\tikztotarget)}},
+  point/.style={coordinate},>=stealth',thick,draw=black!50,
+  tip/.style={->,shorten >=1pt},every join/.style={rounded corners},
+  hv path/.style={to path={-| (\tikztotarget)}},
+  vh path/.style={to path={|- (\tikztotarget)}}}}
+\tikzset{PNstyle/.style={node distance=2.5cm,shorten >=1pt,>=stealth',thick,draw=black!50,bend angle=45,auto,
+  place/.style={circle,thick,draw=blue!75,fill=blue!20,minimum size=6mm},
+  transition/.style={rectangle,thick,draw=black!75, fill=black!20,
+     minimum size=6mm}}}
+\tikzset{PNstyle2/.style={node distance=2.5cm,shorten >=1pt,>=stealth',thick,draw=black!50,bend angle=45,auto,
+  place/.style={circle,thick,draw=blue!75,fill=blue!20,minimum size=6mm},
+  transition/.style={fill=black,minimum width=1mm,minimum height=3.5mm}}}
+
+\newcommand{\slice}[5]{
+  \pgfmathparse{0.5*#1+0.5*#2}
+  \let\midangle\pgfmathresult
+  % slice
+  \draw[thick,fill=#5!50] (0,0) -- (#1:1) arc (#1:#2:1) -- cycle;
+  % outer label
+  \node[label=\midangle:{\scriptsize#4}] at (\midangle:0.8) {};
+  % inner label
+  \pgfmathparse{min((#2-#1-10)/110*(-0.3),0)}
+  \let\temp\pgfmathresult
+  \pgfmathparse{max(\temp,-0.5) + 0.8}
+  \let\innerpos\pgfmathresult
+  \node at (\midangle:\innerpos) {\scriptsize #3};
+}
+\newcounter{a}
+\newcounter{b}
+\newcommand\piechart[2]{%
+   \begin{tikzpicture}[scale=#2]
+   \setcounter{a}{0}
+   \setcounter{b}{0}
+   \foreach \p/\t/\c in {#1}
+      {\setcounter{a}{\value{b}}
+       \addtocounter{b}{\p}
+       \slice{\thea/100*360}
+             {\theb/100*360}
+             {\p\%}{\t}{\c}
+      }
+   \end{tikzpicture}%
+   }
+
+\usepackage{gslist}
+\newcommand\sub[1]{[\@sub{#1}]}
+\newlist\@sub{\comp}{,\,}{;}{}{^}
+\newcommand\comp[1]{\@comp#1\@end}
+\newcommand\@comp{}
+\def\@comp#1<-#2\@end{#1\mapsto #2}
+
+% Boolsche Funktionen
+\newcommand\ftrue{\mathop{\mathsf{true}}}
+\newcommand\ffalse{\mathop{\mathsf{false}}}
+\newcommand\fid{\mathop{\mathsf{id}}}
+\newcommand\fzero{\mathop{\mathsf{zero}}}
+\newcommand\fone{\mathop{\mathsf{one}}}
+\newcommand\fnot{\mathop{\mathsf{not}}}
+\newcommand\fand{\mathrel{\mathsf{and}}}
+\newcommand\for{\mathrel{\mathsf{or}}}
+\newcommand\fxor{\mathrel{\mathsf{xor}}}
+\newcommand\fiff{\mathrel{\mathsf{iff}}}
+\newcommand\ffi{\mathrel{\mathsf{implies}}}
+\newcommand\fif{\mathrel{\mathsf{if}}}
+\newcommand\fnand{\mathrel{\mathsf{nand}}}
+\newcommand\fnor{\mathrel{\mathsf{nor}}}
+\let\fop\circledast
+% Symbole dafür
+\let\ltrue\top
+\let\lfalse\bot
+\let\lnot\neg
+\newcommand\lxor{\not\liff}
+\let\liff\equiv
+\let\lfi\supset
+\let\lif\subset
+\let\lnand\uparrow
+\let\lnor\downarrow
+\newcommand\lnfi{\not\supset}
+\newcommand\lnif{\not\subset}
+\let\lall\forall
+\let\lex\exists
+\let\lop\ast
+\let\Land\bigwedge
+\let\Lor\bigvee
+\newcommand\pnot{\raisebox{0.3ex}{\tiny$(\lnot)$}}
+\newcommand\ps[1]{\ifmmode\mbox{\textit{#1}}\else\textit{#1}\fi}
+\newcommand\fs{}\let\fs\ps
+\newcommand\av{}\let\av\ps
+\newcommand\Sig{}\let\Sig\Sigma
+\newcommand\PS{{\mathcal P}}
+\newcommand\FS{{\mathcal F}}
+\newcommand\VS{{\mathcal V}}
+\newcommand\TM{{\mathcal T}}
+
+\newcommand\AV{{\mathcal V}}
+\newcommand\AF{{\mathcal A}}
+\newcommand\I{I}
+\newcommand\INT{{\mathcal I}}
+\newcommand\val{\mathop{\mathsf{val}}\nolimits}
+\newcommand\vI{\val_\I}
+\newcommand\vIs{\val_{\I,\sigma}}
+\newcommand\vIss{\val_{\I,\sigma'}}
+\newcommand\vIsss{\val_{\I,\sigma''}}
+\newcommand\PF{{\mathcal{P\!F}}}
+\newcommand\xsim[1]{\stackrel{#1}\sim}
+
+\newcommand\M{{\mathcal M}}
+\newcommand\U{{\mathcal U}}
+\newcommand\ru[1]{\stackrel{#1}\Longrightarrow}
+
+\newcommand\BV[1]{\langle\mathit{#1}\rangle}
+\newcommand\BT[1]{\sy{"#1"}}
+\newcommand\BEQ{::=}
+\newcommand\GV[1]{\mathit{#1}}
+\let\GEQ\rightarrow
+\let\GTR\Rightarrow
+\newcommand\GTRs{\stackrel*\GTR}
+\let\GOR\mid
+\newcommand\GTRp{\GTR_p}
+
+\newcommand\set[1]{\{#1\}}
+\newcommand\pset[1]{2^{#1}}
+\newcommand\tup[1]{\langle #1\rangle}
+\newcommand\Set[2]{\{\,#1\mid#2\,\}}
+\newcommand\SET[2]{\{\,#1\mid\text{#2}\,\}}
+\newcommand\fnc{}
+\def\fnc#1:{#1\colon\fnctype}
+\newcommand\fnctype{}
+\def\fnctype#1-->{\cprod{#1}\mapsto}
+\newlist\cprod{}{\times}{x}{}{}
+
+\newcommand\card[1]{|#1|}
+
+\newcommand\BB{\mathbb B}
+\newcommand\GG{\mathbb G}
+\newcommand\NN{\mathbb N}
+\newcommand\ZZ{\mathbb Z}
+\newcommand\RR{\mathbb R}
+
+\let\OK\checkmark
+\usepackage{marvosym}
+\newcommand\KO{\mbox{\Lightning}}
+
+\newcommand\CNF{{\mathsf{KNF}}}
+\newcommand\DNF{{\mathsf{DNF}}}
+
+\newcommand\sy[1]{\ifmmode\mbox{\texttt{#1}}\else\texttt{#1}\fi}
+\newcommand\ew{}\let\ew\varepsilon
+\newcommand\Alf{}\let\Alf\Sigma
+\newcommand\Alfs{\Alf^*}
+\newcommand\Alfp{\Alf^+}
+\newcommand\Alfo{\Alf^\omega}
+\newcommand\OAlf{}\let\OAlf\Gamma
+\newcommand\OAlfs{\OAlf^*}
+\newcommand\OAlfp{\OAlf^p}
+\newcommand\T{T}
+\newcommand\tf{}\let\tf\delta % Uebergangsfunktion
+\newcommand\etf{\tf^*}        % erweiterte Uebergangsfunktion
+\newcommand\otf{}\let\otf\gamma % Ausgabefunktion
+\newcommand\eotf{\otf^*}
+\newcommand\EA{{\mathcal A}}
+\newcommand\Lang{{\mathcal L}}
+\newcommand\Lreg{\Lang_{\mathrm{reg}}}
+\newcommand\real{{\mathit{real}}}
+\newcommand\digit{{\mathit{digit}}}
+\newcommand\digits{{\mathit{digits}}}
+\newcommand\ScaleF{{\mathit{scale}}}
+\newcommand\lbr{}\chardef\lbr=`\{
+\newcommand\rbr{}\chardef\rbr=`\}
+\newcommand\bsl{}\chardef\bsl=`\\
+\newcommand\vbr{}\chardef\vbr=`\|
+\newcommand\dqu{}\chardef\dqu=`\"
+\newcommand\usc{}\chardef\usc=`\_
+\newcommand\cfl{}\chardef\cfl=`\^
+\newcommand\blank{\char`\ }
+
+\newcommand\acro[1]{\textsc{#1}}
+\newcommand\PDF{\acro{Pdf}}
+\newcommand\TUWEL{\acro{Tuwel}}
+\newcommand\EBNF{\acro{Ebnf}}
+\newcommand\UNIX{\acro{Unix}}
+\newcommand\PERL{\acro{Perl}}
+\newcommand\POSIX{\acro{Posix}}
+\newcommand\ERE{\acro{Ere}}
+\newcommand\HTML{\acro{Html}}
+
+\@ifclassloaded{beamer}%
+{%%% beamer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetheme{GSlv}%
+\title{3.0 VU Formale Modellierung}
+%\author[Gernot Salzer]{Gernot Salzer, salzer@logic.at}
+\author{Gernot Salzer}
+\institute{AB Theoretische Informatik und Logik\\
+           Institut für Computersprachen}
+}%%% beamer end %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{}
