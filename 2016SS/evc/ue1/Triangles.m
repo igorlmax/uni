@@ -35,9 +35,13 @@ P3 = [-(1+7) 1+2 -(1+5)]; % TODO: edit this
 % P2P3 is pointing from P2 to P3
 % P3P1 is pointing from P3 to P1
 
-P1P2 = [P2(1)-P1(1) P2(2)-P1(2) P2(3)-P1(3)]; % TODO: edit this
-P2P3 = [P3(1)-P2(1) P3(2)-P2(2) P3(3)-P2(3)]; % TODO: edit this
-P3P1 = [P1(1)-P3(1) P1(2)-P3(2) P1(3)-P3(3)]; % TODO: edit this
+P1P2 = P2-P1; % TODO: edit this
+P2P3 = P3-P2; % TODO: edit this
+P3P1 = P1-P3; % TODO: edit this
+P1P3 = P3-P1;
+
+lel = cross(P1P3, P1P2);
+area = sqrt(sum(lel.^2));
 
 % your results are saved for later evaluation:
 P1P2_saved = P1P2; % DON'T OVERRIDE P1P2_saved !!!
@@ -61,13 +65,13 @@ P3P1_length = sqrt(P3P1(1)^2 + P3P1(2)^2 + P3P1(3)^2); % TODO: edit this
 % normalize the normal!
 
 Normal = cross(P3-P1, P2-P1); % TODO: edit this
-Normal_normalized = 0; % TODO: normalize it!
+Normal_length = sqrt(sum(Normal.^2));
+Normal_normalized = [Normal(1)/Normal_length, Normal(2)/Normal_length, Normal(3)/Normal_length]; % TODO: normalize it!
 
 %% 5) Compute the Area of your triangle
 % You can use functions you have programmed until now or their Matlab
 % equivalents(e.g. cross, dot, norm, etc.).
 % Beware of the direction of your vectors!
-
 Area = 0; % TODO: edit this
 
 %% 6) Calculate the 3 angles of your triangle (in degrees)
