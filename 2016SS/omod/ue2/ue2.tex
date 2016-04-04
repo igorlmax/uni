@@ -35,7 +35,38 @@
   \begin{problem}
     
   \end{problem}
-  \begin{solution}
+  \begin{solution}\hfill
+
+    \begin{enumerate}[label=\alph*)]\itemsep0pt
+      \item Die Navigationsrichtung ist beim ersten Beispiel undefined und beim 
+            zweiten explizit festgelegt.
+      \item Das erste Diagramm besagt, dass ich zwar von A nach B navigieren kann,
+            aber nicht umgekehrt.\\
+            Das zweite besagt, dass ich von B nach A navigieren kann, aber nicht
+            von A nach B.
+      \item Das erste Diagramm ist eine schwache Aggregation. Jedes Buch ist Bestandteil
+            von beliebig vielen Bibliotheken und jede Bibliothek beinhaltet beliebig
+            viele Bücher.\\
+            Das zweite Diagramm zeigt eine starke Aggregation oder Komposition. 
+            Jedes Buch ist genau einer Bibliothek zugeordńet und wenn die Bibliothek
+            aufgelöst wird, „verschwindet“ auch das Buch. Bücher können überdies
+            auch wirklich nur innerhalb einer Bibliothek existieren.
+      \item Beim ersten Diagramm ist eine ternäre Assoziation gegeben. C ist dabei
+            eine normale Klasse und alle Klassen sind voneinander abhängig.\\
+            Das zweite Diagramm zeigt eine Assoziationsklasse. C beschreibt hier
+            explizit die Beziehung zwischen A und B.
+      \item Im ersten Diagramm steht A zwar mit C und C mit B in Beziehung, aber
+            A nicht mit B. \\
+            Im zweiten Diagramm ist C wiederum eine Assoziationsklasse, die Merkmale
+            zur Beziehung zwischen A und B festhält und kontextabhängige Attribute enthält.
+      \item Zwischen den beiden Diagrammen besteht kein Unterschied.
+      \item Im ersten Diagramm sehen wir, dass A1, A2 und A3 alle Merkmale von A
+            erben. In diesem Beispiel könnte man noch weiter Attribute oder Operationen
+            zu den einzelnen Sub-Klasse hinzufügen. \\
+            Im zweiten Diagramm ist zwar jede Instanz der Klasse A vom Typ A1, A2
+            oder A3, wir können aber keine weiteren Attribute für jede einzelne
+            Sub-Klasse festlegen.
+    \end{enumerate}
     
   \end{solution}
 
