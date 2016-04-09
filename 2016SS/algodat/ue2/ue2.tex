@@ -76,10 +76,8 @@
       \end{enumerate}
 
     \subsubsection*{Tiefensuche}
-      \begin{enumerate}
-        \item \[ A\rightarrow B\rightarrow C\rightarrow E\rightarrow D\rightarrow G\rightarrow H\rightarrow
+        \[ A\rightarrow B\rightarrow C\rightarrow E\rightarrow D\rightarrow G\rightarrow H\rightarrow
                  F\rightarrow I\rightarrow J \]
-      \end{enumerate}
 
   \end{solution}
 
@@ -109,8 +107,37 @@
   \begin{problem}
     
   \end{problem}
-  \begin{solution}
-    
+  \begin{solution}\hfill 
+    \subsection*{Adjazenzmatrix}
+    \[ 
+      \bordermatrix {
+        ~ & A & B & C & D & E & F & G & H & I & J \cr
+        A & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 \cr
+        B & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \cr
+        C & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \cr
+        D & 1 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 \cr
+        E & 0 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 0 & 0 \cr
+        F & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 \cr
+        G & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 1 \cr
+        H & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 1 \cr
+        I & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \cr
+        J & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0
+      } 
+    \]
+
+    \subsection*{Adjazenzlisten}
+    \begin{align*}
+      A & : B,\; D,\; I \\
+      B & : A,\; C,\; D,\; E \\
+      C & : B,\; D,\; E,\; F \\
+      D & : A,\; B,\; E,\; G \\
+      E & : B,\; C,\; D,\; F,\; G,\; H \\
+      F & : C,\; E,\; G,\; H \\
+      G & : D,\; E,\; H,\; I,\; J \\
+      H & : E,\; F,\; G,\; J \\
+      I & : A,\; G,\; J \\
+      J & : G,\; H,\; I
+    \end{align*}
   \end{solution}
 
 
