@@ -38,10 +38,6 @@ P3 = [-(1+7) 1+2 -(1+5)]; % TODO: edit this
 P1P2 = P2-P1; % TODO: edit this
 P2P3 = P3-P2; % TODO: edit this
 P3P1 = P1-P3; % TODO: edit this
-P1P3 = P3-P1;
-
-lel = cross(P1P3, P1P2);
-area = sqrt(sum(lel.^2));
 
 % your results are saved for later evaluation:
 P1P2_saved = P1P2; % DON'T OVERRIDE P1P2_saved !!!
