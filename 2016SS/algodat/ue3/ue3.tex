@@ -1,0 +1,246 @@
+\documentclass[a4paper, 12pt, margins=3cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+\usepackage{tkz-graph}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\name{Tobias Eidelpes}
+\course{\\Algorithmen und Datenstrukturen 1\\}
+\term{2016SS\\ Matrikelnr.: 1527193}
+\hwnum{3}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+  \SetVertexNormal[Shape      = circle,
+                 FillColor  = white,
+                 LineWidth  = 1pt]
+
+  \SetUpEdge[lw         = 1pt,
+           color      = black,
+           labelcolor = white,
+           labeltext  = black]
+
+  \GraphInit[vstyle=Normal] 
+  \SetGraphUnit{3}
+
+
+% ERLEDIGT 18
+  \problemnumber{18}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}
+
+    Den Graphen aus Beispiel 19 nehmend:
+    \begin{center}
+      \def\svgwidth{0.8\textwidth}\input{Aufgabe19.pdf_tex}
+    \end{center}
+    Der kürzeste Weg im ursprünglichen Graphen zwischen Knoten 2 und 4 wäre mit 10
+    gewichtet. Im minimalen Spannbaum müsste ein Umweg (2-1-3-5-7-6-4) gemacht
+    werden, welcher mit 26 gewichtet ist.
+  \end{solution}
+
+
+% ERLEDIGT 19
+  \problemnumber{19}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{center}
+      \def\svgwidth{0.8\textwidth}\input{Aufgabe19.pdf_tex}
+    \end{center}
+
+    Die Kanten werden nach aufsteigender Kantengewichtung ausgewählt.
+    
+  \end{solution}
+
+\newpage
+
+% ERLEDIGT 20
+  \problemnumber{20}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{center}
+      \def\svgwidth{0.8\textwidth}\input{Aufgabe20.pdf_tex}
+    \end{center}
+    \begin{center}
+      \begin{tabular}{|l|l|l|c|}
+        \hline
+        Ausgewählt & Priority Queue      & Knotenmenge S          & Gewicht \\ \hline \hline
+        2          & 1, 4, 3, 5, 6, 7, 8 & 2                      & 0       \\ \hline
+        1          & 3, 4, 5, 6, 7, 8    & 2, 1                   & 8       \\ \hline
+        3          & 5, 4, 6, 7, 8       & 2, 1, 3                & 13      \\ \hline
+        5          & 7, 6, 4, 8          & 2, 1, 3, 5             & 19      \\ \hline
+        7          & 6, 8, 4             & 2, 1, 3, 5, 7          & 20      \\ \hline
+        6          & 8, 4                & 2, 1, 3, 5, 7, 6       & 24      \\ \hline
+        8          & 4                   & 2, 1, 3, 5, 7, 6, 8    & 26      \\ \hline
+        4          &                     & 2, 1, 3, 5, 7, 6, 8, 4 & 29      \\ \hline
+      \end{tabular}
+    \end{center}
+
+    Die Kanten wurden in der Reihenfolge $8\rightarrow 5\rightarrow 6\rightarrow 1\rightarrow 4\rightarrow 2\rightarrow 3$ ausgewählt.
+  \end{solution}
+
+
+% ERLEDIGT 21
+  \problemnumber{21}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=\alph*)]\itemsep0pt
+      \item Für das Finden eines maximalen Elements ist der Max-Heap besser geeignet,
+            da sich das maximale Element an der ersten Stelle befindet. In einem
+            sortierten Array (welcher sich als Min-Heap qualifiziert) befindet sich
+            das maximale Element am Ende.
+
+      \item Das Löschen eines gegebenen Elements funktioniert im Max-Heap besser,
+            weil in einem sortierten Array alle Elemente um eins verschoben werden
+            müssen. 
+
+      \item Das sortieren eines Arrays gelingt nicht besser als $O(n\text{ log }n)$.
+            Auch das Aufbauen eines Max-Heaps ist nicht schneller als $O(n\text{ log }n)$.
+
+      \item Das Finden eines minimalen Elements geht schneller im sortierten Array,
+            weil da das kleinste Element am Anfang steht. In einem Max-Heap befindet
+            sich das kleinste Element in einem der letzten Kindknoten, wodurch 
+            zumindest diese durchsucht werden müssen.
+    \end{enumerate}
+  \end{solution}
+
+
+% ERLEDIGT 22
+  \problemnumber{22}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=\alph*)]\itemsep0pt
+      \item Der neue Knoten wird an Position $n+1$ eingefügt:
+        \begin{center}
+            \begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+              \node[circle,draw](z){$10$}
+                child{ node[circle,draw]{5} child{node[circle,draw] {4}} child{node[circle,draw] {2}}}
+                child{ node[circle,draw]{7} child{node[circle,draw] {6}} child{node[circle,draw] {8}}};
+            \end{tikzpicture}
+        \end{center}
+        Dann wird der neue Knoten (8) mit seinem Parent-Knoten (7) vertauscht, da er
+        größer als dieser ist:
+        \begin{center}
+            \begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+              \node[circle,draw](z){$10$}
+                child{ node[circle,draw]{5} child{node[circle,draw] {4}} child{node[circle,draw] {2}}}
+                child{ node[circle,draw]{8} child{node[circle,draw] {6}} child{node[circle,draw] {7}}};
+            \end{tikzpicture}
+        \end{center}
+
+      \item Der größte Knoten (10) wird gelöscht und der Knoten an der Position 
+            $n$ (7) wird stattdessen eingefügt.
+        \begin{center}
+            \begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+              \node[circle,draw](z){$7$}
+                child{ node[circle,draw]{5} child{node[circle,draw] {4}} child{node[circle,draw] {2}}}
+                child{ node[circle,draw]{8} child{node[circle,draw] {6}} child[missing]{}};
+            \end{tikzpicture}
+        \end{center}
+        Danach muss der Knoten 7 mit seinem rechten Kindknoten 8 vertauscht werden:
+        \begin{center}
+            \begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+              \node[circle,draw](z){$8$}
+                child{ node[circle,draw]{5} child{node[circle,draw] {4}} child{node[circle,draw] {2}}}
+                child{ node[circle,draw]{7} child{node[circle,draw] {6}} child[missing]{}};
+            \end{tikzpicture}
+        \end{center}
+        Um den Knoten 2 zu löschen muss an dessen Stelle der $n$-te Knoten (6)
+        geschoben werden:
+        \begin{center}
+            \begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+              \node[circle,draw](z){$8$}
+                child{ node[circle,draw]{5} child{node[circle,draw] {4}} child{node[circle,draw] {6}}}
+                child{ node[circle,draw]{7} child[missing]{} child[missing]{}};
+            \end{tikzpicture}
+        \end{center}
+        Jetzt den Knoten 6 mit seinem Parent-Knoten vertauschen:
+        \begin{center}
+            \begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+              \node[circle,draw](z){$8$}
+                child{ node[circle,draw]{6} child{node[circle,draw] {4}} child{node[circle,draw] {5}}}
+                child{ node[circle,draw]{7} child[missing]{} child[missing]{}};
+            \end{tikzpicture}
+        \end{center}
+    \end{enumerate}
+    
+  \end{solution}
+
+
+% ERLEDIGT 23
+  \problemnumber{23}
+  \begin{problem}
+
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=\alph*)]\itemsep0pt
+      \item \hfill
+        \begin{center}
+          \begin{tikzpicture}
+            \Vertex{A}
+            \NOEA(A){C}
+            \SOEA(C){B}
+            \Edge[label=$2$](A)(C)
+            \Edge[label=$-1$](C)(B)
+            \Edge[label=$4$](A)(B)
+          \end{tikzpicture}
+        \end{center}
+        Ausgehend vom Startknoten A findet der Dijkstra-Algorithmus den richtigen
+        Weg von A nach C. 
+        \newpage
+      \item \hfill
+        \begin{center}
+          \begin{tikzpicture}
+            \Vertex{A}
+            \NOEA(A){C}
+            \SOEA(C){B}
+            \Edge[label=$1$](A)(C)
+            \Edge[label=$-2$](C)(B)
+            \Edge[label=$2$](A)(B)
+          \end{tikzpicture}
+        \end{center}
+        Wiederum ausgehend von A findet der Algorithmus den falschen Weg von A
+        nach C, weil hier der Weg über B kürzer wäre. A-C hat das Gewicht 2 und 
+        A-B-C hat das Gewicht 0.
+    \end{enumerate}
+  \end{solution}
+
+
+% AUSSTÄNDIG 24
+  \problemnumber{24}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}
+    
+  \end{solution}
+
+
+\end{document}
