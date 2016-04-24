@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2015.11.15)  23 APR 2016 13:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2015.11.15)  24 APR 2016 21:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1027,7 +1027,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )) (/home/zenon/Documents/uni/2016SS/algodat/ue3/Aufgabe19.pdf_tex <Aufgabe19.p
-df, id=35, page=1, 1106.53403pt x 483.406pt>
+df, id=31, page=1, 1106.53403pt x 483.406pt>
 File: Aufgabe19.pdf Graphic file (type pdf)
 <use Aufgabe19.pdf, page 1>
 Package pdftex.def Info: Aufgabe19.pdf, page1 used on input line 52.
@@ -1047,7 +1047,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
  </home/zenon/Documents/uni/2016SS/algodat/ue3/Aufgabe19.pdf>] (/home/zenon/Doc
-uments/uni/2016SS/algodat/ue3/Aufgabe20.pdf_tex <Aufgabe20.pdf, id=50, page=1, 
+uments/uni/2016SS/algodat/ue3/Aufgabe20.pdf_tex <Aufgabe20.pdf, id=46, page=1, 
 1106.53403pt x 483.406pt>
 File: Aufgabe20.pdf Graphic file (type pdf)
 <use Aufgabe20.pdf, page 1>
@@ -1165,7 +1165,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.246 \end{document}
+l.236 \end{document}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1178,19 +1178,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 246.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 246.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 236.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 236.
 (/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 246.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 246.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 236.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 236.
 Package rerunfilecheck Info: File `ue3.out' has not changed.
-(rerunfilecheck)             Checksum: 08C2A1BEA9849030202382C10C4BA761;315.
+(rerunfilecheck)             Checksum: DB37C6B5669C9879358DC22C43EFD590;270.
  ) 
 Here is how much of TeX's memory you used:
- 22245 strings out of 493054
- 400223 string characters out of 6140585
+ 22242 strings out of 493054
+ 400192 string characters out of 6140585
  528433 words of memory out of 5000000
- 25233 multiletter control sequences out of 15000+600000
+ 25232 multiletter control sequences out of 15000+600000
  42010 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,66p,831b,1161s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1202,10 +1202,10 @@ lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1
 /public/lm/lmsy10.pfb>
 Output written on /home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.pdf (5 pages
-, 162986 bytes).
+, 162660 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
- 28 named destinations out of 1000 (max. 500000)
- 10831 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 26 named destinations out of 1000 (max. 500000)
+ 10823 words of extra memory for PDF output out of 12000 (max. 10000000)
 

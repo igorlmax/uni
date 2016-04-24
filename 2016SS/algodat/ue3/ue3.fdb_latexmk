@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1461409674 "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.tex" "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.pdf" "ue3" 1461409674
-  "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.aux" 1461409674 840 8000513240da9a5c2aac7b1275e09193 ""
-  "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.tex" 1461409672 8403 25af4e23d8cb44b97d5241dd47c63735 ""
+["pdflatex"] 1461525669 "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.tex" "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.pdf" "ue3" 1461525670
+  "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.aux" 1461525669 840 8000513240da9a5c2aac7b1275e09193 ""
+  "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.tex" 1461525667 8285 169439481ffd7b1bb1d42e2958f17b1c ""
   "/home/zenon/texmf/tex/latex/local/homework.cls" 1446502439 8724 cff56f24c5ec3e7d191f9ea41ede2320 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1447534194 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1447534194 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -199,13 +199,13 @@
   "Aufgabe19.pdf_tex" 1461333322 1882 1edd28caf232efb7103c8be292bbde28 ""
   "Aufgabe20.pdf" 1461333926 30578 ccf1480a5fa42e13432b619ee0e4fbd4 ""
   "Aufgabe20.pdf_tex" 1461333926 1882 2f8969bda15b486d5f6f397039564cbb ""
-  "ue3.aux" 1461409674 840 8000513240da9a5c2aac7b1275e09193 ""
-  "ue3.out" 1461409674 315 08c2a1bea9849030202382c10c4ba761 ""
-  "ue3.tex" 1461409672 8403 25af4e23d8cb44b97d5241dd47c63735 ""
+  "ue3.aux" 1461525669 840 8000513240da9a5c2aac7b1275e09193 ""
+  "ue3.out" 1461525669 270 db37c6b5669c9879358dc22c43efd590 ""
+  "ue3.tex" 1461525667 8285 169439481ffd7b1bb1d42e2958f17b1c ""
   (generated)
-  "ue3.log"
-  "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.log"
-  "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.pdf"
   "ue3.aux"
-  "ue3.out"
+  "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.pdf"
+  "ue3.log"
   "ue3.pdf"
+  "/home/zenon/Documents/uni/2016SS/algodat/ue3/ue3.log"
+  "ue3.out"
