@@ -1,0 +1,732 @@
+\documentclass[a4paper, 12pt, margins=2.5cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+\usepackage{listings}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\onenode}[1]{%
+  \begin{tabular}{|c|}
+    \hline #1\\ \hline
+  \end{tabular}
+}
+\newcommand{\twonode}[2]{%
+  \begin{tabular}{|c|c|}
+    \hline #1 & #2\\ \hline
+  \end{tabular}
+}
+\newcommand{\threenode}[3]{%
+  \begin{tabular}{|c|c|c|}
+    \hline #1 & #2 & #3\\ \hline
+  \end{tabular}
+}
+\newcommand{\fournode}[4]{%
+  \begin{tabular}{|c|c|c|c|}
+    \hline #1 & #2 & #3 & #4\\ \hline
+  \end{tabular}
+}
+\newcommand{\fivenode}[5]{%
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline #1 & #2 & #3 & #4 & #5\\ \hline
+  \end{tabular}
+}
+
+\lstnewenvironment{algorithm}[1][] %defines the algorithm listing environment
+{   
+    \lstset{ %this is the stype
+        frame=TB,
+        numbers=left, 
+        numberstyle=\scriptsize,
+        basicstyle=\small, 
+        keywordstyle=\color{blue}\bfseries,
+        keywords={, return, elif, function, then, in, if, else, foreach, while, begin, end, for, or, } %add the keywords you want, or load a language as Rubens explains in his comment above.
+        numbers=left,
+        xleftmargin=.04\textwidth,
+        #1 % this is to add specific settings to an usage of this environment (for instnce, the caption and referable label)
+    }
+}
+{}
+
+\setlength{\tabcolsep}{2pt}
+
+\name{Tobias Eidelpes}
+\course{\\Algorithmen und Datenstrukturen 1\\}
+\term{2016SS\\ Matrikelnr.: 1527193}
+\hwnum{4}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\begin{document}
+
+% ERLEDIGT 27
+  \problemnumber{27}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution} \hfill
+    \begin{center}
+      \begin{tabular}{l||c|c|c|c|c|c|c|c|c|c|c|c|c}
+                                & 0  & 1 & 2 & 3 & 4 & 5  & 6 & 7  & 8  & 9  & 10 & 11 & 12 \\ \hline \hline
+        Lineares Sondieren      &    &   & 2 &   &   & 18 & 6 & 20 & 32 & 33 & 45 &    &    \\ \hline
+        Quadratisches Sondieren &    &   & 2 &   &   & 18 & 6 & 20 &    & 32 & 33 &    & 45 \\ \hline
+        Double Hashing          & 33 &   & 2 &   &   & 18 & 6 & 20 &    &    & 45 & 32 &   
+      \end{tabular}
+    \end{center}
+  \end{solution}
+
+
+% ERLEDIGT 30
+  \problemnumber{30}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item
+        \begin{enumerate}[label=(\arabic*)]\itemsep0pt
+          \item Nicht möglich, da 357 kleiner als 364 ist und die Suche an dieser
+                Stelle nach links geht anstatt nach rechts.
+          \item Nicht möglich, da 212 kleiner als 292 ist und sich im rechten Subtree
+                von 292 befindet.
+          \item Nicht möglich, da 898 links von 897 ist und damit die Vorraussetzung,
+                dass alle Elemente im linken Subtree kleiner sind als im Wurzelknoten
+                verletzt worden ist.
+          \item Möglich.
+        \end{enumerate} 
+
+      \item \hfill
+
+        \begin{algorithm}[mathescape]
+function validate(list[], target, min, max):
+  for i in list:
+    if i < min or i > max then
+      return 0
+    elif i > target then
+      max $\gets$ i
+    elif i < target then
+      min $\gets$ i
+    elif i $==$ target then
+      return 1
+    else:
+      return 0
+  return 1
+\end{algorithm}
+    \end{enumerate}
+  \end{solution}
+
+
+% ERLEDIGT 31
+  \problemnumber{31}
+  \begin{problem}
+
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item \hfill
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$20$};
+          \end{tikzpicture}
+        \end{center}
+        Starte mit 20 als einzigem Knoten.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$20$}
+              child[missing]
+              child{ node[circle,draw]{50}};
+          \end{tikzpicture}
+        \end{center}
+        Füge 50 als rechten Knoten von 20 ein.
+        
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$20$}
+              child[missing]
+              child { 
+                node[circle, draw] {50}
+                child[missing]
+                child {
+                  node[circle, draw] {70}
+                }
+              };
+          \end{tikzpicture}
+        \end{center}
+        Füge 70 als rechten Knoten von 50 ein. Überprüfe die Balance $\rightarrow$
+        mehr als 2 Unterschied $\rightarrow$ rebalance.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$50$}
+              child {
+                node[circle, draw] {20}
+              }
+              child { 
+                node[circle, draw] {70}
+              };
+          \end{tikzpicture}
+        \end{center}
+        Rotiere den Graphen einmal nach links, sodass 50 in der Wurzel steht.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$50$}
+              child {
+                node[circle, draw] {20}
+                child {
+                  node[circle, draw] {10}
+                }
+                child[missing]
+              }
+              child { 
+                node[circle, draw] {70}
+              };
+          \end{tikzpicture}
+        \end{center}
+        Füge 10 links von 20 ein, da kleiner als 50 und kleiner als 20. Kein balancing
+        vonnöten, da Höhenunterschied nicht größer als 1.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$50$}
+              child {
+                node[circle, draw] {20}
+                child {
+                  node[circle, draw] {10}
+                }
+                child {
+                  node[circle, draw] {40}
+                }
+              }
+              child { 
+                node[circle, draw] {70}
+              };
+          \end{tikzpicture}
+        \end{center}
+        40 ist kleiner als 50, daher gehe in linken Subtree. Größer als 20, daher 
+        in rechten Subtree von 20. Noch kein Element vorhanden und an dieser Stelle
+        einfügen. Balancing wieder keines notwendig, da Höhenunterschied nicht
+        größer als 1.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$50$}
+              child {
+                node[circle, draw] {20}
+                child {
+                  node[circle, draw] {10}
+                }
+                child {
+                  node[circle, draw] {40}
+                  child {
+                    node[circle, draw] {30}
+                  }
+                  child[missing]
+                }
+              }
+              child { 
+                node[circle, draw] {70}
+              };
+          \end{tikzpicture}
+        \end{center}
+        Füge 30 in linken Subtree von 40 ein, da kleiner als 50, größer als 20
+        und kleiner als 40. Höhenunterschied von linkem und rechtem Subtree von 50
+        ist größer als 1, daher balancing notwendig.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$40$}
+              child {
+                node[circle, draw] {20}
+                child {
+                  node[circle, draw] {10}
+                }
+                child {
+                  node[circle, draw] {30}
+                }
+              }
+              child { 
+                node[circle, draw] {50}
+                child[missing]
+                child {
+                  node[circle, draw] {70}
+                }
+              };
+          \end{tikzpicture}
+        \end{center}
+        Hier wurde 40 zweimal nach rechts rotiert.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$40$}
+              child {
+                node[circle, draw] {20}
+                child {
+                  node[circle, draw] {10}
+                }
+                child {
+                  node[circle, draw] {30}
+                }
+              }
+              child { 
+                node[circle, draw] {50}
+                child[missing]
+                child {
+                  node[circle, draw] {70}
+                  child {
+                    node[circle, draw] {60}
+                  }
+                  child[missing]
+                }
+              };
+          \end{tikzpicture}
+        \end{center}
+        Höhenunterschied ist zwischen den Subtrees von 50 größer als 1, daher 
+        balancing notwendig.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$40$}
+              child {
+                node[circle, draw] {20}
+                child {
+                  node[circle, draw] {10}
+                }
+                child {
+                  node[circle, draw] {30}
+                }
+              }
+              child { 
+                node[circle, draw] {60}
+                child {
+                  node[circle, draw] {50}
+                }
+                child {
+                  node[circle, draw] {70}
+                }
+              };
+          \end{tikzpicture}
+        \end{center}
+        Endgültiger AVL-Baum.
+
+      \item \hfill
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=80mm/#1}]
+            \node[circle,draw](z){$20$}
+              child {
+                node[circle, draw] {17}
+                child {
+                  node[circle, draw] {5}
+                  child {
+                    node[circle, draw] {3}
+                  }
+                  child {
+                    node[circle, draw] {7}
+                    child {
+                      node[circle, draw] {6}
+                    }
+                    child[missing]
+                  }
+                }
+                child {
+                  node[circle, draw] {19}
+                  child {
+                    node[circle, draw] {18}
+                  }
+                  child[missing]
+                }
+              }
+              child { 
+                node[circle, draw] {30}
+                child {
+                  node[circle, draw] {25}
+                  child {
+                    node[circle, draw] {24}
+                  }
+                  child[missing]
+                }
+                child {
+                  node[circle, draw] {33}
+                }
+              };
+          \end{tikzpicture}
+        \end{center}
+        Nun 33 löschen.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=80mm/#1}]
+            \node[circle,draw](z){$20$}
+              child {
+                node[circle, draw] {17}
+                child {
+                  node[circle, draw] {5}
+                  child {
+                    node[circle, draw] {3}
+                  }
+                  child {
+                    node[circle, draw] {7}
+                    child {
+                      node[circle, draw] {6}
+                    }
+                    child[missing]
+                  }
+                }
+                child {
+                  node[circle, draw] {19}
+                  child {
+                    node[circle, draw] {18}
+                  }
+                  child[missing]
+                }
+              }
+              child { 
+                node[circle, draw] {30}
+                child {
+                  node[circle, draw] {25}
+                  child {
+                    node[circle, draw] {24}
+                  }
+                  child[missing]
+                }
+                child[missing]
+              };
+          \end{tikzpicture}
+        \end{center}
+        Höhe von linkem Subtree von 30 ist um zwei größer als rechter Subtree 
+        von 30. $\rightarrow$ rotate right.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=80mm/#1}]
+            \node[circle,draw](z){$20$}
+              child {
+                node[circle, draw] {17}
+                child {
+                  node[circle, draw] {5}
+                  child {
+                    node[circle, draw] {3}
+                  }
+                  child {
+                    node[circle, draw] {7}
+                    child {
+                      node[circle, draw] {6}
+                    }
+                    child[missing]
+                  }
+                }
+                child {
+                  node[circle, draw] {19}
+                  child {
+                    node[circle, draw] {18}
+                  }
+                  child[missing]
+                }
+              }
+              child { 
+                node[circle, draw] {25}
+                child {
+                  node[circle, draw] {24}
+                }
+                child {
+                  node[circle, draw] {30}
+                }
+              };
+          \end{tikzpicture}
+        \end{center}
+        Linker Subtree ist um mehr als 1 größer als rechter Subtree.
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=80mm/#1}]
+            \node[circle,draw](z){$17$}
+              child {
+                node[circle, draw] {5}
+                child {
+                  node[circle, draw] {3}
+                }
+                child {
+                  node[circle, draw] {7}
+                  child {
+                    node[circle, draw] {6}
+                  }
+                  child[missing]
+                }
+              }
+              child { 
+                node[circle, draw] {20}
+                child {
+                  node[circle, draw] {19}
+                  child {
+                    node[circle, draw] {18}
+                  }
+                  child[missing]
+                }
+                child {
+                  node[circle, draw] {25}
+                  child {
+                    node[circle, draw] {24}
+                  }
+                  child {
+                    node[circle, draw] {30}
+                  }
+                }
+              };
+          \end{tikzpicture}
+        \end{center}
+        Endgültiger AVL-Baum.
+
+    \end{enumerate}
+  \end{solution}
+
+
+% ERLEDIGT 32
+  \problemnumber{32}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{enumerate}[label=(\alph*)]\itemsep0pt
+      \item \hfill
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\onenode{1}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\twonode{1}{3}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node[bad] {\threenode{1}{3}{6}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\onenode{3}}
+              child {node {\onenode{1}}}
+              child {node {\onenode{6}}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\onenode{3}}
+              child {node {\onenode{1}}}
+              child {node {\twonode{6}{8}}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\onenode{3}}
+              child {node {\onenode{1}}}
+              child {node[bad] {\threenode{6}{8}{11}}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\twonode{3}{8}}
+              child {node {\onenode{1}}}
+              child {node {\onenode{6}}}
+              child {node {\onenode{11}}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\twonode{3}{8}}
+              child {node {\onenode{1}}}
+              child {node {\onenode{6}}}
+              child {node {\twonode{11}{14}}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\twonode{3}{8}}
+              child {node {\onenode{1}}}
+              child {node {\onenode{6}}}
+              child {node[bad] {\threenode{11}{14}{20}}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node[bad] {\threenode{3}{8}{14}}
+              child {node {\onenode{1}}}
+              child {node {\onenode{6}}}
+              child {node {\onenode{11}}}
+              child {node {\onenode{20}}};
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\onenode{8}}
+              child {node {\onenode{3}}
+                child {node {\onenode{1}}}
+                child {node {\onenode{6}}}
+              }
+              child {node {\onenode{14}}
+                child {node {\onenode{11}}}
+                child {node {\onenode{20}}}
+              }
+              ;
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\onenode{8}}
+              child {node {\onenode{3}}
+                child {node {\onenode{1}}}
+                child {node {\onenode{6}}}
+              }
+              child {node {\onenode{14}}
+                child {node {\onenode{11}}}
+                child {node {\twonode{20}{40}}}
+              }
+              ;
+          \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+          \begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+            \node[circle,draw](z){$1$}
+              child[missing]
+              child{ node[circle,draw]{3}
+                child[missing]
+                child{ node[circle,draw]{6}
+                  child[missing]
+                  child{ node[circle,draw]{8}
+                    child[missing]
+                    child{ node[circle,draw]{11}
+                      child[missing]
+                      child{ node[circle,draw]{14}
+                        child[missing]
+                        child{ node[circle,draw]{20}
+                          child[missing]
+                          child{ node[circle,draw]{40}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              };
+          \end{tikzpicture}
+        \end{center}
+
+      \item \hfill
+        \begin{center}
+          \begin{tikzpicture}[
+            level distance=50pt,
+            every node/.style={inner sep=0pt,font=\large},
+            bad/.style={fill=red!50},
+            level 1/.style={sibling distance=80pt},
+            level 2/.style={sibling distance=50pt}
+          ]
+            \node {\twonode{6}{20}}
+              child {node {\twonode{1}{3}}}
+              child {node {\onenode{14}}}
+              child {node {\onenode{40}}};
+          \end{tikzpicture}
+        \end{center}
+    \end{enumerate}
+    
+  \end{solution}
+
+\end{document}

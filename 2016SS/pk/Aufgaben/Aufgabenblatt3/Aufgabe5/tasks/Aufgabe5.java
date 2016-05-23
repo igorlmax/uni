@@ -42,7 +42,7 @@ public class Aufgabe5 {
     // Returns the factorial of i if i > 0, returns i otherwise.
     // Avoids overflow of int, but does not avoid overflow of long.
     private static long fact(final int i) {
-        return (-1L /* TODO: Ausdruck anpassen */);
+        return (i <= 0) ? i : fact(i)*fact(i-1);
     }
 
     // Returns a string containing i followed by i dots if i > 0; 
@@ -61,7 +61,6 @@ public class Aufgabe5 {
 
     // just for testing ...
     public static void main(String[] args) {
-        // Den Rumpf dieser Methode können Sie ohne Auswirkung auf die 
-        // Korrektheit der Lösung beliebig verändern.
+        System.out.println(fact(4));
     }
 }

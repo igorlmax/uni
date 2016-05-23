@@ -12,7 +12,7 @@
 */
 public class Aufgabe2 {
 
-    // what does rec compute?
+    // what does rec compute? Greatest common divisor of two integers.
     private static int rec(int x, int y) {
         if (x < 0) {
             return rec(-x, y);
@@ -34,6 +34,22 @@ public class Aufgabe2 {
 
     // just for testing ...
     public static void main(String[] args) {
-        // Implementierung von main wird nicht beurteilt
+        System.out.println(iter(125, 100));
+        System.out.println(rec(125, 100));
+    }
+
+    private static int iter(int x, int y) {
+        if (x == 0) {
+            return y;
+        }
+
+        while (y != 0) {
+            if (x > y)
+                x = x-y;
+            else
+                y = y-x;
+            }
+
+        return x;
     }
 }
