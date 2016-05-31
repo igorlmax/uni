@@ -1,0 +1,69 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Aufgabe3a.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{115.38935145bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.99470108)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Aufgabe3a.pdf}}%
+    \put(0.08888457,0.76713738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{a}}}%
+    \put(-0.00586982,0.3568664){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{b}}}%
+    \put(0.24448957,0.02909691){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{c}}}%
+    \put(0.67824749,0.02035379){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{d}}}%
+    \put(0.94155318,0.36167181){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{e}}}%
+    \put(0.85448024,0.74298717){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{f}}}%
+    \put(0.47448672,0.96326789){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{g}}}%
+    \put(0.24050554,0.86241765){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_1$}}}%
+    \put(0.01207038,0.56204048){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_2$}}}%
+    \put(0.10402997,0.18385462){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_3$}}}%
+    \put(0.45671517,0.01706093){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_4$}}}%
+    \put(0.83282259,0.19786174){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_5$}}}%
+    \put(0.90077883,0.56904357){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_6$}}}%
+    \put(0.65049547,0.87194255){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$e_7$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Aufgabe3a.pdf}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,132 @@
+\documentclass[a4paper, 12pt, margins=3cm]{homework}
+\usepackage{tikz}
+
+\usepackage{graphicx}
+\usepackage{dsfont}
+\usepackage{microtype}
+\usepackage{mathrsfs}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{wasysym}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+\name{Tobias Eidelpes \\ Matr.Nr.: 1527193}
+\course{Algorithmen und Datenstrukturen 2\\}
+\term{2016SS}
+\hwnum{1}
+\hwtype{Übungsblatt}
+\problemtitle{Aufgabe}
+\solutiontitle{Lösung}
+
+\newdimen\R
+\R=0.8cm
+
+\begin{document}
+
+
+% AUSSTÄNDIG
+  \problemnumber{2}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{center}
+      \def\svgwidth{1\textwidth} \input{Aufgabe2.pdf_tex}
+    \end{center}
+
+    
+  \end{solution}
+
+
+% AUSSTÄNDIG
+  \problemnumber{3}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution} \hfill
+
+    \begin{minipage}{0.5\textwidth}
+      \begin{center}
+        \def\svgwidth{1\textwidth} \input{Aufgabe3a.pdf_tex}
+      \end{center}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+      \[ U = \{ e_1, e_2, e_3, e_4, e_5, e_6, e_7 \} \]
+      \[ k = 3 \]
+      \[ S_a = \{e_1, e_2\} \]
+      \[ S_b = \{e_2, e_3\} \]
+      \[ S_c = \{e_3, e_4\} \]
+      \[ S_d = \{e_4, e_5\} \]
+      \[ S_e = \{e_5, e_6\} \]
+      \[ S_f = \{e_6, e_7\} \]
+      \[ S_g = \{e_1, e_7\} \]
+    \end{minipage} \\
+
+    \textsc{Set Cover} $S = \{S_a, S_c, S_e, S_f \} \rightarrow |S| > k \rightarrow$ Nein-Instanz $\rightarrow$ \textsc{Vertex Cover} Instanzen auch Nein-Instanzen \\
+
+    \begin{minipage}{0.5\textwidth}
+      \begin{center}
+        \def\svgwidth{1\textwidth} \input{Aufgabe3b.pdf_tex}
+      \end{center}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+      \[ U = \{ e_1, e_2, e_3, e_4, e_5, e_6, e_7, e_8, e_9, e_{10} \} \]
+      \[ k = 4 \]
+      \begin{align*}
+        S_a &= \{e_1, e_2, e_8, e_9\} \\
+        S_b &= \{e_2, e_3, e_9, e_{10}\} \\
+        S_c &= \{e_3, e_4, e_6, e_9\} \\
+        S_d &= \{e_4, e_5, e_7, e_{10}\} \\
+        S_e &= \{e_1, e_5, e_6, e_8\}
+      \end{align*}
+    \end{minipage} \\
+
+    \textsc{Set Cover} $S = \{S_a, S_c, S_d\} \rightarrow |S| \leq k \rightarrow$ Ja-Instanz $\rightarrow$ \textsc{Vertex Cover} Instanzen auch Ja-Instanzen
+
+    
+  \end{solution}
+
+
+% AUSSTÄNDIG
+  \problemnumber{7}
+  \begin{problem}
+    
+  \end{problem}
+  \begin{solution}\hfill
+    \begin{center}
+      \begin{tabular}{|l||c|c|c|c|}
+        \hline
+        Gegenstand           & 1   & 2    & 3    & 4    \\ \hline \hline
+        Gewicht $g_i$        & 10  & 33   & 48   & 28   \\ \hline
+        Wert $w_i$           & 1   & 11   & 12   & 10   \\ \hline
+        Verhältnis $w_i/g_i$ & 0.1 & 0.33 & 0.25 & 0.35 \\ \hline
+      \end{tabular}
+    \end{center}
+    \begin{center}
+      \begin{tikzpicture}[sibling distance=5cm, level distance = 2.5cm,
+        every node/.style = {shape=rectangle,
+        draw, align=center}]]
+        \node {1\\$L'=21$\\$U'=30.75$}
+        child { node {2\\$L'=21$\\$U'=30.75$ }
+          child { node {3\\$L'=21$\\$U'=30.75$}
+            child { node {nicht möglich}}
+            child { node {4\\$L'=22$\\$U'=22$}}
+          }
+          child { node {5\\$L'=23$\\$U'=23$}}
+        }
+        child { node {6\\$L'=24$\\$U'=24$}};
+      \end{tikzpicture}
+    \end{center}
+  \end{solution}
+\end{document}
