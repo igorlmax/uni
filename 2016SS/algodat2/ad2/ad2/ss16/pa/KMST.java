@@ -33,37 +33,9 @@ public class KMST extends AbstractKMST {
 		this.edges = edges;
 	}
 
-    private int kruskal() {
-        System.out.println(Arrays.toString(edges_sorted));
-        HashSet<Object> mst = new HashSet<Object>();
-
-
-
-        for (int i = 0; i < k;) {
-            mst.add(edges_sorted[i]);
-            i++;
-            for (Object comp : mst) {
-                if (edges_sorted[i].hashCode() == comp.hashCode()) {
-                    mst.add(edges_sorted[i]);
-                    i++;
-
-                }
-                else {
-                    mst.add(edges_sorted[i]);
-                    i += 2;
-                }
-            }
-        }
-
-        System.out.println(mst);
-
-        return 0;
-    }
 
 
 	@Override
-	public void run() {
-		kruskal();
-	}
+	public void run() { }
 
 }
