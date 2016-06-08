@@ -6,6 +6,7 @@ import java.util.*;
  * Klasse zum Berechnen eines k-MST mittels Branch-and-Bound. Hier sollen Sie
  * Ihre L&ouml;sung implementieren.
  */
+@SuppressWarnings({"all"})
 public class KMST extends AbstractKMST {
 
     /**
@@ -62,17 +63,18 @@ public class KMST extends AbstractKMST {
 
     @Override
     public void run() {
+        // PRIM START
+        int upperbound = Integer.MAX_VALUE;
 
-        System.out.println(prim(1));
-
-        /*
         for (int i = 0; i < numNodes; i++) {
-            if (weight(prim(i)) < getSolution().getUpperBound()) {
+            if (weight(prim(i)) < upperbound) {
                 setSolution(weight(prim(i)), prim(i));
             }
-
         }
-        */
+        // PRIM FERTIG
+
+        System.out.println(getSolution().getUpperBound());
+
     }
 
 
@@ -132,42 +134,31 @@ public class KMST extends AbstractKMST {
         taken[start] = true;
         HashSet<Edge> MST = new HashSet<>();
         MST.clear();
-        PriorityQueue<Edge> nachbaren = new PriorityQueue<>(getNachbaren(start));
 
-        for (Edge e : getNachbaren(start)) {
-            if (!nachbaren.contains(e))
-                nachbaren.add(e);
-        }
+        List<Edge> sorted_edges = new ArrayList(edges);
+        Collections.sort(sorted_edges);
 
-        List<Edge> nachbaren2 = new LinkedList<>();
-
-
-        while (MST.size() <= k-1) {
-            while (!nachbaren.isEmpty()) {
-                System.out.println(nachbaren);
-                Edge smallest = nachbaren.peek();
-                if (taken[smallest.node1] ^ taken[smallest.node2]) {
-                    MST.add(smallest);
-                    nachbaren.poll();
-                    if (!taken[smallest.node1]) {
-                        for (Edge nachbarn : getNachbaren(smallest.node1)) {
-                            if (!nachbaren.contains(nachbarn))
-                                nachbaren.add(nachbarn);
-                        }
-                        taken[smallest.node1] = true;
-                        break;
-                    } else if (!taken[smallest.node2]) {
-                        nachbaren2 = getNachbaren(smallest.node2);
-                        for (Edge nachbarn : nachbaren2)) {
-                            if (!nachbaren.contains(nachbarn))
-                                nachbaren.add(nachbarn);
-                        }
-                        taken[smallest.node2] = true;
-                        break;
+        while (true) {
+            for (Edge e : sorted_edges) {
+                if (MST.size() >= k-1) {
+                    return MST;
+                }
+                if ((taken[e.node1] ^ taken[e.node2])) {
+                    if (!MST.contains(e)) {
+                        MST.add(e);
+                        if (!taken[e.node1] == true)
+                            taken[e.node1] = true;
+                        if (!taken[e.node2] == true)
+                            taken[e.node2] = true;
                     }
+                    else {
+                        continue;
+                    }
+                }
+                else {
+                    continue;
                 }
             }
         }
-        return MST;
     }
 }
