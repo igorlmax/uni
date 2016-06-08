@@ -22,80 +22,152 @@ public class KMST extends AbstractKMST {
      * Die Anzahl der Knoten, die Ihr MST haben soll
      */
 
-    private final HashSet<Edge> edges;
-    private List<Edge> edges_sorted;
-    private static int numNodes;
-    private ArrayList<Edge>[] adj = (ArrayList<Edge>[]) new ArrayList[numNodes];
+    private static HashSet<Edge> edges = new HashSet<>();
     private static int k;
-    private static int lowerBound;
+    private static int numNodes;
+    private static int numEdges;
+
+    private boolean[] taken;
+
+    public static HashSet<Edge> used = new HashSet<>();
+    public static List<Edge> notused = new LinkedList<>();
+
+    public int lowerBound = 0;
 
 
     public KMST(Integer numNodes, Integer numEdges, HashSet<Edge> edges, int k) {
+        this.k = k;
         this.edges = edges;
         this.numNodes = numNodes;
-        this.k = k;
-
+        this.numEdges = numEdges;
+        this.taken = new boolean[numNodes];
+        Arrays.fill(taken, false);
     }
 
-    private void prim(int start) {
-        List<Edge> nachbar = new LinkedList<Edge>();
+    private int weight(HashSet<Edge> MST) {
+        int totalweight = 0;
 
-        for (Edge e : edges) {
-            if (e.node1 == start || e.node2 == start) {
-                if (!nachbar.contains(e)) {
-                    nachbar.add(e);
-                }
-            }
+        for (Edge e : MST) {
+            totalweight += e.weight;
         }
+
+        return totalweight;
     }
 
-    private void kruskal() {
-        ArrayList<Edge> mst = new ArrayList<Edge>();
-        int lowerBound = 0;
 
-        for (Edge e : edges_sorted) {
-            if (mst.size() == k-1) {
-                for (Edge v : mst) {
-                    lowerBound += v.weight;
-                }
 
-                this.lowerBound = lowerBound;
-                return;
-            }
-            else {
-                mst.add(e);
-            }
-        }
-    }
+
+
 
 
     @Override
     public void run() {
 
-        edges_sorted = new ArrayList<>(edges);
-        Collections.sort(edges_sorted);
-        kruskal();
-        System.out.println(lowerBound);
+        System.out.println(prim(1));
 
-
-        int[][] start_edges = new int[edges.size()][3];
-        int i = 0;
-        for (Edge r : edges_sorted) {
-            start_edges[i][0] = r.node1;
-            start_edges[i][1] = r.node2;
-            start_edges[i][2] = r.weight;
-            i++;
-        }
-
-        System.out.println(start_edges);
-
-
-        for (int v = 0; v < edges.size(); v++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.printf("%5d ", start_edges[v][j]);
+        /*
+        for (int i = 0; i < numNodes; i++) {
+            if (weight(prim(i)) < getSolution().getUpperBound()) {
+                setSolution(weight(prim(i)), prim(i));
             }
-            System.out.println();
+
+        }
+        */
+    }
+
+
+
+
+
+
+    public List<Edge> getNachbaren(int v) {
+        List<Edge> nachbaren = new LinkedList<>();
+
+        for (int i = 0; i < numNodes; i++) {
+            for (Edge e : edges) {
+                if ((e.node1 == v && e.node2 == i) ^ (e.node2 == v && e.node1 == i)) {
+                    if (!nachbaren.contains(e)) {
+                        nachbaren.add(e);
+                    }
+                }
+            }
         }
 
+        Collections.sort(nachbaren);
+        return nachbaren;
+    }
+
+    public void BnB(HashSet<Edge> used, HashSet<Edge> notused, int start, List<Edge> nachbaren) {
+        taken[start] = true;
+        Collections.sort(nachbaren);
+
+        while (used.size() <= k-1) {
+            for (Edge e : nachbaren) {
+                if ((taken[e.node1] ^ taken[e.node2]) && !notused.contains(e)) {
+                    used.add(e);
+                    for (Edge nachbarn : getNachbaren(e.node2)) {
+                        if (!nachbaren.contains(nachbarn)) {
+                            nachbaren.add(nachbarn);
+                        }
+                    }
+                    Collections.sort(nachbaren);
+                    if (weight(used) > lowerBound && weight(used) < getSolution().getUpperBound()) {
+                        lowerBound = weight(used);
+                        BnB(used, notused, e.node2, getNachbaren(e.node2));
+                    }
+                }
+                else {
+                    notused.add(e);
+                }
+
+
+            }
+
+        }
+    }
+
+
+    public HashSet<Edge> prim(int start) {
+        Arrays.fill(taken, false);
+        taken[start] = true;
+        HashSet<Edge> MST = new HashSet<>();
+        MST.clear();
+        PriorityQueue<Edge> nachbaren = new PriorityQueue<>(getNachbaren(start));
+
+        for (Edge e : getNachbaren(start)) {
+            if (!nachbaren.contains(e))
+                nachbaren.add(e);
+        }
+
+        List<Edge> nachbaren2 = new LinkedList<>();
+
+
+        while (MST.size() <= k-1) {
+            while (!nachbaren.isEmpty()) {
+                System.out.println(nachbaren);
+                Edge smallest = nachbaren.peek();
+                if (taken[smallest.node1] ^ taken[smallest.node2]) {
+                    MST.add(smallest);
+                    nachbaren.poll();
+                    if (!taken[smallest.node1]) {
+                        for (Edge nachbarn : getNachbaren(smallest.node1)) {
+                            if (!nachbaren.contains(nachbarn))
+                                nachbaren.add(nachbarn);
+                        }
+                        taken[smallest.node1] = true;
+                        break;
+                    } else if (!taken[smallest.node2]) {
+                        nachbaren2 = getNachbaren(smallest.node2);
+                        for (Edge nachbarn : nachbaren2)) {
+                            if (!nachbaren.contains(nachbarn))
+                                nachbaren.add(nachbarn);
+                        }
+                        taken[smallest.node2] = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return MST;
     }
 }
