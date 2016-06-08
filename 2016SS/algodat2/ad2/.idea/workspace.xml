@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ad2/ad2/ss16/pa/KMST.class" afterPath="$PROJECT_DIR$/out/production/ad2/ad2/ss16/pa/KMST.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ad2/ad2/ss16/pa/Main.class" afterPath="$PROJECT_DIR$/out/production/ad2/ad2/ss16/pa/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ad2/ss16/pa/KMST.java" afterPath="$PROJECT_DIR$/ad2/ss16/pa/KMST.java" />
     </list>
     <ignored path="ad2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -523,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1465403223965</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Prim fertig">
+      <created>1465403247494</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1465403247494</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
