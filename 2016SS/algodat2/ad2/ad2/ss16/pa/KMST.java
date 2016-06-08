@@ -6,7 +6,6 @@ import java.util.*;
  * Klasse zum Berechnen eines k-MST mittels Branch-and-Bound. Hier sollen Sie
  * Ihre L&ouml;sung implementieren.
  */
-@SuppressWarnings({"all"})
 public class KMST extends AbstractKMST {
 
     /**
